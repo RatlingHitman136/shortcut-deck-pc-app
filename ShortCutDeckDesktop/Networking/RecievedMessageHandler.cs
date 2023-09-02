@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using ShortCutDeckDesktop.Actions;
 
 namespace ShortCutDeckDesktop.Networking
@@ -23,7 +19,7 @@ namespace ShortCutDeckDesktop.Networking
         private void handleRecievedMessage(string msg, ClientClass whoSent)
         {
             Logger.logServerMsg(msg);
-            ActionBase recievedAction = ActionFactory.parseAction(msg, whoSent);
+            ActionBase recievedAction = ActionFactory.GetActionFromStringFromClient(msg, whoSent);
             recievedAction.executeAction();
         }
     }

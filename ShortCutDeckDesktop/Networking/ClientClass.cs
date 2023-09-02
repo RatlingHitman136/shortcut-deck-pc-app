@@ -58,7 +58,7 @@ namespace ShortCutDeckDesktop.Networking
             {
                 while (true)
                 {
-                    buffer = new byte[1024];
+                    buffer = new byte[2048];
                     bytesRead = _clientSocket.Receive(buffer);
 
                     if (bytesRead > 0)

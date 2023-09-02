@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace ShortCutDeckDesktop.Actions
+namespace ShortCutDeckDesktop.Actions.ActionTypes
 {
     public class ActionScanAns : ActionBase
     {
@@ -15,9 +15,10 @@ namespace ShortCutDeckDesktop.Actions
         private string _deviceName;
         private ClientClass _clientWhoRequested;
 
-        public string AnsPassword { get => _ansPassword;}
+        public string AnsPassword { get => _ansPassword; }
 
-        public ActionScanAns(ClientClass whoRequested, string password, string deviceName = "new Device") : base() { 
+        public ActionScanAns(ClientClass whoRequested, string password, string deviceName = "new Device") : base()
+        {
             _password = password;
             _ansPassword = Reverse(password);
             _deviceName = deviceName;
@@ -27,8 +28,13 @@ namespace ShortCutDeckDesktop.Actions
         public override void executeAction()
         {
             base.executeAction();
-            Logger.logServerMsg("sent back: " + ActionFactory.ActionToString(this));
-            _clientWhoRequested.sendMessage(ActionFactory.ActionToString(this));
+            string toSend = StringConstants.ACTION_SCAN_TAG
+                        + StringConstants.FIRST_LEVEL_SPLIT_CHARACTER
+                        + AnsPassword
+                        + StringConstants.FIRST_LEVEL_SPLIT_CHARACTER
+                        + ServerClass.ServerName;
+            Logger.logServerMsg("sent back: " + toSend);
+            _clientWhoRequested.sendMessage(toSend);
         }
 
         private static string Reverse(string s)
