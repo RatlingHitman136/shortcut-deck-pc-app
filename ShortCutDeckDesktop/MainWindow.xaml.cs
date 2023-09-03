@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ShortCutDeckDesktop.Networking;
+using ShortCutDeckDesktop.ShortCuts;
 
 namespace ShortCutDeckDesktop
 {
@@ -24,6 +25,7 @@ namespace ShortCutDeckDesktop
         public MainWindow()
         {
             InitializeComponent();
+            ShortCutProfileManager.initTestOneProfile();
             Logger.setServerLogField(tb_server_log);
         }
 
