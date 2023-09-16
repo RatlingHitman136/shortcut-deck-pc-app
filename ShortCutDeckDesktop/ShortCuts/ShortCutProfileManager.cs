@@ -14,7 +14,7 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         // TODO values are only for test
         private static int _gridWidth = 4; 
-        private static int _gridHeight = 5;
+        private static int _gridHeight = 6;
 
         public static List<ShortCutProfile> Profiles { get => _profiles; }
         public static int GridWidth { get => _gridWidth; }
@@ -37,19 +37,19 @@ namespace ShortCutDeckDesktop.ShortCuts
                     (new ShortCutButton(), new ShortCutProfile.GridPos(0,0)),
                     (new ShortCutButton(), new ShortCutProfile.GridPos(0,1)),
                     (new ShortCutButton(), new ShortCutProfile.GridPos(0,2)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(0,3)),
+                    (new ShortCutButton(), new ShortCutProfile.GridPos(0,4)),
                     (new ShortCutButton(), new ShortCutProfile.GridPos(1,0)),
                     (new ShortCutButton(), new ShortCutProfile.GridPos(1,1)),
                     (new ShortCutButton(), new ShortCutProfile.GridPos(1,2)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(1,3)),
+                    (new ShortCutButton(), new ShortCutProfile.GridPos(1,4)),
                     (new ShortCutButton(), new ShortCutProfile.GridPos(2,0)),
                     (new ShortCutButton(), new ShortCutProfile.GridPos(2,1)),
                     (new ShortCutButton(), new ShortCutProfile.GridPos(2,2)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(2,3)),
+                    (new ShortCutButton(), new ShortCutProfile.GridPos(2,4)),
                     (new ShortCutButton(), new ShortCutProfile.GridPos(3,0)),
                     (new ShortCutButton(), new ShortCutProfile.GridPos(3,1)),
                     (new ShortCutButton(), new ShortCutProfile.GridPos(3,2)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(3,3)),
+                    (new ShortCutButton(), new ShortCutProfile.GridPos(3,4))
                 }
                 );
             _profiles.Add(testProfile);
