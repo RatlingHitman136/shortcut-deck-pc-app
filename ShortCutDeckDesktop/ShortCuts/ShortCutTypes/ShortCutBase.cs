@@ -9,5 +9,10 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
     public class ShortCutBase
     {
         public ShortCutBase() { }
+
+        public void ShortCutTriggered(List<string> additionalData)
+        {
+
+        }
     }
 }

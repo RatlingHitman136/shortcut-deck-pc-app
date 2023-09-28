@@ -13,17 +13,17 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
     {
         private ClientClass _whoRequested;
         private List<int> _profilesIndexesToSend;
-        private List<(string, int)> _profileContextsToSend;
+        private List<(string, string)> _profileContextsToSend;
 
         public ActionSendProfiles(ClientClass whoRequested, IEnumerable<int> profileIndexes)
         {
             _whoRequested = whoRequested;
             _profilesIndexesToSend = profileIndexes.ToList();
-            _profileContextsToSend = new List<(string, int)>();
+            _profileContextsToSend = new List<(string, string)>();
 
             foreach (var index in _profilesIndexesToSend)
             {
-                _profileContextsToSend.Add((ShortCutFactory.ShortCutProfileToStringForClient(ShortCutProfileManager.Profiles[index]), index));
+                _profileContextsToSend.Add((ShortCutFactory.GetStringFromShortCutProfileForClient(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
             }
         }
 
@@ -31,14 +31,14 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
         {
             _whoRequested = whoRequested;
             _profilesIndexesToSend = new List<int>();
-            _profileContextsToSend = new List<(string, int)>();
+            _profileContextsToSend = new List<(string, string)>();
 
             for (int i = 0; i < ShortCutProfileManager.Profiles.Count; i++)
                 _profilesIndexesToSend.Add(i);
 
             foreach (var index in _profilesIndexesToSend)
             {
-                _profileContextsToSend.Add((ShortCutFactory.ShortCutProfileToStringForClient(ShortCutProfileManager.Profiles[index]), index));
+                _profileContextsToSend.Add((ShortCutFactory.GetStringFromShortCutProfileForClient(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
             }
         }
 
@@ -46,11 +46,11 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
         public override void executeAction()
         {
             base.executeAction();
-            foreach ((string, int) context in _profileContextsToSend)
+            foreach ((string, string) context in _profileContextsToSend)
             {
                 string toSend = StringConstants.ACTION_SEND_PROFILE_TAG
                     + StringConstants.FIRST_LEVEL_SPLIT_CHARACTER
-                    + context.Item2.ToString()
+                    + context.Item2
                     + StringConstants.FIRST_LEVEL_SPLIT_CHARACTER
                     + context.Item1;
 

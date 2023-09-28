@@ -13,7 +13,7 @@ namespace ShortCutDeckDesktop.Networking
 
         public void handleRecievedMessage(byte[] buffer, int bytesRead, ClientClass whoSent)
         {
-            String msg = Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
+            string msg = Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
             ThreadPool.QueueUserWorkItem(_ => handleRecievedMessage(msg, whoSent));
         }
 

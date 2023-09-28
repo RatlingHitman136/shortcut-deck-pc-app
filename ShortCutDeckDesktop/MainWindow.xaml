@@ -25,6 +25,9 @@
                 <Button x:Name="btn_start_server" Height="30px" Click="btn_start_server_Click">
                     Start Server
                 </Button>
+                <Button x:Name="btn_clear_log_field" Height="30px" Click="btn_clear_log_field_Click">
+                    Clear Log
+                </Button>
                 <TextBlock x:Name ="tb_server_log" Height="601">
                     
                 </TextBlock>

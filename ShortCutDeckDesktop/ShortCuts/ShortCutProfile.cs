@@ -11,19 +11,21 @@ namespace ShortCutDeckDesktop.ShortCuts
     public class ShortCutProfile
     {
         private List<(ShortCutBase, GridPos)> _shortCuts;
+        //public List<(ShortCutBase, GridPos)> ShortCuts { get => _shortCuts; }
 
-        public ShortCutProfile()
+        private  string _id;
+        public string Id { get => _id; }
+
+        public ShortCutProfile(string id)
         {
             _shortCuts = new List<(ShortCutBase, GridPos)>();
+            _id = id;
         }
-
-        public ShortCutProfile(List<(ShortCutBase, GridPos)> shortCuts)
+        public ShortCutProfile(string id, List<(ShortCutBase, GridPos)> shortCuts)
         {
             _shortCuts = shortCuts;
+            _id = id;
         }
-
-        public List<(ShortCutBase, GridPos)> ShortCuts { get => _shortCuts; }
-
         public List<(ShortCutBase, GridPos)> getShortCutsInRightOrder()
         {
             List<(ShortCutBase, GridPos)> shortCutsInRightOrder = new List<(ShortCutBase, GridPos)>();
@@ -47,6 +49,11 @@ namespace ShortCutDeckDesktop.ShortCuts
             }
             return shortCutsInRightOrder;
         }
+        public bool TryGetShortCutByGridPos(GridPos pos, out ShortCutBase shortCut)
+        {
+            shortCut = _shortCuts.Find(x => x.Item2.Equals(pos)).Item1;
+            return shortCut!= null;
+        }
 
         public struct GridPos
         {
@@ -68,9 +75,6 @@ namespace ShortCutDeckDesktop.ShortCuts
                        _x == pos._x &&
                        _y == pos._y;
             }
-
-
-            
         }
     }
 }

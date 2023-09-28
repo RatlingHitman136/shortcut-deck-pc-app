@@ -30,6 +30,11 @@ namespace ShortCutDeckDesktop.Actions
 
                 case StringConstants.ACTION_REQUEST_ALL_PROFILES_TAG:
                     return new ActionSendProfiles(caller);
+
+                case StringConstants.ACTION_SHORTCUT_TRIGGERED:
+                    if (actionStringList.Count == 3)
+                        return new ActionShortCutTriggered(caller, actionStringList[1], actionStringList[2]);
+                    break;
             }
 
             return new ActionBase();

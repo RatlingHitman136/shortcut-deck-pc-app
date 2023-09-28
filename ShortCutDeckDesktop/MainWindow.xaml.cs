@@ -33,5 +33,10 @@ namespace ShortCutDeckDesktop
         {
             ServerClass.startServer();
         }
+
+        private void btn_clear_log_field_Click(object sender, RoutedEventArgs e)
+        {
+            tb_server_log.Text = string.Empty;
+        }
     }
 }

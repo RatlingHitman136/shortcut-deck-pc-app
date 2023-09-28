@@ -20,18 +20,14 @@ namespace ShortCutDeckDesktop.ShortCuts
         public static int GridWidth { get => _gridWidth; }
         public static int GridHeight { get => _gridHeight; }
 
-        public static List<ShortCutProfile> getProfilesWithIndexes(IEnumerable<int> indexes)
+        public static bool TryGetProfilesWithIDs(string id, out ShortCutProfile profile)
         {
-            List<ShortCutProfile> listToReturn = new List<ShortCutProfile>();
-            foreach (int index in indexes)
-            {
-                listToReturn.Add(_profiles[index]);
-            }
-            return listToReturn;
+            profile = _profiles.Find(x => x.Id == id);
+            return profile != null;
         }
 
         public static void initTestOneProfile() { 
-            ShortCutProfile testProfile = new ShortCutProfile(
+            ShortCutProfile testProfile = new ShortCutProfile("mainPrf",
                 new List<(ShortCutTypes.ShortCutBase, ShortCutProfile.GridPos)>
                 {
                     (new ShortCutButton(), new ShortCutProfile.GridPos(0,0)),

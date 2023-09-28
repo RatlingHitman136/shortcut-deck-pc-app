@@ -21,17 +21,17 @@ namespace ShortCutDeckDesktop
             serverLog = serverLogField;
         }
 
-        public static void logError(String msg)
+        public static void logError(string msg)
         {
             throw new Exception(msg);
         }
 
-        public static void logWarning(String msg)
+        public static void logWarning(string msg)
         {
             throw new WarningException(msg);
         }
 
-        public static void logServerMsg(String msg)
+        public static void logServerMsg(string msg)
         {
             serverLog?.Dispatcher.Invoke(delegate
             {
