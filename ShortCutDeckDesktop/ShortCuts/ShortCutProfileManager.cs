@@ -1,4 +1,4 @@
-﻿using ShortCutDeckDesktop.Actions.ActionTypes.ShortCutActions_Media;
+﻿using ShortCutDeckDesktop.Actions.ActionTypes;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System.Collections.Generic;
 
@@ -26,10 +26,10 @@ namespace ShortCutDeckDesktop.ShortCuts
             ShortCutProfile testProfile = new ShortCutProfile("mainPrf",
                 new List<(ShortCutBase, ShortCutProfile.GridPos)>
                 {
-                    (new ShortCutButton(new ActionPCVolumeUp()), new ShortCutProfile.GridPos(0,0)),
-                    (new ShortCutButton(new ActionPCMediaPausePlay()), new ShortCutProfile.GridPos(1,0)),
-                    (new ShortCutButton(new ActionPCVolumeMute()), new ShortCutProfile.GridPos(2,0)),
-                    (new ShortCutButton(new ActionPCVolumeDown()), new ShortCutProfile.GridPos(3,0)),
+                    (new ShortCutButton(new ActionPCVirtualKeyPressed(VirtualKeysConstants.VK_VOLUME_UP)), new ShortCutProfile.GridPos(0,0)),
+                    (new ShortCutButton(new ActionPCVirtualKeyPressed(VirtualKeysConstants.VK_MEDIA_PLAY_PAUSE)), new ShortCutProfile.GridPos(1,0)),
+                    (new ShortCutButton(new ActionPCVirtualKeyPressed(VirtualKeysConstants.VK_VOLUME_MUTE)), new ShortCutProfile.GridPos(2,0)),
+                    (new ShortCutButton(new ActionPCVirtualKeyPressed(VirtualKeysConstants.VK_VOLUME_DOWN)), new ShortCutProfile.GridPos(3,0)),
                 }
                 );
             _profiles.Add(testProfile);

@@ -5,14 +5,19 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShortCutDeckDesktop.Actions.ActionTypes.ShortCutActions_Media
+namespace ShortCutDeckDesktop.Actions.ActionTypes
 {
-    internal class ActionPCVolumeMute : ActionBase
+    internal class ActionPCVirtualKeyPressed:ActionBase
     {
+        byte _keyCode;
+        public ActionPCVirtualKeyPressed(byte keyCode)
+        {
+            _keyCode = keyCode;
+        }
         public override void executeAction()
         {
             base.executeAction();
-            keybd_event(VirtualKeysConstants.VK_VOLUME_MUTE, 0, 0, 0);
+            keybd_event(_keyCode, 0, 0, 0);
         }
 
         [DllImport("user32.dll")]
