@@ -1,4 +1,5 @@
-﻿using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
+﻿using ShortCutDeckDesktop.Actions.ActionTypes.ShortCutActions;
+using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,24 +29,12 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         public static void initTestOneProfile() { 
             ShortCutProfile testProfile = new ShortCutProfile("mainPrf",
-                new List<(ShortCutTypes.ShortCutBase, ShortCutProfile.GridPos)>
+                new List<(ShortCutBase, ShortCutProfile.GridPos)>
                 {
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(0,0)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(0,1)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(0,2)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(0,4)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(1,0)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(1,1)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(1,2)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(1,4)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(2,0)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(2,1)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(2,2)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(2,4)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(3,0)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(3,1)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(3,2)),
-                    (new ShortCutButton(), new ShortCutProfile.GridPos(3,4))
+                    (new ShortCutButton(new ActionPCVolumeUp()), new ShortCutProfile.GridPos(0,0)),
+                    (new ShortCutButton(new ActionPCMediaPausePlay()), new ShortCutProfile.GridPos(1,0)),
+                    (new ShortCutButton(new ActionPCVolumeMute()), new ShortCutProfile.GridPos(2,0)),
+                    (new ShortCutButton(new ActionPCVolumeDown()), new ShortCutProfile.GridPos(3,0)),
                 }
                 );
             _profiles.Add(testProfile);
