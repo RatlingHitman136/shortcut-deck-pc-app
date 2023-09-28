@@ -7,4 +7,15 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Remove="Icons\**" />
+      <EmbeddedResource Remove="Icons\**" />
+      <None Remove="Icons\**" />
+      <Page Remove="Icons\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+    </ItemGroup>
+
 </Project>
