@@ -1,4 +1,4 @@
-﻿using ShortCutDeckDesktop.Actions.ActionTypes;
+﻿using ShortCutDeckDesktop.Actions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

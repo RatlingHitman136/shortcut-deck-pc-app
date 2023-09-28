@@ -2,7 +2,6 @@
 using System.Text;
 using System.Threading;
 using ShortCutDeckDesktop.Actions;
-using ShortCutDeckDesktop.Actions.ActionTypes;
 
 namespace ShortCutDeckDesktop.Networking
 {

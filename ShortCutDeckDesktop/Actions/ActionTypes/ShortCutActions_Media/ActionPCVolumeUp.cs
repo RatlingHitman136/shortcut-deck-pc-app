@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShortCutDeckDesktop.Actions.ActionTypes.ShortCutActions
+namespace ShortCutDeckDesktop.Actions.ActionTypes.ShortCutActions_Media
 {
-    internal class ActionPCVolumeUp:ActionBase
+    internal class ActionPCVolumeUp : ActionBase
     {
         public override void executeAction()
         {

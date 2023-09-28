@@ -1,11 +1,6 @@
-﻿using ShortCutDeckDesktop.Actions.ActionTypes.ShortCutActions;
+﻿using ShortCutDeckDesktop.Actions.ActionTypes.ShortCutActions_Media;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShortCutDeckDesktop.ShortCuts
 {

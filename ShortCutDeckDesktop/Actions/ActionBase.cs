@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShortCutDeckDesktop.Actions.ActionTypes
+namespace ShortCutDeckDesktop.Actions
 {
     public class ActionBase
     {
