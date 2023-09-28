@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShortCutDeckDesktop"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280"
         ResizeMode="CanMinimize">
@@ -33,5 +34,21 @@
                 </TextBlock>
             </StackPanel>
         </GroupBox>
+
+        <tb:TaskbarIcon
+            x:Name="tray_icon"
+            IconSource="/Resources/Icons/logo.ico"
+            ToolTipText="ShortCutDeck"
+            TrayMouseDoubleClick="tray_icon_TrayMouseDoubleClick"
+            MenuActivation="LeftOrRightClick">
+            
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu Background="White">
+                    <MenuItem Header="First Menu Item" />
+                    <MenuItem Header="Exit" Click="tray_icon_MenuItem_Click" />
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+
+        </tb:TaskbarIcon>
     </Grid>
 </Window>
