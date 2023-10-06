@@ -9,5 +9,10 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
     public class ShortCutBase
     {
         public ShortCutBase() { }
+
+        public virtual void ShortCutTriggered(List<string> additionalData)
+        {
+            Logger.logServerMsg("shortcut activated");
+        }
     }
 }

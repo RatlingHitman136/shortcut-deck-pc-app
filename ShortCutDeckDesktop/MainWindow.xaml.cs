@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,13 +26,33 @@ namespace ShortCutDeckDesktop
         public MainWindow()
         {
             InitializeComponent();
-            ShortCutProfileManager.initTestOneProfile();
             Logger.setServerLogField(tb_server_log);
         }
 
-        private void btn_start_server_Click(object sender, RoutedEventArgs e)
+        private void btn_clear_log_field_Click(object sender, RoutedEventArgs e)
         {
-            ServerClass.startServer();
+            tb_server_log.Text = string.Empty;
+        }
+
+        protected override void OnStateChanged(EventArgs e)
+        {
+            base.OnStateChanged(e);
+        }
+
+        private void tray_icon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            Show();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
+        }
+
+        private void tray_icon_MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

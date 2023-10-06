@@ -4,13 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShortCutDeckDesktop"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280"
         ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -22,13 +23,42 @@
         <GroupBox Grid.Row="2" Margin="5 0 5 5">
             <GroupBox.Header>Server Controls</GroupBox.Header>
             <StackPanel Margin="5 5 5 5">
-                <Button x:Name="btn_start_server" Height="30px" Click="btn_start_server_Click">
-                    Start Server
+                <Button x:Name="btn_clear_log_field" Height="30px" Click="btn_clear_log_field_Click">
+                    Clear Log
                 </Button>
                 <TextBlock x:Name ="tb_server_log" Height="601">
-                    
+
                 </TextBlock>
             </StackPanel>
         </GroupBox>
+
+        <tb:TaskbarIcon
+            x:Name="tray_icon"
+            IconSource="/Resources/Icons/logo.ico"
+            ToolTipText="ShortCutDeck"
+            TrayMouseDoubleClick="tray_icon_TrayMouseDoubleClick"
+            MenuActivation="LeftOrRightClick">
+            
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu Background="White">
+                    <MenuItem Header="First Menu Item" />
+                    <MenuItem Header="Exit" Click="tray_icon_MenuItem_Click" />
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+
+        </tb:TaskbarIcon>        
+        
+        <TabControl Grid.Column="1" Grid.Row="1" x:Name="tcProfileWindow">
+            <TabItem Header="Profiles">
+                <TabItem.Content>
+                    <Grid Background="#FFE5E5E5">
+                        
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Default profile">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

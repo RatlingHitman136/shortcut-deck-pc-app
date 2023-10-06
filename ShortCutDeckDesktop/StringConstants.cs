@@ -18,6 +18,7 @@ namespace ShortCutDeckDesktop
         public const string ACTION_SCAN_TAG = "scan";
         public const string ACTION_REQUEST_ALL_PROFILES_TAG = "reqAllProf";
         public const string ACTION_SEND_PROFILE_TAG = "setP";
+        public const string ACTION_SHORTCUT_TRIGGERED = "shortCutTrig";
 
     }
 }

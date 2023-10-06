@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ShortCutDeckDesktop.ShortCuts.ShortCutProfile;
 
 namespace ShortCutDeckDesktop.ShortCuts
 {
@@ -13,7 +14,7 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         //result from this factory = b:0 0/b:0 1/e/b:0 3 .....  
 
-        public static string ShortCutProfileToStringForClient(ShortCutProfile profile)
+        public static string GetStringFromShortCutProfileForClient(ShortCutProfile profile)
         {
             string res = "";
 
@@ -40,6 +41,23 @@ namespace ShortCutDeckDesktop.ShortCuts
             }
 
             return res;
+        }
+
+        public static (GridPos pos, List<string> additionalData) GetDataFromTriggeredShortCut(string msg)
+        {
+            try
+            {
+                List<string> data = msg.Trim().Split(StringConstants.SECOND_LEVEL_SPLIT_CHARACTER).ToList();
+                List<string> posData = data[0].Split(StringConstants.THIRD_LEVEL_SPLIT_CHARACTER).ToList();
+                data.RemoveAt(0);
+                GridPos pos = new GridPos(Convert.ToInt32(posData[0]), Convert.ToInt32(posData[1]));
+                return (pos, data);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Exception at getting data from msg, that server recieved from client", e);
+            }
+            
         }
     }
 }
