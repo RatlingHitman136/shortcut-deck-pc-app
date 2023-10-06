@@ -26,13 +26,7 @@ namespace ShortCutDeckDesktop
         public MainWindow()
         {
             InitializeComponent();
-            ShortCutProfileManager.initTestOneProfile();
             Logger.setServerLogField(tb_server_log);
-        }
-
-        private void btn_start_server_Click(object sender, RoutedEventArgs e)
-        {
-            ServerClass.startServer();
         }
 
         private void btn_clear_log_field_Click(object sender, RoutedEventArgs e)
