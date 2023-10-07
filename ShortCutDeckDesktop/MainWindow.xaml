@@ -44,7 +44,7 @@
                 <TabItem.Header>Profiles</TabItem.Header>
                 <TabItem.Content>
                     <Grid Background="#FFE5E5E5">
-
+                        <Frame></Frame>
                     </Grid>
                 </TabItem.Content>
             </TabItem>
@@ -52,7 +52,7 @@
                 <TabItem.Header>Default profile</TabItem.Header>
                 <TabItem.Content>
                     <Grid Background="#FFE5E5E5">
-
+                
                     </Grid>
                 </TabItem.Content>
             </TabItem>
