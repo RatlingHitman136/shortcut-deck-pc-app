@@ -10,17 +10,55 @@
         ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="19*"></RowDefinition>
         </Grid.RowDefinitions>
-        
+
         <!-- server controls -->
-        <GroupBox Grid.Row="2" Margin="5 0 5 5">
+        <tb:TaskbarIcon
+            x:Name="tray_icon"
+            IconSource="/Resources/Icons/logo.ico"
+            ToolTipText="ShortCutDeck"
+            TrayMouseDoubleClick="tray_icon_TrayMouseDoubleClick"
+            MenuActivation="LeftOrRightClick">
+
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu Background="White">
+                    <MenuItem Header="First Menu Item" />
+                    <MenuItem Header="Exit" Click="tray_icon_MenuItem_Click" />
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+
+        </tb:TaskbarIcon>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="24" Padding="5 0 0 0">
+            ShortCut Deck | Version 0.01
+        </TextBlock>
+
+        <TabControl TabStripPlacement="Left" HorizontalContentAlignment="Left"  Grid.Column="0" Grid.Row="1" x:Name="tcProfileWindow">
+            <TabItem FontSize="20">
+                <TabItem.Header>Profiles</TabItem.Header>
+                <TabItem.Content>
+                    <Grid Background="#FFE5E5E5">
+
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem FontSize="20">
+                <TabItem.Header>Default profile</TabItem.Header>
+                <TabItem.Content>
+                    <Grid Background="#FFE5E5E5">
+
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+
+        <GroupBox Grid.Row="1" Grid.Column="1" Margin="5 0 5 5">
             <GroupBox.Header>Server Controls</GroupBox.Header>
             <StackPanel Margin="5 5 5 5">
                 <Button x:Name="btn_clear_log_field" Height="30px" Click="btn_clear_log_field_Click">
@@ -31,34 +69,5 @@
                 </TextBlock>
             </StackPanel>
         </GroupBox>
-
-        <tb:TaskbarIcon
-            x:Name="tray_icon"
-            IconSource="/Resources/Icons/logo.ico"
-            ToolTipText="ShortCutDeck"
-            TrayMouseDoubleClick="tray_icon_TrayMouseDoubleClick"
-            MenuActivation="LeftOrRightClick">
-            
-            <tb:TaskbarIcon.ContextMenu>
-                <ContextMenu Background="White">
-                    <MenuItem Header="First Menu Item" />
-                    <MenuItem Header="Exit" Click="tray_icon_MenuItem_Click" />
-                </ContextMenu>
-            </tb:TaskbarIcon.ContextMenu>
-
-        </tb:TaskbarIcon>        
-        
-        <TabControl Grid.Column="1" Grid.Row="1" x:Name="tcProfileWindow">
-            <TabItem Header="Profiles">
-                <TabItem.Content>
-                    <Grid Background="#FFE5E5E5">
-                        
-                    </Grid>
-                </TabItem.Content>
-            </TabItem>
-            <TabItem Header="Default profile">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
     </Grid>
 </Window>
