@@ -3,18 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ShortCutDeckDesktop"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280"
-        ResizeMode="CanMinimize">
+        Title="MainWindow" Height="720" Width="1280" MinHeight="360" MinWidth="640">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*" MinHeight="35" MaxHeight="35"></RowDefinition>
             <RowDefinition Height="19*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -44,7 +42,7 @@
                 <TabItem.Header>Profiles</TabItem.Header>
                 <TabItem.Content>
                     <Grid Background="#FFE5E5E5">
-                        <Frame></Frame>
+                        <Frame x:Name="fProfileLister"/>
                     </Grid>
                 </TabItem.Content>
             </TabItem>

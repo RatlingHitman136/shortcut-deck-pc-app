@@ -1,7 +1,9 @@
 ﻿using ShortCutDeckDesktop.Actions.ActionTypes;
 using ShortCutDeckDesktop.Constants;
+using ShortCutDeckDesktop.Resources.Icons;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace ShortCutDeckDesktop.ShortCuts
 {
@@ -16,6 +18,7 @@ namespace ShortCutDeckDesktop.ShortCuts
         public static List<ShortCutProfile> Profiles { get => _profiles; }
         public static int GridWidth { get => _gridWidth; }
         public static int GridHeight { get => _gridHeight; }
+        public static event OnProfileListUpdatedEventHandler OnProfileListUpdated;
 
         public static bool TryGetProfilesWithIDs(string id, out ShortCutProfile profile)
         {
@@ -34,6 +37,12 @@ namespace ShortCutDeckDesktop.ShortCuts
                 }
                 );
             _profiles.Add(testProfile);
+        }
+
+
+        public delegate void OnProfileListUpdatedEventHandler(object source, OnProfileListUpdatedEventArgs e);
+        public class OnProfileListUpdatedEventArgs: System.EventArgs { 
+            
         }
 
     }
