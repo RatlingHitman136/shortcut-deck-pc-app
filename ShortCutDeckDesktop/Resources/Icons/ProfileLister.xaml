@@ -7,7 +7,17 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProfileLister">
 
-    <Canvas Background="AliceBlue" x:Name="cProfileGridLister">
-        <StackPanel Background="Black" MinHeight="40" MinWidth="40" Height="100" Width="100" Canvas.Top="5" Canvas.Left="5"></StackPanel>
-    </Canvas>
+    <ItemsControl>
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid Background="AliceBlue" x:Name="cProfileGridLister"
+                        VirtualizingPanel.IsVirtualizing="True" 
+                        VirtualizingPanel.VirtualizationMode="Recycling" 
+                        VirtualizingPanel.IsVirtualizingWhenGrouping="True" 
+                        IsItemsHost="True">
+                </UniformGrid>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>  
+    </ItemsControl>
+    
 </Page>
