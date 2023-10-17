@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShortCutDeckDesktop.ShortCuts;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -23,28 +24,9 @@ namespace ShortCutDeckDesktop.Resources.Icons
     {        
         public ProfileLister()
         {
-            ObservableCollection<ProfileUIData> testCollection = new ObservableCollection<ProfileUIData>();
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-            testCollection.Add(new ProfileUIData("123"));
-
-
             InitializeComponent();
 
-            profileListerItemsControl.ItemsSource = testCollection;
+            profileListerItemsControl.ItemsSource = ShortCutProfileManager.Profiles;
         }
 
         private class ProfileUIData

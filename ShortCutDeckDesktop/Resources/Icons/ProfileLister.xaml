@@ -6,33 +6,26 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProfileLister">
-
     <ItemsControl x:Name="profileListerItemsControl">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <UniformGrid Background="AliceBlue" x:Name="cProfileGridLister"
+                <UniformGrid Background="White" x:Name="cProfileGridLister"
                         VirtualizingPanel.IsVirtualizing="True" 
                         VirtualizingPanel.VirtualizationMode="Recycling" 
                         VirtualizingPanel.IsVirtualizingWhenGrouping="True" 
                         IsItemsHost="True"
-                             Rows="5">
+                        Rows="5">
                 </UniformGrid>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <StackPanel  Background="White">
-                    <Button Margin="0 0 5 5">
-                        <Button.Height>
-                            <MultiBinding Converter="{StaticResource JScript}" ConverterParameter="(values[0]-5">
-                                <Binding RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type StackPanel},Path=ActualHeight}"/>
-                            </MultiBinding>
-                        </Button.Height>
+                <Grid x:Name="spProfileShower">
+                    <Button Margin="5 5 5 5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <TextBlock Text="{Binding Id}"/>
                     </Button>
-                </StackPanel>
+                </Grid>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>
-    
 </Page>
