@@ -6,26 +6,22 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProfileLister">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
     <ItemsControl x:Name="profileListerItemsControl">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <UniformGrid Background="White" x:Name="cProfileGridLister"
-                        VirtualizingPanel.IsVirtualizing="True" 
-                        VirtualizingPanel.VirtualizationMode="Recycling" 
-                        VirtualizingPanel.IsVirtualizingWhenGrouping="True" 
-                        IsItemsHost="True"
-                        Rows="5">
-                </UniformGrid>
+                <WrapPanel/>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Grid x:Name="spProfileShower">
-                    <Button Margin="5 5 5 5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <TextBlock Text="{Binding Id}"/>
+                <Grid x:Name="spProfileShower" MinWidth="150" MinHeight="200">
+                        <Button Margin="5 5 5 5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Tag="{Binding Id}" Click="OnProfileSelected">
+                        <TextBlock Text="{Binding Name}"/>
                     </Button>
                 </Grid>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>
+    </ScrollViewer>
 </Page>

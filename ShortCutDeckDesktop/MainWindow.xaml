@@ -46,14 +46,7 @@
                     </Grid>
                 </TabItem.Content>
             </TabItem>
-            <TabItem FontSize="20">
-                <TabItem.Header>Default profile</TabItem.Header>
-                <TabItem.Content>
-                    <Grid Background="#FFE5E5E5">
-                
-                    </Grid>
-                </TabItem.Content>
-            </TabItem>
+            
         </TabControl>
 
         <GroupBox Grid.Row="1" Grid.Column="1" Margin="5 0 5 5">

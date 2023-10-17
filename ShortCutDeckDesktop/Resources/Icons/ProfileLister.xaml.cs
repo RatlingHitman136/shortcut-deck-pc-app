@@ -21,14 +21,14 @@ namespace ShortCutDeckDesktop.Resources.Icons
     /// Interaction logic for ProfileLister.xaml
     /// </summary>
     public partial class ProfileLister : Page
-    {        
+    {
+
         public ProfileLister()
         {
             InitializeComponent();
-
             profileListerItemsControl.ItemsSource = ShortCutProfileManager.Profiles;
+            
         }
-
         private class ProfileUIData
         {
             public string Id { get; set; }
@@ -39,5 +39,14 @@ namespace ShortCutDeckDesktop.Resources.Icons
             }
         }
 
+        private void OnProfileSelected(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Button pressedBtn = (Button)sender;
+                Logger.logServerMsg(pressedBtn.Tag.ToString());
+            }
+            catch { }
+        }
     }
 }

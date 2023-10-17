@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ShortCutDeckDesktop.ShortCuts
 {
@@ -14,17 +15,21 @@ namespace ShortCutDeckDesktop.ShortCuts
         //public List<(ShortCutBase, GridPos)> ShortCuts { get => _shortCuts; }
 
         private  string _id;
+        private string _name;
         public string Id { get => _id; }
+        public string Name { get => _name; }
 
-        public ShortCutProfile(string id)
+        public ShortCutProfile(string id, string name)
         {
             _shortCuts = new List<(ShortCutBase, GridPos)>();
             _id = id;
+            _name = name;
         }
-        public ShortCutProfile(string id, List<(ShortCutBase, GridPos)> shortCuts)
+        public ShortCutProfile(string id, string name, List<(ShortCutBase, GridPos)> shortCuts)
         {
             _shortCuts = shortCuts;
             _id = id;
+            _name = name;
         }
         public List<(ShortCutBase, GridPos)> getShortCutsInRightOrder()
         {
