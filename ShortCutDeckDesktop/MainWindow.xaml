@@ -37,7 +37,7 @@
             ShortCut Deck | Version 0.01
         </TextBlock>
 
-        <TabControl TabStripPlacement="Left" HorizontalContentAlignment="Left"  Grid.Column="0" Grid.Row="1" x:Name="tcProfileWindow">
+        <TabControl TabStripPlacement="Left" HorizontalContentAlignment="Left"  Grid.Column="0" Grid.Row="1" x:Name="tcProfileWindow" >
             <TabItem FontSize="20">
                 <TabItem.Header>Profiles</TabItem.Header>
                 <TabItem.Content>
@@ -46,6 +46,8 @@
                     </Grid>
                 </TabItem.Content>
             </TabItem>
+
+            
             
         </TabControl>
 

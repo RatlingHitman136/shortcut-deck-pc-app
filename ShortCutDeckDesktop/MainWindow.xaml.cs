@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 using ShortCutDeckDesktop.Resources.Icons;
+using ShortCutDeckDesktop.ShortCuts;
 
 namespace ShortCutDeckDesktop
 {
