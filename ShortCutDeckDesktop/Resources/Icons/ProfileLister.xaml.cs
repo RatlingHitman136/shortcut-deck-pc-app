@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +20,42 @@ namespace ShortCutDeckDesktop.Resources.Icons
     /// Interaction logic for ProfileLister.xaml
     /// </summary>
     public partial class ProfileLister : Page
-    {
+    {        
         public ProfileLister()
         {
+            ObservableCollection<ProfileUIData> testCollection = new ObservableCollection<ProfileUIData>();
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+            testCollection.Add(new ProfileUIData("123"));
+
+
             InitializeComponent();
+
+            profileListerItemsControl.ItemsSource = testCollection;
         }
+
+        private class ProfileUIData
+        {
+            public string Id { get; set; }
+
+            public ProfileUIData(string iD)
+            {
+                Id = iD;
+            }
+        }
+
     }
 }
