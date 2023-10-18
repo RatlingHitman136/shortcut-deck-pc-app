@@ -1,4 +1,5 @@
 ﻿using ShortCutDeckDesktop.Actions.ActionTypes;
+using ShortCutDeckDesktop.Constants;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System.Collections.Generic;
 

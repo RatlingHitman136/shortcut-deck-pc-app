@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ShortCutDeckDesktop.Constants;
 using static ShortCutDeckDesktop.ShortCuts.ShortCutProfile;
 
 namespace ShortCutDeckDesktop.ShortCuts

@@ -2,6 +2,7 @@
 using ShortCutDeckDesktop.ShortCuts;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data;
 using System.Linq;
@@ -14,10 +15,15 @@ namespace ShortCutDeckDesktop
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application {
-        App()
+
+        protected override void OnStartup(StartupEventArgs e)
         {
+            base.OnStartup(e);
             ServerClass.startServer();
             ShortCutProfileManager.initTestOneProfile();//TODO(test stuff)
+
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
         }
     }
 }
