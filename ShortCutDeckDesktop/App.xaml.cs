@@ -1,5 +1,6 @@
 ﻿using ShortCutDeckDesktop.Networking;
 using ShortCutDeckDesktop.ShortCuts;
+using ShortCutDeckDesktop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,7 +23,8 @@ namespace ShortCutDeckDesktop
             ServerClass.startServer();
             ShortCutProfileManager.initTestOneProfile();//TODO(test stuff)
 
-            MainWindow mainWindow = new MainWindow();
+            MainWindowViewModel viewModel = new MainWindowViewModel();
+            MainWindow mainWindow = new MainWindow { DataContext = viewModel };
             mainWindow.Show();
         }
     }

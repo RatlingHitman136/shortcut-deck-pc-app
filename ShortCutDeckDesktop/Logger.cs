@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Printing;
@@ -13,13 +14,9 @@ namespace ShortCutDeckDesktop
 {
     public static class Logger
     {
-        private static TextBlock? serverLog = null;
+        private static ObservableCollection<string> _logsList = new ObservableCollection<string>();
 
-
-        public static void setServerLogField(TextBlock serverLogField)
-        {
-            serverLog = serverLogField;
-        }
+        public static ObservableCollection<string> LogsList { get => _logsList; set => _logsList = value; }
 
         public static void logError(string msg)
         {
@@ -33,13 +30,10 @@ namespace ShortCutDeckDesktop
 
         public static void logServerMsg(string msg)
         {
-            serverLog?.Dispatcher.Invoke(delegate
-            {
-                if (serverLog is not null)
-                    serverLog.Text += msg + "\n";
-                else
-                    throw new WarningException("No Logging field is specified");
-            }, System.Windows.Threading.DispatcherPriority.Render);
+            _logsList.Add(msg);
+        }
+        public static void clearLog() {
+            _logsList.Clear();
         }
     }
 }

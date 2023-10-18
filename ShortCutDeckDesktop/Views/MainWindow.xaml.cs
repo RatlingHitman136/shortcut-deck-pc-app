@@ -26,12 +26,6 @@ namespace ShortCutDeckDesktop
         public MainWindow()
         {
             InitializeComponent();
-            Logger.setServerLogField(tb_server_log);
-        }
-
-        private void btn_clear_log_field_Click(object sender, RoutedEventArgs e)
-        {
-            tb_server_log.Text = string.Empty;
         }
 
         protected override void OnStateChanged(EventArgs e)
