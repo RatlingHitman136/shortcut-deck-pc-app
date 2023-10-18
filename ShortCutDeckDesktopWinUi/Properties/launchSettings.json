@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ShortCutDeckDesktopWinUi (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ShortCutDeckDesktopWinUi (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -49,16 +49,7 @@
         
         <!-- tab control with profile lister and profile editor -->
         <TabControl Grid.Column="0" Grid.Row="1" x:Name="tcProfileWindow">
-            <TabItem Header="Profiles">
-                <TabItem.Content>
-                    <Grid Background="#FFE5E5E5">
-                        
-                    </Grid>
-                </TabItem.Content>
-            </TabItem>
-            <TabItem Header="Default profile">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
+            
         </TabControl>
     </Grid>
 </Window>
