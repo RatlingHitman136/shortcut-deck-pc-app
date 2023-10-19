@@ -7,11 +7,17 @@
              StartupUri="MVVM/Views/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <DataTemplate DataType="{x:Type viewModel:AllProfilesListerViewModel}">
-                <view:AllProfilesListerView/>
+            <DataTemplate DataType="{x:Type viewModel:HomeProfileListerViewModel}">
+                <view:HomeProfileListerView/>   
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:SmallProfileViewModel}">
                 <view:SmallProfileView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:SpecificProfileListerSideBarViewModel}">
+                <view:SpecificProfileListerSideBarView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:DefaultProfileListerSideBarViewModel}">
+                <view:DefaultProfileListerSideBarView/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

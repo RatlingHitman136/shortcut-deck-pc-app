@@ -55,6 +55,13 @@
         </tb:TaskbarIcon>        
         
         <!-- tab control with profile lister and profile editor -->
+        <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ProfileListerSideBarViewModels}" x:Name="lvProfileListerSideBar">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
         <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding CurrentProfileViewerViewModel}"/>
 
 

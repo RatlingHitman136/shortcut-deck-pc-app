@@ -18,9 +18,9 @@ namespace ShortCutDeckDesktop.MVVM.Views
     /// <summary>
     /// Interaction logic for AllProfilesListerView.xaml
     /// </summary>
-    public partial class AllProfilesListerView : UserControl
+    public partial class HomeProfileListerView : UserControl
     {
-        public AllProfilesListerView()
+        public HomeProfileListerView()
         {
             InitializeComponent();
         }
