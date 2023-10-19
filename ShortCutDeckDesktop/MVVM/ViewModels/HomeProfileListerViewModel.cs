@@ -45,7 +45,18 @@ namespace ShortCutDeckDesktop.MVVM.ViewModels
 
         private void ProfileFromListerSelected(ShortCutProfile shortCutProfile)
         {
-            _mainWindowViewModel.SelectedProfileFromHomeProfileLister(shortCutProfile);
+            SpecificProfileListerSideBarViewModel selectedSideBarViewModel;
+            if (_mainWindowViewModel.IsProfileAlreadyOpened(shortCutProfile, out SpecificProfileListerSideBarViewModel foundedViewModel))
+            {
+                selectedSideBarViewModel = foundedViewModel;
+            }
+            else
+            {
+                selectedSideBarViewModel = new SpecificProfileListerSideBarViewModel(shortCutProfile, _mainWindowViewModel);
+                _mainWindowViewModel.ProfileListerSideBarViewModels.Add(selectedSideBarViewModel);
+            }
+
+            selectedSideBarViewModel.SelectThisView();
         }
     } 
 }
