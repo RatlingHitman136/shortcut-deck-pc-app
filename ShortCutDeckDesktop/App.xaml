@@ -10,6 +10,9 @@
             <DataTemplate DataType="{x:Type viewModel:AllProfilesListerViewModel}">
                 <view:AllProfilesListerView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:SmallProfileViewModel}">
+                <view:SmallProfileView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

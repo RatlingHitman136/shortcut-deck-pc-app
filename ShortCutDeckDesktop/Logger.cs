@@ -30,7 +30,7 @@ namespace ShortCutDeckDesktop
 
         public static void logServerMsg(string msg)
         {
-            _logsList.Add(msg);
+            Application.Current.Dispatcher.Invoke(new Action(() => { _logsList.Add(msg); }), System.Windows.Threading.DispatcherPriority.Render);
         }
         public static void clearLog() {
             _logsList.Clear();
