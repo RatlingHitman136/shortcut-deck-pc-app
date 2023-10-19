@@ -1,6 +1,6 @@
-﻿using ShortCutDeckDesktop.Networking;
+﻿using ShortCutDeckDesktop.MVVM.ViewModels;
+using ShortCutDeckDesktop.Networking;
 using ShortCutDeckDesktop.ShortCuts;
-using ShortCutDeckDesktop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,10 +22,6 @@ namespace ShortCutDeckDesktop
             base.OnStartup(e);
             ServerClass.startServer();
             ShortCutProfileManager.initTestOneProfile();//TODO(test stuff)
-
-            MainWindowViewModel viewModel = new MainWindowViewModel();
-            MainWindow mainWindow = new MainWindow { DataContext = viewModel };
-            mainWindow.Show();
         }
     }
 }

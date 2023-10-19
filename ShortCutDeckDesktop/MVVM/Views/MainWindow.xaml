@@ -4,12 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShortCutDeckDesktop"
+        xmlns:viewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ViewModels"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280"
         ResizeMode="CanMinimize">
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
+    
+    
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="4*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -20,7 +27,7 @@
         </Grid.RowDefinitions>
         
         <!-- server controls -->
-        <GroupBox Grid.Row="1" Grid.Column="1" Margin="5 0 5 5">
+        <GroupBox Grid.Row="1" Grid.Column="2" Margin="5 0 5 5">
             <GroupBox.Header>Server Controls</GroupBox.Header>
             <StackPanel Margin="5 5 5 5">
                 <Button x:Name="btn_clear_log_field" Height="30px" Command="{Binding ClearLogsList}">
@@ -48,8 +55,8 @@
         </tb:TaskbarIcon>        
         
         <!-- tab control with profile lister and profile editor -->
-        <TabControl Grid.Column="0" Grid.Row="1" x:Name="tcProfileWindow">
-            
-        </TabControl>
+        <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding CurrentProfileViewerViewModel}"/>
+
+
     </Grid>
 </Window>
