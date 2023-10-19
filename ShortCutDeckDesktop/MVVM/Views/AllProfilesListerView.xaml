@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Azure">
-          
+    <Grid>
+        <WrapPanel Margin="10 10 10 10" Background="Beige">
+            
+        </WrapPanel>
     </Grid>
 </UserControl>
