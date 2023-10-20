@@ -18,7 +18,8 @@
             HorizontalContentAlignment="Center"
             Height="20"
             Width="20"
-            Content="X">
+            Content="X"
+            Command="{Binding CloseCommand}">
         
         <Button.Resources>
             <Style TargetType="Border">

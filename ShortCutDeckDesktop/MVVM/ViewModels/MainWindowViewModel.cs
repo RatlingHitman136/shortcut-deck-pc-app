@@ -17,12 +17,12 @@ namespace ShortCutDeckDesktop.MVVM.ViewModels
         #region constructor
         public MainWindowViewModel()
         {
-            HomeProfileListerViewModel = new HomeProfileListerViewModel(this);
-            CurrentProfileViewerViewModel = HomeProfileListerViewModel;
-
+            _homeProfileListerViewModel = new HomeProfileListerViewModel(this);
+            CurrentProfileViewerViewModel = _homeProfileListerViewModel;
+            _defaultProfileListerSideBarViewModel = new DefaultProfileListerSideBarViewModel();
             _profileListerSideBarViewModels = new()
             {
-                new DefaultProfileListerSideBarViewModel(this)
+                _defaultProfileListerSideBarViewModel
             };
         }
         #endregion
@@ -45,8 +45,21 @@ namespace ShortCutDeckDesktop.MVVM.ViewModels
 
         #region Profile lister and viewer 
 
-        public HomeProfileListerViewModel HomeProfileListerViewModel { get; set; }
-
+        private HomeProfileListerViewModel _homeProfileListerViewModel;
+        private object _selectedViewModelSideBar;
+        public object SelectedViewModelSideBar
+        {
+            get => _selectedViewModelSideBar;
+            set
+            {
+                _selectedViewModelSideBar = value;
+                if (_selectedViewModelSideBar is SpecificProfileListerSideBarViewModel)
+                    CurrentProfileViewerViewModel = ((SpecificProfileListerSideBarViewModel)_selectedViewModelSideBar).BigProfileViewModel;
+                else if (_selectedViewModelSideBar is DefaultProfileListerSideBarViewModel)
+                    CurrentProfileViewerViewModel = _homeProfileListerViewModel;
+                OnPropertyChanged(nameof(SelectedViewModelSideBar));
+            }
+        }
         private object _currentProfileViewerViewModel;
         public object CurrentProfileViewerViewModel
         {
@@ -54,14 +67,15 @@ namespace ShortCutDeckDesktop.MVVM.ViewModels
             set 
             {
                 _currentProfileViewerViewModel = value;
-                OnPropertyChanged("CurrentProfileViewerViewModel");
+                OnPropertyChanged(nameof(CurrentProfileViewerViewModel));
             }
         }
         #endregion
 
         #region Profile lister side bar
-        private ObservableCollection<DefaultProfileListerSideBarViewModel> _profileListerSideBarViewModels;
-        public ObservableCollection<DefaultProfileListerSideBarViewModel> ProfileListerSideBarViewModels { get => _profileListerSideBarViewModels; }
+        private DefaultProfileListerSideBarViewModel _defaultProfileListerSideBarViewModel;
+        private ObservableCollection<object> _profileListerSideBarViewModels;
+        public ObservableCollection<object> ProfileListerSideBarViewModels { get => _profileListerSideBarViewModels; }
         public bool IsProfileAlreadyOpened(ShortCutProfile profileToCheck, out SpecificProfileListerSideBarViewModel foundedViewModel)
         {
             foreach (var profileViewModel in _profileListerSideBarViewModels)
@@ -75,6 +89,15 @@ namespace ShortCutDeckDesktop.MVVM.ViewModels
             }
             foundedViewModel = null;
             return false;
+        }
+        public void TryCloseProfileListerSideBarElement(SpecificProfileListerSideBarViewModel viewModelToClose)
+        {
+            if (_profileListerSideBarViewModels.Contains(viewModelToClose))
+            {
+                SelectedViewModelSideBar = _defaultProfileListerSideBarViewModel;
+                _profileListerSideBarViewModels.Remove(viewModelToClose);
+                OnPropertyChanged();
+            }
         }
         #endregion
 

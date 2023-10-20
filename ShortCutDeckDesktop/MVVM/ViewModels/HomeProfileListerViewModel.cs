@@ -56,7 +56,7 @@ namespace ShortCutDeckDesktop.MVVM.ViewModels
                 _mainWindowViewModel.ProfileListerSideBarViewModels.Add(selectedSideBarViewModel);
             }
 
-            selectedSideBarViewModel.SelectThisView();
+            _mainWindowViewModel.SelectedViewModelSideBar = selectedSideBarViewModel;
         }
     } 
 }
