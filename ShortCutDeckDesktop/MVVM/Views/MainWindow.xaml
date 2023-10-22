@@ -4,13 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShortCutDeckDesktop"
+        xmlns:viewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ViewModels"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280"
         ResizeMode="CanMinimize">
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
+    
+    
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
@@ -48,17 +54,8 @@
         </tb:TaskbarIcon>        
         
         <!-- tab control with profile lister and profile editor -->
-        <TabControl Grid.Column="0" Grid.Row="1" x:Name="tcProfileWindow">
-            <TabItem Header="Profiles">
-                <TabItem.Content>
-                    <Grid Background="#FFE5E5E5">
-                        
-                    </Grid>
-                </TabItem.Content>
-            </TabItem>
-            <TabItem Header="Default profile">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
+        <ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding ProfilesViewer}"/>
+
+
     </Grid>
 </Window>
