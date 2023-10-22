@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels;
 using ShortCutDeckDesktop.ShortCuts;
 
 namespace ShortCutDeckDesktop.MVVM.ViewModels
@@ -24,6 +25,8 @@ namespace ShortCutDeckDesktop.MVVM.ViewModels
             {
                 _defaultProfileListerSideBarViewModel
             };
+
+            _profilesViewer = new ShortCutProfilesViewerViewModel();
         }
         #endregion
 
@@ -42,6 +45,9 @@ namespace ShortCutDeckDesktop.MVVM.ViewModels
             }
         }
         #endregion
+
+        private ShortCutProfilesViewerViewModel _profilesViewer;
+        public ShortCutProfilesViewerViewModel ProfileViewer { get => _profilesViewer; }
 
         #region Profile lister and viewer 
 

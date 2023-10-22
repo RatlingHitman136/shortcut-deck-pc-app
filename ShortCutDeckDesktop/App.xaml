@@ -4,9 +4,15 @@
              xmlns:local="clr-namespace:ShortCutDeckDesktop"
              xmlns:viewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ViewModels"
              xmlns:view="clr-namespace:ShortCutDeckDesktop.MVVM.Views"
-             StartupUri="MVVM/Views/MainWindow.xaml">
+             StartupUri="MVVM/Views/MainWindow.xaml"
+             
+             xmlns:localView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views"
+             xmlns:localViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels">
     <Application.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MVVM/ShortCutProfileViewer/ShortCutProfileViewerResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type viewModel:HomeProfileListerViewModel}">
                 <view:HomeProfileListerView/>   
             </DataTemplate>
