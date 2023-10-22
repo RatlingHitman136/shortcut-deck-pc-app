@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for ProfileMainView.xaml
     /// </summary>
-    public partial class HomePageView : UserControl
+    public partial class ProfileMainView : UserControl
     {
-        public HomePageView()
+        public ProfileMainView()
         {
             InitializeComponent();
         }

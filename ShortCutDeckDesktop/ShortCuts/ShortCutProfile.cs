@@ -16,7 +16,7 @@ namespace ShortCutDeckDesktop.ShortCuts
         private  string _id;
         public string Id { get => _id; }
 
-        public string _name;
+        private string _name;
         public string Name { get => _name; }
 
         public ShortCutProfile(string id, string name)

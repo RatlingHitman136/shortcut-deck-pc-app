@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileLister;
 using ShortCutDeckDesktop.MVVM.ViewModels;
 using ShortCutDeckDesktop.ShortCuts;
 using System;
@@ -12,51 +13,52 @@ using System.Windows.Input;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
 {
-    internal class HomePageViewModel:ObservableObject
+    internal class DefaultMainViewModel:ObservableObject
     {
-        private ObservableCollection<ProfileSmallViewModel> _profilesSmallViewModelList;
+        private ObservableCollection<ProfileSmallViewModel> _profilesSmallViewModels;
         private ShortCutProfilesViewerViewModel _profilesViewerViewModel;
 
-        public HomePageViewModel(ShortCutProfilesViewerViewModel shortCutProfileViewerViewModel)
+        public DefaultMainViewModel(ShortCutProfilesViewerViewModel shortCutProfileViewerViewModel)
         {
-            _profilesSmallViewModelList = new();
+            _profilesSmallViewModels = new();
             _profilesViewerViewModel = shortCutProfileViewerViewModel;
             ShortCutProfileManager.ProfilesListUpdateEvent += UpdateProfilesSmallViewModelList;
             UpdateProfilesSmallViewModelList(new(ShortCutProfileManager.Profiles));
             OnPropertyChanged();
         }
 
-        public ObservableCollection<ProfileSmallViewModel> ProfilesSmallViewModelList { 
-            get => _profilesSmallViewModelList;
+        public ObservableCollection<ProfileSmallViewModel> ProfilesSmallViewModels { 
+            get => _profilesSmallViewModels;
         }
 
         private void UpdateProfilesSmallViewModelList(ShortCutProfilesListUpdateEventArgs e)
         {
-            _profilesSmallViewModelList.Clear();
+            _profilesSmallViewModels.Clear();
             foreach (var profile in e.NewProfilesList)
             {
                 ICommand command = new RelayCommand<ShortCutProfile>(_ => { ProfileFromListerSelected(profile); });
-                _profilesSmallViewModelList.Add(new ProfileSmallViewModel(profile, command));
+                _profilesSmallViewModels.Add(new ProfileSmallViewModel(profile, command));
             }
             OnPropertyChanged();
         }
 
         private void ProfileFromListerSelected(ShortCutProfile shortCutProfile)
         {
-            /*
-            SpecificProfileListerSideBarViewModel selectedSideBarViewModel;
-            if (_profilesViewerViewModel.IsProfileAlreadyOpened(shortCutProfile, out SpecificProfileListerSideBarViewModel foundedViewModel))
+            ProfileItemViewModel selectedSideBarViewModel;
+
+            ProfileItemViewModel profileItemViewModel;
+            if (_profilesViewerViewModel.IsProfileOpened(shortCutProfile, out ProfileItemViewModel foundedViewModel))
             {
                 selectedSideBarViewModel = foundedViewModel;
             }
             else
             {
-                selectedSideBarViewModel = new SpecificProfileListerSideBarViewModel(shortCutProfile, _mainWindowViewModel);
-                _profilesViewerViewModel.ProfileListerSideBarViewModels.Add(selectedSideBarViewModel);
+                ProfileMainViewModel profileMainViewModel = new ProfileMainViewModel(shortCutProfile);
+                selectedSideBarViewModel = new ProfileItemViewModel(_profilesViewerViewModel, profileMainViewModel);
+                _profilesViewerViewModel.ProfileListerViewModels.Add(selectedSideBarViewModel);
             }
 
-            _profilesViewerViewModel.SelectedViewModelSideBar = selectedSideBarViewModel;
-            */
+            _profilesViewerViewModel.SelectedProfileListerViewModel = selectedSideBarViewModel;
         }
     }
 }

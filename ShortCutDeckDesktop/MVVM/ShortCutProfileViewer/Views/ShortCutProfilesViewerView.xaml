@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Green">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="4*"></ColumnDefinition>
@@ -26,7 +26,9 @@
         </ListView>
         
         <!-- opened profile viewer -->
-        <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding ProfileMainViewModel}"/>
-        
+        <Border  Grid.Row="1" Grid.Column="1" BorderThickness="1" BorderBrush="Silver">
+            <ContentControl Content="{Binding ProfileMainViewModel}"/>
+        </Border>
+
     </Grid>
 </UserControl>

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ShortCutDeckDesktop.MVVM.Views
+namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views
 {
     /// <summary>
-    /// Interaction logic for ProfileListerView.xaml
+    /// Interaction logic for HomePage.xaml
     /// </summary>
-    public partial class DefaultProfileListerSideBarView : UserControl
+    public partial class DefaultMainView : UserControl
     {
-        public DefaultProfileListerSideBarView()
+        public DefaultMainView()
         {
             InitializeComponent();
         }

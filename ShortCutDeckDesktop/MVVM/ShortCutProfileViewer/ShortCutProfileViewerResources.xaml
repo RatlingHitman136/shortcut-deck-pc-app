@@ -1,11 +1,24 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:localView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views"
-                    xmlns:localViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels">
+                    xmlns:localViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels"
+                    
+                    xmlns:listerView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views.ProfileLister"
+                    xmlns:listerViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileLister">
     <DataTemplate DataType="{x:Type localViewModel:ShortCutProfilesViewerViewModel}">
         <localView:ShortCutProfilesViewerView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type localViewModel:HomePageViewModel}">
-        <localView:HomePageView/>
+    <DataTemplate DataType="{x:Type localViewModel:DefaultMainViewModel}">
+        <localView:DefaultMainView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type localViewModel:ProfileSmallViewModel}">
+        <localView:ProfileSmallView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type listerViewModel:BaseItemViewModel}">
+        <listerView:BaseItemView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type listerViewModel:ProfileItemViewModel}">
+        <listerView:ProfileItemView/>
     </DataTemplate>
 </ResourceDictionary>
