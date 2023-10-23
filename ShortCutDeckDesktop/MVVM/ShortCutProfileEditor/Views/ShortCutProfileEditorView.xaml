@@ -4,16 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views"
+             xmlns:t="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid x:Name="nameXr">
-        <TextBlock>
-            <TextBlock.Text>
-                <MultiBinding StringFormat="{}{0} | {1}">
-                    <Binding ElementName="nameXr" Path="ActualHeight"/>
-                    <Binding ElementName="nameXr" Path="ActualWidth"/>
-                </MultiBinding>
-            </TextBlock.Text>
-        </TextBlock>
+    <Grid x:Name="mainEditorGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+                <ColumnDefinition.Width>
+                    <MultiBinding Converter="{StaticResource DoubleMultiplicationConverter}" ConverterParameter="0.5">
+                        <Binding ElementName="mainEditorGrid" Path="ActualHeight"/>
+                    </MultiBinding>
+                </ColumnDefinition.Width>
+            </ColumnDefinition>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Background="Green">
+            
+        </Grid>
     </Grid>
 </UserControl>
