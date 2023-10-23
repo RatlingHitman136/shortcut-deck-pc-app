@@ -4,11 +4,12 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Converters
 {
-    public class DoubleMultiplicationConverter : IMultiValueConverter
+    public class DoubleMultiplicationGridWidthConverter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
@@ -19,8 +20,13 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Converters
                 {
                     res *= (double)item;
                 }
-                //res += (double)parameter;
-                return res;
+                res += double.Parse(parameter.ToString());
+
+                if (targetType == typeof(GridLength))
+                    return new GridLength(res);
+
+
+                throw new NotSupportedException();
             }
             catch { throw new Exception(); }
         }

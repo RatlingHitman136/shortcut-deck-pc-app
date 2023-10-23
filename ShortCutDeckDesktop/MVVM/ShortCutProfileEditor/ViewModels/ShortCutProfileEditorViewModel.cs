@@ -11,7 +11,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 {
     internal class ShortCutProfileEditorViewModel : ObservableObject
     {
-        private double _widthToHeightRatio = 0.5;
+        private double _widthToHeightRatio = 0.5625;
 
         public double WidthToHeightRatio { get => _widthToHeightRatio; }
     }
