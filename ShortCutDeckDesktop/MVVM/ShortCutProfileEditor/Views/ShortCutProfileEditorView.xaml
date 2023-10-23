@@ -1,12 +1,16 @@
-﻿<UserControl x:Class="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views.ProfileMainView"
+﻿<UserControl x:Class="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCutProfileEditorView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views"
+             xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <ContentControl Content="{Binding ProfileEditor}"/>
+    <Grid x:Name="nameXr">
+        <TextBlock>
+            <Setter Property="Text">
+                
+            </Setter>
+        </TextBlock>
     </Grid>
 </UserControl>
