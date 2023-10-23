@@ -21,10 +21,13 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="19*"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
+        <!-- random text as name of app -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="ShortCut Deck | V0.02" FontSize="25" Margin="5 0 0 0"/>
+
         <!-- server controls -->
         <GroupBox Grid.Row="1" Grid.Column="1" Margin="5 0 5 5">
             <GroupBox.Header>Server Controls</GroupBox.Header>
