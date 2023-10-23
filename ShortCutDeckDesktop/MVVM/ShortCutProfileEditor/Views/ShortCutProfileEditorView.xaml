@@ -8,9 +8,12 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="nameXr">
         <TextBlock>
-            <Setter Property="Text">
-                
-            </Setter>
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0} | {1}">
+                    <Binding ElementName="nameXr" Path="ActualHeight"/>
+                    <Binding ElementName="nameXr" Path="ActualWidth"/>
+                </MultiBinding>
+            </TextBlock.Text>
         </TextBlock>
     </Grid>
 </UserControl>
