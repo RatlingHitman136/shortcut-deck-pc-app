@@ -55,6 +55,5 @@
         <!-- tab control with profile lister and profile editor -->
         <ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding ProfilesViewer}"/>
 
-
     </Grid>
 </Window>
