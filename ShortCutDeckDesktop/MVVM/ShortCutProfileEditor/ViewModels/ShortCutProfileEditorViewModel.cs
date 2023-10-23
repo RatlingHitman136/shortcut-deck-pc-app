@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+using ShortCutDeckDesktop.ShortCuts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
