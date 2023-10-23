@@ -5,8 +5,6 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortCutDeckDesktop", "ShortCutDeckDesktop\ShortCutDeckDesktop.csproj", "{0D0C7EF8-522A-481D-A087-A32554A377C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortCutDeckDesktopWinUi", "ShortCutDeckDesktopWinUi\ShortCutDeckDesktopWinUi.csproj", "{C3223DF0-A1D6-47CD-9681-168FFB47349E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,30 +33,6 @@ Global
 		{0D0C7EF8-522A-481D-A087-A32554A377C0}.Release|x64.Build.0 = Release|Any CPU
 		{0D0C7EF8-522A-481D-A087-A32554A377C0}.Release|x86.ActiveCfg = Release|Any CPU
 		{0D0C7EF8-522A-481D-A087-A32554A377C0}.Release|x86.Build.0 = Release|Any CPU
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|Any CPU.Build.0 = Debug|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|Any CPU.Deploy.0 = Debug|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|ARM64.Build.0 = Debug|ARM64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|ARM64.Deploy.0 = Debug|ARM64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|x64.ActiveCfg = Debug|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|x64.Build.0 = Debug|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|x64.Deploy.0 = Debug|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|x86.ActiveCfg = Debug|x86
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|x86.Build.0 = Debug|x86
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Debug|x86.Deploy.0 = Debug|x86
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|Any CPU.ActiveCfg = Release|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|Any CPU.Build.0 = Release|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|Any CPU.Deploy.0 = Release|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|ARM64.ActiveCfg = Release|ARM64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|ARM64.Build.0 = Release|ARM64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|ARM64.Deploy.0 = Release|ARM64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|x64.ActiveCfg = Release|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|x64.Build.0 = Release|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|x64.Deploy.0 = Release|x64
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|x86.ActiveCfg = Release|x86
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|x86.Build.0 = Release|x86
-		{C3223DF0-A1D6-47CD-9681-168FFB47349E}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,6 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="MVVM/ShortCutProfileViewer/ShortCutProfileViewerResources.xaml"/>
+                <ResourceDictionary Source="MVVM/ShortCutProfileEditor/ShortCutProfileEditorResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>
