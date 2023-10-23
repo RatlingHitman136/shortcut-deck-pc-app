@@ -11,16 +11,19 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition>
                 <ColumnDefinition.Width>
-                    <MultiBinding Converter="{StaticResource DoubleMultiplicationGridWidthConverter}" ConverterParameter="0">
+                    <MultiBinding Converter="{StaticResource EditorColumnWidthConverter}" ConverterParameter="0">
                         <Binding ElementName="mainEditorGrid" Path="ActualHeight"/>
-                        <Binding Path="WidthToHeightRatio"/>
+                        <Binding Path="EditorHorizontalMargin"/>
+                        <Binding Path="EditorVerticalMargin"/>
+                        <Binding Path="EditorHorizontalGridSize"/>
+                        <Binding Path="EditorVerticalGridSize"/>
                     </MultiBinding>
                 </ColumnDefinition.Width>
             </ColumnDefinition>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0" Background="Green" Margin="30 15 15 30">
+        <Grid Grid.Row="0" Grid.Column="0" Background="Green" Margin="{Binding EditorMargin}">
 
         </Grid>
     </Grid>

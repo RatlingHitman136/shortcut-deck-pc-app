@@ -7,5 +7,5 @@
         <localView:ShortCutProfileEditorView/>
     </DataTemplate>
 
-    <converter:DoubleMultiplicationGridWidthConverter x:Key="DoubleMultiplicationGridWidthConverter"/>
+    <converter:EditorColumnWidthConverter x:Key="EditorColumnWidthConverter"/>
 </ResourceDictionary>
