@@ -8,7 +8,7 @@
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280"
-        ResizeMode="CanMinimize">
+        MinHeight="360" MinWidth="640">
     <Window.DataContext>
         <viewModel:MainWindowViewModel/>
     </Window.DataContext>
