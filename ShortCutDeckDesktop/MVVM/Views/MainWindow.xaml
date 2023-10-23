@@ -46,7 +46,6 @@
             
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu Background="White">
-                    <MenuItem Header="First Menu Item" />
                     <MenuItem Header="Exit" Click="tray_icon_MenuItem_Click" />
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
