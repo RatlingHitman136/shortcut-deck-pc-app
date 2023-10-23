@@ -23,7 +23,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 
         public void OnEditorResized()
         {
-            throw new Exception();
+            
         }
     }
 }
