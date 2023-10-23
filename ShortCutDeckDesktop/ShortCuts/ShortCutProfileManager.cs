@@ -57,7 +57,7 @@ namespace ShortCutDeckDesktop.ShortCuts
                     (new ShortCutButton(new ActionPCVirtualKeyPressed(VirtualKeysConstants.VK_VOLUME_DOWN)), new ShortCutProfile.GridPos(3,0)),
                 }
                 );
-            _profiles.Add(testProfile2);
+            //_profiles.Add(testProfile2);
 
             ProfilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
         }
