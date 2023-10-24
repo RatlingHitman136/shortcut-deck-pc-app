@@ -16,10 +16,14 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
         private double _editorHorizontalMargin;
         private double _editorVerticalMargin;
 
+        private ProfilePreviewerViewModel _profilePreviewerViewModel;
+
         public ShortCutProfileEditorViewModel()
         {
             _editorHorizontalMargin = 15;
             _editorVerticalMargin = 15;
+
+            _profilePreviewerViewModel = new ProfilePreviewerViewModel();
         }
 
         public int EditorHorizontalGridSize { get => ShortCutProfileManager.GridWidth; }
@@ -27,6 +31,6 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
         public Thickness EditorMargin { get => new Thickness(_editorHorizontalMargin, _editorVerticalMargin, EditorHorizontalMargin, EditorVerticalMargin); }
         public double EditorHorizontalMargin { get => _editorHorizontalMargin; set => _editorHorizontalMargin = value; }
         public double EditorVerticalMargin { get => _editorVerticalMargin; set => _editorVerticalMargin = value; }
-
+        public ProfilePreviewerViewModel ProfilePreviewerViewModel { get => _profilePreviewerViewModel; }
     }
 }

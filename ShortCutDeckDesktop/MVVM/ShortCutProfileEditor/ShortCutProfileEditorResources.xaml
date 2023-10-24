@@ -6,6 +6,8 @@
     <DataTemplate DataType="{x:Type localViewModel:ShortCutProfileEditorViewModel}">
         <localView:ShortCutProfileEditorView/>
     </DataTemplate>
-
+    <DataTemplate DataType="{x:Type localViewModel:ProfilePreviewerViewModel}">
+        <localView:ProfilePreviewerView/>
+    </DataTemplate>
     <converter:EditorColumnWidthConverter x:Key="EditorColumnWidthConverter"/>
 </ResourceDictionary>

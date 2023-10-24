@@ -23,8 +23,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0" Background="Green" Margin="{Binding EditorMargin}">
-
+        <Grid Grid.Row="0" Grid.Column="0" Margin="{Binding EditorMargin}">
+            <ContentControl Content="{Binding ProfilePreviewerViewModel}"/>
         </Grid>
     </Grid>
 </UserControl>
