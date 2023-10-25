@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 {
-    class ProfilePreviewerViewModel : ObservableObject
+    class ProfilePreviewer6X4ViewModel : ObservableObject
     {
 
     }
