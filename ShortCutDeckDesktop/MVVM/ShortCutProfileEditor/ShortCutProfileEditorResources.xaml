@@ -2,12 +2,25 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:localView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views"
                     xmlns:localViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels"
-                    xmlns:converter="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Converters">
+                    xmlns:converter="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Converters"
+                    
+                    xmlns:shortCutsView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCuts"
+                    xmlns:shortCutsViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts">
     <DataTemplate DataType="{x:Type localViewModel:ShortCutProfileEditorViewModel}">
         <localView:ShortCutProfileEditorView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type localViewModel:ProfilePreviewer6X4ViewModel}">
         <localView:ProfilePreviewer6X4View/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type localViewModel:ShortCutPreviewPlaceHolderViewModel}">
+        <localView:ShortCutPreviewPlaceHolderView 
+            DragDrop_MouseMoveCommand="{Binding DragDrop_MouseMoveCommand}"
+            DragDrop_MouseLeaveCommand="{Binding DragDrop_MouseLeaveCommand}"
+            DragDrop_DropCommand="{Binding DragDrop_DropCommand}"/>
+    </DataTemplate>
     <converter:EditorColumnWidthConverter x:Key="EditorColumnWidthConverter"/>
+
+    <DataTemplate DataType="{x:Type shortCutsViewModel:ShortCutButtonViewModel}">
+        <shortCutsView:ShortCutButtonView/>
+    </DataTemplate>
 </ResourceDictionary>

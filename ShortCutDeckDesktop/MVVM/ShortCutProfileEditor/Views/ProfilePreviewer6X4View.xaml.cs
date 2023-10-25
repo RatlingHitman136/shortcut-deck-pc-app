@@ -24,5 +24,14 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views
         {
             InitializeComponent();
         }
+
+        private void ItemControl_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                var obj = Mouse.DirectlyOver as Rectangle;
+                DragDrop.DoDragDrop(obj, obj, DragDropEffects.Move);
+            }
+        }
     }
 }
