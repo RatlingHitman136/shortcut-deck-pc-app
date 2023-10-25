@@ -21,6 +21,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
         private ICommand _dragDrop_MouseMoveCommand;
         private ICommand _dragDrop_MouseLeaveCommand;
         private ICommand _dragDrop_DropCommand;
+        private ICommand _dragDrop_RemovedCommand;
 
         public ShortCutPreviewPlaceHolderViewModel(int index_X, 
             int index_Y, 
@@ -44,6 +45,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
             _dragDrop_MouseMoveCommand = new RelayCommand<object?>(p => onMouseMoveCommand(p));
             _dragDrop_MouseLeaveCommand = new RelayCommand<object?>(p => onMouseLeaveCommand(p));
             _dragDrop_DropCommand = new RelayCommand<object?>(p => onDropCommand(p));
+            _dragDrop_RemovedCommand = new RelayCommand<object?>(p => onRemovedCommand(p));
         }
 
         public Thickness BorderThickness { get => _borderThickness; }
@@ -60,12 +62,14 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
         public ICommand DragDrop_MouseMoveCommand { get => _dragDrop_MouseMoveCommand; }
         public ICommand DragDrop_MouseLeaveCommand { get => _dragDrop_MouseLeaveCommand; }
         public ICommand DragDrop_DropCommand { get => _dragDrop_DropCommand; }
+        public ICommand DragDrop_RemovedCommand { get => _dragDrop_RemovedCommand; }
 
         private void onMouseMoveCommand(object? parameter)
         {
             if (parameter is not MouseEventArgs)
                 return;
         }
+
         private void onMouseLeaveCommand(object? parameter)
         {
             if (parameter is not MouseEventArgs)
@@ -78,6 +82,11 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
                 return;
 
 
+        }
+
+        private void onRemovedCommand(object? parameter)
+        {
+            ShortCutViewModel = null;
         }
     }
 }

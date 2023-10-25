@@ -16,7 +16,8 @@
         <localView:ShortCutPreviewPlaceHolderView 
             DragDrop_MouseMoveCommand="{Binding DragDrop_MouseMoveCommand}"
             DragDrop_MouseLeaveCommand="{Binding DragDrop_MouseLeaveCommand}"
-            DragDrop_DropCommand="{Binding DragDrop_DropCommand}"/>
+            DragDrop_DropCommand="{Binding DragDrop_DropCommand}"
+            DragDrop_RemovedCommand="{Binding DragDrop_RemovedCommand}"/>
     </DataTemplate>
     <converter:EditorColumnWidthConverter x:Key="EditorColumnWidthConverter"/>
 

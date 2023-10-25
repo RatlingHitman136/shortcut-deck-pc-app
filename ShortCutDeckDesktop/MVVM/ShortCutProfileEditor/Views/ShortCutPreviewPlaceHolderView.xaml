@@ -9,9 +9,9 @@
     <Border Background="Transparent" 
             BorderThickness="{Binding BorderThickness}" 
             BorderBrush="Silver"
-            MouseMove="Border_MouseMove"
-            MouseLeave="Border_MouseLeave"
-            Drop="Border_Drop"            
+            MouseMove="DragDrop_MouseMove"
+            MouseLeave="DragDrop_MouseLeave"
+            Drop="DragDrop_Drop"            
             AllowDrop="True">
         <ContentControl x:Name="contentControl" Content="{Binding ShortCutViewModel}"/>
     </Border>

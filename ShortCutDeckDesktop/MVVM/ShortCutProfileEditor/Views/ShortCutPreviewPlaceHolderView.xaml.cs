@@ -34,6 +34,9 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views
         public static readonly DependencyProperty DragDrop_DropCommandProperty = DependencyProperty.Register("DragDrop_DropCommand",
             typeof(ICommand), typeof(ShortCutPreviewPlaceHolderView));
 
+        public static readonly DependencyProperty DragDrop_RemovedCommandProperty = DependencyProperty.Register("DragDrop_RemovedCommand",
+            typeof(ICommand), typeof(ShortCutPreviewPlaceHolderView));
+
         public ICommand DragDrop_MouseMoveCommand
         {
             get { return (ICommand)GetValue(DragDrop_MouseMoveCommandProperty); }
@@ -52,20 +55,44 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views
             set { SetValue(DragDrop_DropCommandProperty, value); }
         }
 
-        private void Border_MouseMove(object sender, MouseEventArgs e)
+        public ICommand DragDrop_RemovedCommand
         {
-            
-            DragDrop_MouseMoveCommand?.Execute(e);
+            get { return (ICommand)GetValue(DragDrop_RemovedCommandProperty); }
+            set { SetValue(DragDrop_RemovedCommandProperty, value); }
         }
 
-        private void Border_MouseLeave(object sender, MouseEventArgs e)
+
+        private void DragDrop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                var contentPresenter = VisualTreeHelper.GetChild(contentControl, 0);
+                if (VisualTreeHelper.GetChildrenCount(contentPresenter) > 0)
+                {
+                    var res = VisualTreeHelper.GetChild(contentPresenter, 0);
+                    if(res is UIElement)
+                        DragDrop.DoDragDrop(res, new DataObject(DataFormats.Serializable, this), DragDropEffects.Move);
+                    DragDrop_MouseMoveCommand?.Execute(e);
+                }
+            }
+        }
+
+        private void DragDrop_MouseLeave(object sender, MouseEventArgs e)
         {
             DragDrop_MouseLeaveCommand?.Execute(e);
         }
 
-        private void Border_Drop(object sender, DragEventArgs e)
+        private void DragDrop_Drop(object sender, DragEventArgs e)
         {
+            var data = e.Data.GetData(DataFormats.Serializable);
+            if (data is ShortCutPreviewPlaceHolderView)
+                ((ShortCutPreviewPlaceHolderView)data).DragDrop_Removed();
             DragDrop_DropCommand?.Execute(e);
+        }
+
+        public void DragDrop_Removed()
+        {
+            DragDrop_RemovedCommand.Execute(null);
         }
     }
 }
