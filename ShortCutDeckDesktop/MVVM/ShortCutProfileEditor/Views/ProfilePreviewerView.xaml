@@ -3,13 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views"
+             xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="400">
     <Border Background="Beige" CornerRadius="10">
-        <Grid>
-            
-        </Grid>
-
+        <ItemsControl ItemsSource="{Binding ShortCuts}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas IsItemsHost="True" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="100" Height="100" Background="Blue">
+                            <TextBlock Margin="10 10 10 10" Background="Aqua"/>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="local:ShortCutsDraggableExtendor.CanDrag" Value="True" />
+                        <Setter Property="Canvas.Left" Value="{Binding Path=X}" />
+                        <Setter Property="Canvas.Top" Value="{Binding Path=Y}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+            </ItemsControl>
     </Border>
 </UserControl>
