@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,8 +71,11 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views
                 if (VisualTreeHelper.GetChildrenCount(contentPresenter) > 0)
                 {
                     var res = VisualTreeHelper.GetChild(contentPresenter, 0);
-                    if(res is UIElement)
-                        DragDrop.DoDragDrop(res, new DataObject(DataFormats.Serializable, this), DragDropEffects.Move);
+                    if (res is UIElement)
+                    {
+                        ShortCutDragDropParamteres param = new(this, contentControl.Content);
+                        DragDrop.DoDragDrop(res, new DataObject(DataFormats.Serializable, param), DragDropEffects.Move);
+                    }
                     DragDrop_MouseMoveCommand?.Execute(e);
                 }
             }
@@ -85,8 +89,12 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views
         private void DragDrop_Drop(object sender, DragEventArgs e)
         {
             var data = e.Data.GetData(DataFormats.Serializable);
-            if (data is ShortCutPreviewPlaceHolderView)
-                ((ShortCutPreviewPlaceHolderView)data).DragDrop_Removed();
+            if (data is ShortCutDragDropParamteres)
+            {
+                if (contentControl.Content != null)
+                    return;
+                ((ShortCutDragDropParamteres)data).placeHolderView.DragDrop_Removed();
+            }
             DragDrop_DropCommand?.Execute(e);
         }
 

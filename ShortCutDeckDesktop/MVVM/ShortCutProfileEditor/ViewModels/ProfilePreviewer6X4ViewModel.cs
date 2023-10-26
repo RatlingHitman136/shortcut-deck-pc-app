@@ -21,6 +21,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 
             var testView = new ShortCutButtonViewModel();
             _shortCutPlaceHolders[0].ShortCutViewModel = testView;
+            _shortCutPlaceHolders[1].ShortCutViewModel = testView;
         }
 
         public ObservableCollection<ShortCutPreviewPlaceHolderViewModel> ShortCutPlaceHolders { get => _shortCutPlaceHolders; }

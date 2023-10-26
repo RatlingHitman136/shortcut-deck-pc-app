@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,13 +82,31 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
         {
             if (parameter is not DragEventArgs)
                 return;
-
-
+            var e = parameter as DragEventArgs;
+            var data = e.Data.GetData(DataFormats.Serializable);
+            if (data is ShortCutDragDropParamteres)
+            {
+                var viewModel = ((ShortCutDragDropParamteres)data).shortCutViewModel;
+                this.ShortCutViewModel = viewModel;
+            }
         }
-
-        private void onRemovedCommand(object? parameter)
+        private void onRemovedCommand(object? p)
         {
             ShortCutViewModel = null;
         }
     }
+
+
+    public struct ShortCutDragDropParamteres
+    {
+        internal ShortCutPreviewPlaceHolderView placeHolderView;
+        public object shortCutViewModel;
+
+        public ShortCutDragDropParamteres(ShortCutPreviewPlaceHolderView placeHolderView, object shortCutViewModel)
+        {
+            this.placeHolderView = placeHolderView;
+            this.shortCutViewModel = shortCutViewModel;
+        }
+    }
+
 }
