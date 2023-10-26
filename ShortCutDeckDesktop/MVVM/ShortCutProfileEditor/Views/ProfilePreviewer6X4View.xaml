@@ -6,22 +6,39 @@
              xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="400">
-    <Border Background="Beige" CornerRadius="10">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-        </Grid>
+    <Border Background="Beige" CornerRadius="10"
+            AllowDrop="True"
+            MouseMove="DragDrop_MouseMove"
+            Drop="DragDrop_Drop">
+        <ItemsControl ItemsSource="{Binding ShortCutsViewModels}" x:Name="shortCutViewsHolder">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Grid.Row" Value="{Binding Y_Pos}"/>
+                    <Setter Property="Grid.Column" Value="{Binding X_Pos}"/>
+                    <Setter Property="Grid.ColumnSpan" Value="{Binding Size_X}"/>
+                    <Setter Property="Grid.RowSpan" Value="{Binding Size_Y}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>  
     </Border>
 </UserControl>

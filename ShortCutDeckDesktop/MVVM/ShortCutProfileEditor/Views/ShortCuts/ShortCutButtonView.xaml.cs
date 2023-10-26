@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views
+namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCuts
 {
     /// <summary>
-    /// Interaction logic for ShortCutProfileEditorView.xaml
+    /// Interaction logic for ShortCutButtonView.xaml
     /// </summary>
-    public partial class ShortCutProfileEditorView : UserControl
-    { 
-        public ShortCutProfileEditorView()
+    public partial class ShortCutButtonView : UserControl
+    {
+        public ShortCutButtonView()
         {
             InitializeComponent();
         }
