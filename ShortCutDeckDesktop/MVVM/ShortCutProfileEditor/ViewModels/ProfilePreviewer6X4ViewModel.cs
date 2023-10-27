@@ -19,7 +19,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 
         public ProfilePreviewer6X4ViewModel()
         {
-            _profilePrevewerEditorModel = new ProfileEditorModel(4,6);
+            _profilePrevewerEditorModel = new ProfileEditorModel(null);
             _profilePrevewerEditorModel.ShortCutViewModels.Add(new ShortCutButtonViewModel(1,2));
             _profilePrevewerEditorModel.ShortCutViewModels.Add(new ShortCutButtonViewModel(3,2));
 

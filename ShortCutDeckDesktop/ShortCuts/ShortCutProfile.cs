@@ -18,18 +18,28 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         private string _name;
         public string Name { get => _name; }
+        
+        private int _size_X;
+        private int _size_Y;
+        public int Size_X { get => _size_X; }
+        public int Size_Y { get => _size_X; }
+
 
         public ShortCutProfile(string id, string name)
         {
             _shortCuts = new List<(ShortCutBase, GridPos)>();
             _id = id;
             _name = name;
+            _size_X = 4;
+            _size_Y = 6;
         }
         public ShortCutProfile(string id, string name, List<(ShortCutBase, GridPos)> shortCuts)
         {
             _shortCuts = shortCuts;
             _id = id;
             _name = name;
+            _size_X = 4;
+            _size_Y = 6;
         }
         public List<(ShortCutBase, GridPos)> getShortCutsInRightOrder()
         {

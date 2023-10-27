@@ -1,4 +1,5 @@
 ﻿using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts;
+using ShortCutDeckDesktop.ShortCuts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,18 +11,17 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
 {
     class ProfileEditorModel
     {
-        private int _gridSize_X;
-        private int _gridSize_Y;
+        private ShortCutProfile _editableShortCutProfile;
 
         private ObservableCollection<ShortCutBaseViewModel> _shortCutViewModels;
-
         internal ObservableCollection<ShortCutBaseViewModel> ShortCutViewModels { get => _shortCutViewModels; }
 
-        public ProfileEditorModel(int gridSize_X, int gridSize_Y)
+        public ProfileEditorModel(ShortCutProfile shortCutProfileToEdit)
         {
             _shortCutViewModels = new();
-            _gridSize_X = gridSize_X;
-            _gridSize_Y = gridSize_Y;
+            //must be cloning shit
+            _editableShortCutProfile = shortCutProfileToEdit.Clone();
+
         }
 
         public bool CanAddShortCutViewModelToGrid(ShortCutBaseViewModel viewModelToAdd)
