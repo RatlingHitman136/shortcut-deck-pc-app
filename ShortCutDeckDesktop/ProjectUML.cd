@@ -1,351 +1,144 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionPCVirtualKeyPressed" Collapsed="true">
-    <Position X="3.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAACAAAg=</HashCode>
-      <FileName>Actions\ActionTypes\ActionPCVirtualKeyPressed.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionPCVirtualKeyPressedDataHolder" Collapsed="true">
-    <Position X="6.25" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
-      <FileName>Actions\ActionTypes\ActionPCVirtualKeyPressed.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionScanAns" Collapsed="true">
-    <Position X="5.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EIQAAAAACAAAAAAAAAAAAAAAAEAAAAAAAAACAABAAAA=</HashCode>
-      <FileName>Actions\ActionTypes\ActionScanAns.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionSendProfiles" Collapsed="true">
-    <Position X="8" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAEAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Actions\ActionTypes\ActionSendProfiles.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionShortCutTriggered" Collapsed="true">
-    <Position X="10.25" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>Actions\ActionTypes\ActionShortCutTriggered.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Actions.ActionBase" Collapsed="true">
-    <Position X="6.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>Actions\ActionBase.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Actions.ActionBaseDataHolder" Collapsed="true">
-    <Position X="6.25" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Actions\ActionBase.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Actions.ActionFactory" Collapsed="true">
-    <Position X="12.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
-      <FileName>Actions\ActionFactory.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Constants.StringConstants" Collapsed="true">
-    <Position X="12.75" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAIAAAAAAAAAAAgAAAACAAAAAAACQAIAAAAQA=</HashCode>
-      <FileName>Constants\StringConstants.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Constants.VirtualKeysConstants" Collapsed="true">
-    <Position X="14.5" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAIAAAAAAUAA=</HashCode>
-      <FileName>Constants\VirtualKeysConstants.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Converters.EditorColumnWidthConverter" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="12.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileEditor\Converters\EditorColumnWidthConverter.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models.ProfileEditorModel" Collapsed="true">
-    <Position X="19.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAIAAAAAAAAAAAAAABAAAAAAAAAAAABAIAAACA=</HashCode>
-      <FileName>MVVM\ShortCutProfileEditor\Models\ProfileEditorModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts.ShortCutBaseViewModel" Collapsed="true">
-    <Position X="9.25" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAMAAAEAAAACAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileEditor\ViewModels\ShortCuts\ShortCutBaseViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts.ShortCutButtonViewModel" Collapsed="true">
-    <Position X="9.25" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileEditor\ViewModels\ShortCuts\ShortCutButtonViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ProfilePreviewer6X4ViewModel" Collapsed="true">
-    <Position X="18" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAACCAgACAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileEditor\ViewModels\ProfilePreviewer6X4ViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutProfileEditorViewModel" Collapsed="true">
-    <Position X="14.5" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAgAACEAgAAAAAAAEAAQAAASAAAAAAAQAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileEditor\ViewModels\ShortCutProfileEditorViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCuts.ShortCutButtonView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.25" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileEditor\Views\ShortCuts\ShortCutButtonView.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ProfilePreviewer6X4View" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.25" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAACBAAAAAAAwAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileEditor\Views\ProfilePreviewer6X4View.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCutProfileEditorView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="12.75" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileEditor\Views\ShortCutProfileEditorView.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileLister.BaseItemViewModel" Collapsed="true">
-    <Position X="3.25" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAEAAAAAAAAAAAAAAACAAAABAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\ViewModels\ProfileLister\BaseItemViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileLister.ProfileItemViewModel" Collapsed="true">
-    <Position X="3.25" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAEAAAAAAAEAAAABAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\ViewModels\ProfileLister\ProfileItemViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.DefaultMainViewModel" Collapsed="true">
-    <Position X="21.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAgCBAAAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\ViewModels\DefaultMainViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileMainViewModel" Collapsed="true">
-    <Position X="14.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAACAAAAAAAABEAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\ViewModels\ProfileMainViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileSmallViewModel" Collapsed="true">
-    <Position X="21.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAAACAAAAAAAAAAAAQAAAAAAAAARAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\ViewModels\ProfileSmallViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ShortCutProfilesViewerViewModel" Collapsed="true">
-    <Position X="21.5" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAYAAgAAAAQAAAAAgAAgCAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\ViewModels\ShortCutProfilesViewerViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views.ProfileLister.BaseItemView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\Views\ProfileLister\BaseItemView.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views.ProfileLister.ProfileItemView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="21.5" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\Views\ProfileLister\ProfileItemView.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views.DefaultMainView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="19.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\Views\DefaultMainView.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views.ProfileMainView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="12.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\Views\ProfileMainView.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views.ProfileSmallView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="19.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\Views\ProfileSmallView.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views.ShortCutProfilesViewerView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="19.75" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\Views\ShortCutProfilesViewerView.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ViewModels.MainWindowViewModel" Collapsed="true">
-    <Position X="18" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAgAACAAAAAAgAAAAAAAAABAAAAAAAAAEAAAAAA=</HashCode>
-      <FileName>MVVM\ViewModels\MainWindowViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAAAEAAAAA=</HashCode>
-      <FileName>MVVM\Views\MainWindow.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ShortCutDeckDesktop.App" Collapsed="true">
-    <Position X="14.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>App.xaml.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Logger" Collapsed="true">
-    <Position X="14.5" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAMCAAAAAAAgAAAAAAAAAAAACAAAAAAAQAAAA=</HashCode>
-      <FileName>Logger.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Networking.ClientClass" Collapsed="true">
-    <Position X="18" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAIIAAAIgAAACAAABEgAAAAgCAAAAAAABAECAA=</HashCode>
-      <FileName>Networking\ClientClass.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Networking.RecievedMessageHandler" Collapsed="true">
-    <Position X="12.75" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Networking\RecievedMessageHandler.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Networking.ServerClass" Collapsed="true">
-    <Position X="14.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACCAMBAIAEAIAAAAKAAQEAABAEAAAA=</HashCode>
-      <FileName>Networking\ServerClass.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutBase" Collapsed="true">
-    <Position X="6.25" Y="3.5" Width="1.5" />
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutBase">
+    <Position X="20.75" Y="9.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>ShortCuts\ShortCutTypes\ShortCutBase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutBaseDataHolder" Collapsed="true">
-    <Position X="3.25" Y="3.5" Width="1.5" />
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutBaseDataHolder">
+    <Position X="18.5" Y="9.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ShortCuts\ShortCutTypes\ShortCutBase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutButton" Collapsed="true">
-    <Position X="6.25" Y="4.75" Width="1.5" />
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutButton">
+    <Position X="20.75" Y="11.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAIEAAAAAAAAAAA=</HashCode>
       <FileName>ShortCuts\ShortCutTypes\ShortCutButton.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutButtonDataHolder" Collapsed="true">
-    <Position X="3.25" Y="4.75" Width="1.5" />
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutButtonDataHolder">
+    <Position X="18.5" Y="11.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ShortCuts\ShortCutTypes\ShortCutButton.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutFactory" Collapsed="true">
-    <Position X="18" Y="3.5" Width="1.5" />
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutFactory">
+    <Position X="29.75" Y="14.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>ShortCuts\ShortCutFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfile" Collapsed="true">
-    <Position X="19.75" Y="3.5" Width="1.5" />
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfile">
+    <Position X="28" Y="9.5" Width="2.25" />
+    <NestedTypes>
+      <Struct Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfile.GridPos" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ShortCuts\ShortCutProfile.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAMCIAAAAAAAAAIAAABAAAQAAAAAQAAECAAAAAAAAAA=</HashCode>
       <FileName>ShortCuts\ShortCutProfile.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfileDataHolder" Collapsed="true">
-    <Position X="21.5" Y="3.5" Width="1.5" />
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfileDataHolder">
+    <Position X="24.5" Y="9.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAABAAAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>ShortCuts\ShortCutProfile.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfilesListUpdateEventArgs" Collapsed="true">
-    <Position X="18" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
-      <FileName>ShortCuts\ShortCutProfileManager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfileManager" Collapsed="true">
-    <Position X="16.25" Y="4.5" Width="1.5" />
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfileManager">
+    <Position X="30.75" Y="9.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAICAAoAAAAAAABAAAAAAAAAAQAAIAAABAAA=</HashCode>
       <FileName>ShortCuts\ShortCutProfileManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Delegate Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfilesListUpdateEventHandler" Collapsed="true">
-    <Position X="12.75" Y="6.75" Width="1.5" />
+  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionPCVirtualKeyPressed">
+    <Position X="19" Y="17.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ShortCuts\ShortCutProfileManager.cs</FileName>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAACAAAg=</HashCode>
+      <FileName>Actions\ActionTypes\ActionPCVirtualKeyPressed.cs</FileName>
     </TypeIdentifier>
-  </Delegate>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionPCVirtualKeyPressedDataHolder">
+    <Position X="17" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Actions\ActionTypes\ActionPCVirtualKeyPressed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionScanAns">
+    <Position X="25.75" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIQAAAAACAAAAAAAAAAAAAAAAEAAAAAAAAACAABAAAA=</HashCode>
+      <FileName>Actions\ActionTypes\ActionScanAns.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionSendProfiles">
+    <Position X="21.25" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAEAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\ActionTypes\ActionSendProfiles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionShortCutTriggered">
+    <Position X="23.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\ActionTypes\ActionShortCutTriggered.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.Actions.ActionBase">
+    <Position X="22.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\ActionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.Actions.ActionBaseDataHolder">
+    <Position X="17" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\ActionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.Actions.ActionFactory">
+    <Position X="28" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Actions\ActionFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.Networking.ClientClass">
+    <Position X="12.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIIAAAIgAAACAAABEgAAAAgCAAAAAAABAECAA=</HashCode>
+      <FileName>Networking\ClientClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.Networking.RecievedMessageHandler">
+    <Position X="14.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Networking\RecievedMessageHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.Networking.ServerClass">
+    <Position X="10.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACCAMBAIAEAIAAAAKAAQEAABAEAAAA=</HashCode>
+      <FileName>Networking\ServerClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
