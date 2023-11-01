@@ -1,5 +1,7 @@
-﻿using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts;
+﻿using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts;
 using ShortCutDeckDesktop.ShortCuts;
+using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,17 +13,25 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
 {
     class ProfileEditorModel
     {
-        private ShortCutProfile _editableShortCutProfile;
+        private ShortCutProfileDataHolder _editableShortCutProfileData;
 
         private ObservableCollection<ShortCutBaseViewModel> _shortCutViewModels;
-        internal ObservableCollection<ShortCutBaseViewModel> ShortCutViewModels { get => _shortCutViewModels; }
+
+        internal ObservableCollection<ShortCutBaseViewModel> ShortCutViewModels
+        {
+            get => _shortCutViewModels;
+        }
 
         public ProfileEditorModel(ShortCutProfile shortCutProfileToEdit)
         {
-            _shortCutViewModels = new();
-            //must be cloning shit
-            _editableShortCutProfile = shortCutProfileToEdit.Clone();
-
+            _editableShortCutProfileData = shortCutProfileToEdit.GetDataHolder();
+            List<(ShortCutBaseDataHolder, ShortCutProfile.GridPos)> shortCutsData = _editableShortCutProfileData.shortCuts;
+            _shortCutViewModels = new ObservableCollection<ShortCutBaseViewModel>();
+            foreach (var a in shortCutsData)
+            {
+                var bastDataHolder = a.Item1 as ShortCutButtonDataHolder;
+                _shortCutViewModels.Add(ShortCutViewModelFactory.CreateViewModelFromDataHolder(a));
+            }
         }
 
         public bool CanAddShortCutViewModelToGrid(ShortCutBaseViewModel viewModelToAdd)

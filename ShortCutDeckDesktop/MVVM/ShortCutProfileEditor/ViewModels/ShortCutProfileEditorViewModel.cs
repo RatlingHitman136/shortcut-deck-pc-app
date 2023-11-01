@@ -18,12 +18,12 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 
         private ProfilePreviewer6X4ViewModel _profilePreviewerViewModel;
 
-        public ShortCutProfileEditorViewModel()
+        public ShortCutProfileEditorViewModel(ShortCutProfile profileToEdit)
         {
             _editorHorizontalMargin = 15;
             _editorVerticalMargin = 15;
 
-            _profilePreviewerViewModel = new ProfilePreviewer6X4ViewModel();
+            _profilePreviewerViewModel = new ProfilePreviewer6X4ViewModel(profileToEdit);
         }
 
         public int EditorHorizontalGridSize { get => ShortCutProfileManager.GridWidth; }

@@ -17,7 +17,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
         public ProfileMainViewModel(ShortCutProfile profile)
         {
             _profile = profile;
-            _profileEditor = new ShortCutProfileEditorViewModel();
+            _profileEditor = new ShortCutProfileEditorViewModel(profile);
             OnPropertyChanged();
         }
 

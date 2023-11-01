@@ -14,5 +14,13 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
         {
             Logger.logServerMsg("shortcut activated");
         }
+
+        public virtual ShortCutBaseDataHolder GetDataHolder()
+        {
+            return new ShortCutBaseDataHolder();
+        }
     }
+
+    public class ShortCutBaseDataHolder
+    {}
 }

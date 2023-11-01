@@ -39,7 +39,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             return profile != null;
         }
         public static void initTestOneProfile() {
-            ShortCutProfile testProfile = new ShortCutProfile("mainPrf", "Default Profile",
+            ShortCutProfile testProfile = new ShortCutProfile("mainPrf", "Default Profile", 4, 6,
                 new List<(ShortCutBase, ShortCutProfile.GridPos)>
                 {
                     (new ShortCutButton(new ActionPCVirtualKeyPressed(VirtualKeysConstants.VK_VOLUME_UP)), new ShortCutProfile.GridPos(0,0)),
@@ -50,7 +50,7 @@ namespace ShortCutDeckDesktop.ShortCuts
                 );
             _profiles.Add(testProfile);
 
-            ShortCutProfile testProfile2 = new ShortCutProfile("scndPrf", "Not Default Profile",
+            ShortCutProfile testProfile2 = new ShortCutProfile("scndPrf", "Not Default Profile", 4, 6,
                 new List<(ShortCutBase, ShortCutProfile.GridPos)>
                 {
                     (new ShortCutButton(new ActionPCVirtualKeyPressed(VirtualKeysConstants.VK_VOLUME_UP)), new ShortCutProfile.GridPos(0,0)),

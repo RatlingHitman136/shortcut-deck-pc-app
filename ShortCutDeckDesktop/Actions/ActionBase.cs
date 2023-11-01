@@ -11,5 +11,13 @@ namespace ShortCutDeckDesktop.Actions
         public ActionBase() { }
 
         public virtual void executeAction() { }
+
+        public virtual ActionBaseDataHolder GetDataHolder()
+        {
+            return new ActionBaseDataHolder();
+        }
     }
+
+    public class ActionBaseDataHolder
+    {}
 }

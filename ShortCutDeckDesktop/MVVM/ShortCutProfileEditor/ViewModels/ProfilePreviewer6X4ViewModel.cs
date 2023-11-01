@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts;
+using ShortCutDeckDesktop.ShortCuts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,12 +18,9 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
         private ProfileEditorModel _profilePrevewerEditorModel;
         private ICommand _dragDrop_DropCommand;
 
-        public ProfilePreviewer6X4ViewModel()
+        public ProfilePreviewer6X4ViewModel(ShortCutProfile profileToEdit)
         {
-            _profilePrevewerEditorModel = new ProfileEditorModel(null);
-            _profilePrevewerEditorModel.ShortCutViewModels.Add(new ShortCutButtonViewModel(1,2));
-            _profilePrevewerEditorModel.ShortCutViewModels.Add(new ShortCutButtonViewModel(3,2));
-
+            _profilePrevewerEditorModel = new ProfileEditorModel(profileToEdit);
             _dragDrop_DropCommand = new RelayCommand<object?>(param => OnShortCutDropped(param));
         }
 

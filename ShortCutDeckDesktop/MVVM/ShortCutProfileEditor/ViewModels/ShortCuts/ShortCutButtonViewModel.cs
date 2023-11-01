@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ShortCutDeckDesktop.Actions.ActionTypes;
+using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +8,16 @@ using System.Threading.Tasks;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts
 {
-    class ShortCutButtonViewModel :ShortCutBaseViewModel
+    internal class ShortCutButtonViewModel : ShortCutBaseViewModel
     {
-        public ShortCutButtonViewModel(int x_pos, int y_pos) : base(x_pos, y_pos, 1, 1)
-        {
+
+        internal new ShortCutButtonDataHolder _dataHolder;
+
+        public string ShortcutName { get => (_dataHolder._shortCutActionData as ActionPCVirtualKeyPressedDataHolder)._keyCode.ToString(); }
+
+        public ShortCutButtonViewModel(int x_pos, int y_pos, ShortCutButtonDataHolder shortCutButtonDataHolder) : base(x_pos, y_pos, 1, 1, shortCutButtonDataHolder)
+        { 
+            _dataHolder = shortCutButtonDataHolder;
         }
     }
 }

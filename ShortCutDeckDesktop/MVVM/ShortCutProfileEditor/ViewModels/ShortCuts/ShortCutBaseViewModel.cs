@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,15 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts
         internal int _size_X;
         internal int _size_Y;
 
-        protected ShortCutBaseViewModel(int pos_X, int posY, int sizeX, int sizeY)
+        internal ShortCutBaseDataHolder _dataHolder;
+
+        protected ShortCutBaseViewModel(int pos_X, int posY, int sizeX, int sizeY, ShortCutBaseDataHolder shortCutBaseDataHolder)
         {
             X_Pos = pos_X;
             Y_Pos = posY;
             _size_X = sizeX;
             _size_Y = sizeY;
+            _dataHolder = shortCutBaseDataHolder;
         }
 
         public int X_Pos
@@ -60,5 +64,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts
                 OnPropertyChanged();
             }
         }
+
+
     }
 }
