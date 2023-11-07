@@ -7,7 +7,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 {
     internal static class ShortCutViewModelFactory
     {
-        public static ShortCutBaseViewModel CreateViewModelFromDataHolder((ShortCutBaseDataHolder, ShortCutProfile.GridPos) data)
+        public static ShortCutBaseViewModel CreatePreviewViewModelFromDataHolder((ShortCutBaseDataHolder, ShortCutProfile.GridPos) data)
         {
             switch(data.Item1)
             {

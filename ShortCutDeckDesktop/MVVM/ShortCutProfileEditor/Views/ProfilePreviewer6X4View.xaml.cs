@@ -36,10 +36,19 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views
         public static readonly DependencyProperty DragDrop_DropCommandProperty = DependencyProperty.Register("DragDrop_DropCommand",
     typeof(ICommand), typeof(ProfilePreviewer6X4View));
 
+        public static readonly DependencyProperty ShortCutPreview_SelectedCommandProperty = DependencyProperty.Register("ShortCutPreview_SelectedCommand",
+            typeof(ICommand), typeof(ProfilePreviewer6X4View));
+
         public ICommand DragDrop_DropCommand
         {
             get { return (ICommand)GetValue(DragDrop_DropCommandProperty); }
             set { SetValue(DragDrop_DropCommandProperty, value); }
+        }
+
+        public ICommand ShortCutPreview_SelectedCommand
+        {
+            get { return (ICommand)GetValue(ShortCutPreview_SelectedCommandProperty); }
+            set { SetValue(ShortCutPreview_SelectedCommandProperty, value); }
         }
 
 
@@ -55,9 +64,23 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views
 
         private void DragDrop_Drop(object sender, DragEventArgs e)
         {
+            (int, int) newPos = GeXYFromPoint(e.GetPosition(this));
+
+            var dataToSend = (e.Data.GetData(DataFormats.Serializable), newPos.Item1, newPos.Item2);
+            DragDrop_DropCommand.Execute(dataToSend);
+        }
+
+        private void Previewer_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            (int, int) newPos = GeXYFromPoint(e.GetPosition(this));
+            var dataToSend = (e, newPos.Item1, newPos.Item2);
+            ShortCutPreview_SelectedCommand.Execute(dataToSend);
+        }
+
+        private (int,int) GeXYFromPoint(Point point)
+        {
             int newPos_X = 0;
             int newPos_Y = 0;
-            Point mousePosition = e.GetPosition(this);
 
             double itemsControlHeight = shortCutViewsHolder.ActualHeight;
             double itemsControlWidth = shortCutViewsHolder.ActualWidth;
@@ -65,11 +88,10 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views
             double rowHeight = itemsControlHeight / gridPreviewer.RowDefinitions.Count;
             double columnWidth = itemsControlWidth / gridPreviewer.ColumnDefinitions.Count;
 
-            newPos_X = (int)(mousePosition.X/ columnWidth);
-            newPos_Y = (int)(mousePosition.Y/ rowHeight);
+            newPos_X = (int)(point.X / columnWidth);
+            newPos_Y = (int)(point.Y / rowHeight);
 
-            var dataToSend = (e.Data.GetData(DataFormats.Serializable), newPos_X, newPos_Y);
-            DragDrop_DropCommand.Execute(dataToSend);
+            return (newPos_X, newPos_Y);
         }
     }
 }

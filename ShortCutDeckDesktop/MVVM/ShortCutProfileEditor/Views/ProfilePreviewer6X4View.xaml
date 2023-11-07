@@ -9,7 +9,8 @@
     <Border Background="Beige" CornerRadius="10"
             AllowDrop="True"
             MouseMove="DragDrop_MouseMove"
-            Drop="DragDrop_Drop">
+            Drop="DragDrop_Drop"
+            MouseDown="Previewer_MouseDown">
         <ItemsControl ItemsSource="{Binding ShortCutsViewModels}" x:Name="shortCutViewsHolder">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

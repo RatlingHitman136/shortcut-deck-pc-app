@@ -12,16 +12,16 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
     internal class ProfileMainViewModel:ObservableObject
     {
         private ShortCutProfile _profile;
-        private ShortCutProfileEditorViewModel _profileEditor;
+        private ProfileEditorViewModel _profileEditor;
 
         public ProfileMainViewModel(ShortCutProfile profile)
         {
             _profile = profile;
-            _profileEditor = new ShortCutProfileEditorViewModel(profile);
+            _profileEditor = new ProfileEditorViewModel(profile);
             OnPropertyChanged();
         }
 
         public ShortCutProfile Profile { get => _profile; }
-        public ShortCutProfileEditorViewModel ProfileEditor { get => _profileEditor; }
+        public ProfileEditorViewModel ProfileEditor { get => _profileEditor; }
     }
 }

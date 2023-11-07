@@ -5,11 +5,13 @@
                     xmlns:converter="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Converters"
                     xmlns:shortCutsView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCuts"
                     xmlns:shortCutsViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts">
-    <DataTemplate DataType="{x:Type localViewModel:ShortCutProfileEditorViewModel}">
-        <localView:ShortCutProfileEditorView/>
+    <DataTemplate DataType="{x:Type localViewModel:ProfileEditorViewModel}">
+        <localView:ProfileEditorView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type localViewModel:ProfilePreviewer6X4ViewModel}">
-        <localView:ProfilePreviewer6X4View DragDrop_DropCommand="{Binding DragDrop_DropCommand}"/>
+        <localView:ProfilePreviewer6X4View 
+            DragDrop_DropCommand="{Binding DragDrop_DropCommand}"
+            ShortCutPreview_SelectedCommand="{Binding ShortCutPreview_SelectedCommand}"/>
     </DataTemplate>
     
     <converter:EditorColumnWidthConverter x:Key="EditorColumnWidthConverter"/>

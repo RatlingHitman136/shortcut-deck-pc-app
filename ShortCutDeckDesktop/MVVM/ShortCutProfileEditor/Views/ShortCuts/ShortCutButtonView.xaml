@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCuts"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
-    <Grid Background="Aqua">
-        <TextBlock Text="{Binding ShortcutName}" Margin="4 4 4 4" Background="Wheat"/>
+    <Grid Background="Transparent">
+        <Border CornerRadius="10" Margin="4 4 4 4" Background="Wheat" >
+            <TextBlock Text="{Binding ShortcutName}" Margin="4 4 4 4"/>
+        </Border>
     </Grid>
 </UserControl>

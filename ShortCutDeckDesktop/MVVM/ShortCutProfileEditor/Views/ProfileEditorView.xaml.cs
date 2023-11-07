@@ -18,9 +18,9 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views
     /// <summary>
     /// Interaction logic for ShortCutProfileEditorView.xaml
     /// </summary>
-    public partial class ShortCutProfileEditorView : UserControl
+    public partial class ProfileEditorView : UserControl
     { 
-        public ShortCutProfileEditorView()
+        public ProfileEditorView()
         {
             InitializeComponent();
         }

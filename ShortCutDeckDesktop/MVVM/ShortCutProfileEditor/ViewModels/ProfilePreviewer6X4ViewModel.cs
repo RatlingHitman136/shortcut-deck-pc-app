@@ -15,20 +15,23 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 {
     class ProfilePreviewer6X4ViewModel : ObservableObject
     {
-        private ProfileEditorModel _profilePrevewerEditorModel;
+        private ProfileEditorModel _profilePreviewerEditorModel;
         private ICommand _dragDrop_DropCommand;
+        private ICommand _shortCutPreview_SelectedCommand;
 
-        public ProfilePreviewer6X4ViewModel(ShortCutProfile profileToEdit)
+        public ProfilePreviewer6X4ViewModel(ProfileEditorModel profileEditorModel)
         {
-            _profilePrevewerEditorModel = new ProfileEditorModel(profileToEdit);
+            _profilePreviewerEditorModel = profileEditorModel;
             _dragDrop_DropCommand = new RelayCommand<object?>(param => OnShortCutDropped(param));
+            _shortCutPreview_SelectedCommand = new RelayCommand<object?>(param => OnShortCutSelected(param));
         }
 
         public ObservableCollection<ShortCutBaseViewModel> ShortCutsViewModels
         {
-            get => _profilePrevewerEditorModel.ShortCutViewModels;
+            get => _profilePreviewerEditorModel.ShortCutViewModels;
         }
         public ICommand DragDrop_DropCommand { get => _dragDrop_DropCommand; }
+        public ICommand ShortCutPreview_SelectedCommand { get => _shortCutPreview_SelectedCommand; }
 
         private void OnShortCutDropped(object? param)
         {
@@ -41,7 +44,16 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
             int newPos_Y = converted.Item3;
 
 
-            _profilePrevewerEditorModel.TryChangeShortCutViewModelPositionInGrid(newPos_X, newPos_Y, viewModel);
+            _profilePreviewerEditorModel.TryChangeShortCutViewModelPositionInGrid(newPos_X, newPos_Y, viewModel);
+        }
+
+        private void OnShortCutSelected(object? param)
+        {
+            if (param is not (MouseButtonEventArgs, int, int))
+                return;
+
+            var convertedParams = ((MouseButtonEventArgs, int, int))param;
+            _profilePreviewerEditorModel.TrySelectShortCutPreviewerFromPositionInGrid(convertedParams.Item2, convertedParams.Item3);
         }
     }
 }

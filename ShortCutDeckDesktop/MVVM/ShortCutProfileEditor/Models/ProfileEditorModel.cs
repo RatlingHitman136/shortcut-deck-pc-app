@@ -1,4 +1,5 @@
-﻿using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts;
 using ShortCutDeckDesktop.ShortCuts;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
@@ -14,13 +15,21 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
     class ProfileEditorModel
     {
         private ShortCutProfileDataHolder _editableShortCutProfileData;
-
         private ObservableCollection<ShortCutBaseViewModel> _shortCutViewModels;
 
-        internal ObservableCollection<ShortCutBaseViewModel> ShortCutViewModels
+
+        private ShortCutEditorBaseModel? _shortCutEditorModel;
+
+        public ObservableCollection<ShortCutBaseViewModel> ShortCutViewModels
         {
             get => _shortCutViewModels;
         }
+        public ShortCutEditorBaseModel? ShortCutEditorModel
+        {
+            get => _shortCutEditorModel;
+            set => _shortCutEditorModel = value;
+        }
+
 
         public ProfileEditorModel(ShortCutProfile shortCutProfileToEdit)
         {
@@ -30,7 +39,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
             foreach (var a in shortCutsData)
             {
                 var bastDataHolder = a.Item1 as ShortCutButtonDataHolder;
-                _shortCutViewModels.Add(ShortCutViewModelFactory.CreateViewModelFromDataHolder(a));
+                _shortCutViewModels.Add(ShortCutViewModelFactory.CreatePreviewViewModelFromDataHolder(a));
             }
         }
 
@@ -56,6 +65,19 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
             viewModel.X_Pos = newPos_X;
             viewModel.Y_Pos = newPos_Y;
             return true;
+        }
+
+        public bool TrySelectShortCutPreviewerFromPositionInGrid(int posX, int posY)
+        {
+            foreach (var oldVieModel in _shortCutViewModels)
+            {
+                if (oldVieModel.X_Pos == posX && oldVieModel.Y_Pos == posX)
+                {
+                    //SelectedShortCutViewModel = oldVieModel;
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
