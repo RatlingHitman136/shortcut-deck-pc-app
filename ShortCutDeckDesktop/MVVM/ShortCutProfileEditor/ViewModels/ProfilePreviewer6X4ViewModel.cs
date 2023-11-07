@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models;
-using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers;
 using ShortCutDeckDesktop.ShortCuts;
 using System;
 using System.Collections.Generic;
@@ -26,7 +26,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
             _shortCutPreview_SelectedCommand = new RelayCommand<object?>(param => OnShortCutSelected(param));
         }
 
-        public ObservableCollection<ShortCutBaseViewModel> ShortCutsViewModels
+        public ObservableCollection<ShortCutPreviewerBaseViewModel> ShortCutsViewModels
         {
             get => _profilePreviewerEditorModel.ShortCutViewModels;
         }
@@ -35,11 +35,11 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 
         private void OnShortCutDropped(object? param)
         {
-            if (param is not (ShortCutBaseViewModel, int, int))
+            if (param is not (ShortCutPreviewerBaseViewModel, int, int))
                 return;
 
             var converted = ((object, int, int))param;
-            ShortCutBaseViewModel viewModel = (ShortCutBaseViewModel)converted.Item1;
+            ShortCutPreviewerBaseViewModel viewModel = (ShortCutPreviewerBaseViewModel)converted.Item1;
             int newPos_X = converted.Item2;
             int newPos_Y = converted.Item3;
 

@@ -3,8 +3,8 @@
                     xmlns:localView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views"
                     xmlns:localViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels"
                     xmlns:converter="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Converters"
-                    xmlns:shortCutsView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCuts"
-                    xmlns:shortCutsViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts">
+                    xmlns:shortCutPreviewersView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCutPreviewers"
+                    xmlns:shortCutPreviewersViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers">
     <DataTemplate DataType="{x:Type localViewModel:ProfileEditorViewModel}">
         <localView:ProfileEditorView/>
     </DataTemplate>
@@ -16,7 +16,7 @@
     
     <converter:EditorColumnWidthConverter x:Key="EditorColumnWidthConverter"/>
 
-    <DataTemplate DataType="{x:Type shortCutsViewModel:ShortCutButtonViewModel}">
-        <shortCutsView:ShortCutButtonView/>
+    <DataTemplate DataType="{x:Type shortCutPreviewersViewModel:ShortCutButtonPreviewerViewModel}">
+        <shortCutPreviewersView:ShortCutButtonPreviewerView/>
     </DataTemplate>
 </ResourceDictionary>

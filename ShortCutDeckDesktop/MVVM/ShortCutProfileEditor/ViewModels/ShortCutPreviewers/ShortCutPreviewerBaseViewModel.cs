@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts
+namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers
 {
-    abstract class ShortCutBaseViewModel : ObservableObject
+    abstract class ShortCutPreviewerBaseViewModel : ObservableObject
     {
         internal int _x_pos;
         internal int _y_pos;
@@ -18,7 +18,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts
 
         internal ShortCutBaseDataHolder _dataHolder;
 
-        protected ShortCutBaseViewModel(int pos_X, int posY, int sizeX, int sizeY, ShortCutBaseDataHolder shortCutBaseDataHolder)
+        protected ShortCutPreviewerBaseViewModel(int pos_X, int posY, int sizeX, int sizeY, ShortCutBaseDataHolder shortCutBaseDataHolder)
         {
             X_Pos = pos_X;
             Y_Pos = posY;

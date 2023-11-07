@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels;
-using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCuts;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers;
 using ShortCutDeckDesktop.ShortCuts;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
@@ -15,19 +15,13 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
     class ProfileEditorModel
     {
         private ShortCutProfileDataHolder _editableShortCutProfileData;
-        private ObservableCollection<ShortCutBaseViewModel> _shortCutViewModels;
+        private ObservableCollection<ShortCutPreviewerBaseViewModel> _shortCutViewModels;
 
+         
 
-        private ShortCutEditorBaseModel? _shortCutEditorModel;
-
-        public ObservableCollection<ShortCutBaseViewModel> ShortCutViewModels
+        public ObservableCollection<ShortCutPreviewerBaseViewModel> ShortCutViewModels
         {
             get => _shortCutViewModels;
-        }
-        public ShortCutEditorBaseModel? ShortCutEditorModel
-        {
-            get => _shortCutEditorModel;
-            set => _shortCutEditorModel = value;
         }
 
 
@@ -35,7 +29,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
         {
             _editableShortCutProfileData = shortCutProfileToEdit.GetDataHolder();
             List<(ShortCutBaseDataHolder, ShortCutProfile.GridPos)> shortCutsData = _editableShortCutProfileData.shortCuts;
-            _shortCutViewModels = new ObservableCollection<ShortCutBaseViewModel>();
+            _shortCutViewModels = new ObservableCollection<ShortCutPreviewerBaseViewModel>();
             foreach (var a in shortCutsData)
             {
                 var bastDataHolder = a.Item1 as ShortCutButtonDataHolder;
@@ -43,7 +37,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
             }
         }
 
-        public bool CanAddShortCutViewModelToGrid(ShortCutBaseViewModel viewModelToAdd)
+        public bool CanAddShortCutViewModelToGrid(ShortCutPreviewerBaseViewModel viewModelToAdd)
         {
             foreach(var oldVieModel in _shortCutViewModels)
             {
@@ -53,7 +47,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
             return true;
         }
 
-        public bool TryChangeShortCutViewModelPositionInGrid(int newPos_X, int newPos_Y, ShortCutBaseViewModel viewModel)
+        public bool TryChangeShortCutViewModelPositionInGrid(int newPos_X, int newPos_Y, ShortCutPreviewerBaseViewModel viewModel)
         {
             if(!_shortCutViewModels.Contains(viewModel))
                 return false;
