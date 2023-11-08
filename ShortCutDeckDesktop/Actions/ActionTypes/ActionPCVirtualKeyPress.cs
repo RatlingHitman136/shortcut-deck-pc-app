@@ -8,10 +8,10 @@ using System.Windows.Navigation;
 
 namespace ShortCutDeckDesktop.Actions.ActionTypes
 {
-    public class ActionPCVirtualKeyPressed:ActionBase
+    public class ActionPCVirtualKeyPress:ActionBase
     {
         private byte _keyCode;
-        public ActionPCVirtualKeyPressed(byte keyCode)
+        public ActionPCVirtualKeyPress(byte keyCode)
         {
             _keyCode = keyCode;
         }
@@ -26,17 +26,18 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
 
         public override ActionPCVirtualKeyPressedDataHolder GetDataHolder()
         {
-            return new ActionPCVirtualKeyPressedDataHolder(_keyCode);
+            var a = new ActionPCVirtualKeyPressedDataHolder(_keyCode);
+            return a;
         }
     }
 
     public class ActionPCVirtualKeyPressedDataHolder:ActionBaseDataHolder
     {
-        public byte _keyCode;
+        public byte keyCode;
 
         public ActionPCVirtualKeyPressedDataHolder(byte keyCode)
         {
-            _keyCode = keyCode;
+            this.keyCode = keyCode;
         }
     }
 }

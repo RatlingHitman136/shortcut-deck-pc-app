@@ -1,5 +1,6 @@
 ﻿using ShortCutDeckDesktop.Actions;
-using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutEditors;
+using ShortCutDeckDesktop.Actions.ActionTypes;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditors;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers;
 using ShortCutDeckDesktop.ShortCuts;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
@@ -22,7 +23,19 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 
         public static ActionBaseEditorViewModel CreateActionEditorViewModelFromShortCutDataHolder(ShortCutBaseDataHolder shortCutBaseDataHolder)
         {
+            switch(shortCutBaseDataHolder)
+            {
+                case ShortCutButtonDataHolder shortCutButtonDataHolder:
+                    switch (shortCutButtonDataHolder.shortCutActionData)
+                    {
+                        case ActionPCVirtualKeyPressedDataHolder actionPCVirtualKeyPressDataHolder:
+                            return new ActoinPCVirtualKeyPressEditorViewModel(actionPCVirtualKeyPressDataHolder);
+                    }
+                    throw new NotImplementedException("Action View Model for the " + shortCutBaseDataHolder.ToString() + " Data Holder class is not implemented");
 
+            }
+
+            throw new NotImplementedException("View Model for the " + shortCutBaseDataHolder.ToString() + " Data Holder class is not implemented");
         }
     }
 }

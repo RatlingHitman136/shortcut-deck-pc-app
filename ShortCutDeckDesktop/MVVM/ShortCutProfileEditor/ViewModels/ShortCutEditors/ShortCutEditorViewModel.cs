@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditors;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,10 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutEdit
 {
     internal class ShortCutEditorViewModel : ObservableObject
     {
-        private ShortCutBaseDataHolder shortCutDataHolder;
         private ActionBaseEditorViewModel _actionBaseEditorViewModel;
 
         public ShortCutEditorViewModel(ShortCutBaseDataHolder shortCutDataHolder)
         {
-            this.shortCutDataHolder = shortCutDataHolder;
             _actionBaseEditorViewModel = ShortCutEditorViewModelFactory.CreateActionEditorViewModelFromShortCutDataHolder(shortCutDataHolder);
         }
 
