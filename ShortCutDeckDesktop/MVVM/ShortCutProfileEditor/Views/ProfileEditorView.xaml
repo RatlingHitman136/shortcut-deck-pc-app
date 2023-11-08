@@ -26,6 +26,9 @@
         <Grid Grid.Row="0" Grid.Column="0" Margin="{Binding PreviewerMargin}">
             <ContentControl Content="{Binding ProfilePreviewerViewModel}"/>
         </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Background="Green">
+            
+        </Grid>
         <Grid Grid.Row="0" Grid.Column="1">
             <ContentControl Content="{Binding SelectedShortCutEditorVM}"/>
         </Grid>

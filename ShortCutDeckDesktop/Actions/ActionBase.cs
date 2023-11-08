@@ -18,6 +18,6 @@ namespace ShortCutDeckDesktop.Actions
         }
     }
 
-    public class ActionBaseDataHolder
+    public class ActionBaseDataHolder 
     {}
 }

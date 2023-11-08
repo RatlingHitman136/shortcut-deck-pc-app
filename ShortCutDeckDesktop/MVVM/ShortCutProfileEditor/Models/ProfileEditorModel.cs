@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
 {
@@ -62,16 +63,19 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
             return true;
         }
 
-        public bool TrySelectShortCutPreviewerFromPositionInGrid(int posX, int posY)
+        public bool TrySelectShortCutPreviewerFromPositionInGrid(MouseButtonEventArgs mouseButtonEventArgs, int posX, int posY)
         {
-            foreach (var oldVieModel in _shortCutViewModels)
-            {
-                if (oldVieModel.X_Pos == posX && oldVieModel.Y_Pos == posY)
+            if (mouseButtonEventArgs.ChangedButton == MouseButton.Left)
+                foreach (var viewModel in _shortCutViewModels)
                 {
-                    profileEditorViewModel.SelectedShortCutEditorVM = new ShortCutEditorViewModel(oldVieModel.DataHolder);
-                    return true;
+                    if (viewModel.X_Pos == posX && viewModel.Y_Pos == posY)
+                    {
+
+                        profileEditorViewModel.SelectedShortCutEditorVM = new ShortCutEditorViewModel(viewModel.DataHolder);
+                        profileEditorViewModel.SelectedShortCutEditorVM.ActionBaseEditorViewModel.PropertyChanged += viewModel.UpdateProperties;
+                        return true;
+                    }
                 }
-            }
             profileEditorViewModel.SelectedShortCutEditorVM = null;
             return false;
         }

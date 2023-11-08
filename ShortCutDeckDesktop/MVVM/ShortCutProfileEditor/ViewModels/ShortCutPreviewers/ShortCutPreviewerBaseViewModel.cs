@@ -2,6 +2,7 @@
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,5 +67,6 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPrev
         }
 
         public ShortCutBaseDataHolder DataHolder { get => _dataHolder; }
+        public virtual void UpdateProperties(object? sender, PropertyChangedEventArgs e) => OnPropertyChanged();
     }
 }

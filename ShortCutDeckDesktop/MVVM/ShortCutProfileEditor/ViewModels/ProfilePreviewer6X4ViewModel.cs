@@ -54,7 +54,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
                 return;
 
             var convertedParams = ((MouseButtonEventArgs, int, int))param;
-            _profilePreviewerEditorModel.TrySelectShortCutPreviewerFromPositionInGrid(convertedParams.Item2, convertedParams.Item3);
+            _profilePreviewerEditorModel.TrySelectShortCutPreviewerFromPositionInGrid(convertedParams.Item1, convertedParams.Item2, convertedParams.Item3);
         }
     }
 }
