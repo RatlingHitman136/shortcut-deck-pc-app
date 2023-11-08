@@ -10,13 +10,13 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPrev
 {
     abstract class ShortCutPreviewerBaseViewModel : ObservableObject
     {
-        internal int _x_pos;
-        internal int _y_pos;
+        protected int _x_pos;
+        protected int _y_pos;
 
-        internal int _size_X;
-        internal int _size_Y;
+        protected int _size_X;
+        protected int _size_Y;
 
-        internal ShortCutBaseDataHolder _dataHolder;
+        private ShortCutBaseDataHolder _dataHolder;
 
         protected ShortCutPreviewerBaseViewModel(int pos_X, int posY, int sizeX, int sizeY, ShortCutBaseDataHolder shortCutBaseDataHolder)
         {
@@ -65,6 +65,6 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPrev
             }
         }
 
-
+        public ShortCutBaseDataHolder DataHolder { get => _dataHolder; }
     }
 }

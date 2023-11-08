@@ -1,11 +1,13 @@
-﻿using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers;
+﻿using ShortCutDeckDesktop.Actions;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutEditors;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers;
 using ShortCutDeckDesktop.ShortCuts;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 {
-    internal static class ShortCutViewModelFactory
+    internal static class ShortCutEditorViewModelFactory
     {
         public static ShortCutPreviewerBaseViewModel CreatePreviewViewModelFromDataHolder((ShortCutBaseDataHolder, ShortCutProfile.GridPos) data)
         {
@@ -16,6 +18,11 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
             }
             
             throw new NotImplementedException("View Model for the " + data.Item1.ToString() + "Data Holder class is not implemented");
+        }
+
+        public static ActionBaseEditorViewModel CreateActionEditorViewModelFromShortCutDataHolder(ShortCutBaseDataHolder shortCutBaseDataHolder)
+        {
+
         }
     }
 }

@@ -27,7 +27,7 @@
             <ContentControl Content="{Binding ProfilePreviewerViewModel}"/>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="1">
-            <ContentControl/>
+            <ContentControl Content="{Binding SelectedShortCutEditorVM}"/>
         </Grid>
     </Grid>
 </UserControl>

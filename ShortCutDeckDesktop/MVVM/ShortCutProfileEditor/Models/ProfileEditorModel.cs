@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutEditors;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers;
 using ShortCutDeckDesktop.ShortCuts;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
@@ -12,28 +13,28 @@ using System.Threading.Tasks;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
 {
-    class ProfileEditorModel
+    class ProfileEditorModel:ObservableObject
     {
         private ShortCutProfileDataHolder _editableShortCutProfileData;
         private ObservableCollection<ShortCutPreviewerBaseViewModel> _shortCutViewModels;
 
-         
+        private ProfileEditorViewModel profileEditorViewModel;
 
         public ObservableCollection<ShortCutPreviewerBaseViewModel> ShortCutViewModels
         {
             get => _shortCutViewModels;
         }
 
-
-        public ProfileEditorModel(ShortCutProfile shortCutProfileToEdit)
+        public ProfileEditorModel(ShortCutProfile shortCutProfileToEdit, ProfileEditorViewModel profileEditorViewModel)
         {
+            this.profileEditorViewModel = profileEditorViewModel;
             _editableShortCutProfileData = shortCutProfileToEdit.GetDataHolder();
             List<(ShortCutBaseDataHolder, ShortCutProfile.GridPos)> shortCutsData = _editableShortCutProfileData.shortCuts;
             _shortCutViewModels = new ObservableCollection<ShortCutPreviewerBaseViewModel>();
             foreach (var a in shortCutsData)
             {
                 var bastDataHolder = a.Item1 as ShortCutButtonDataHolder;
-                _shortCutViewModels.Add(ShortCutViewModelFactory.CreatePreviewViewModelFromDataHolder(a));
+                _shortCutViewModels.Add(ShortCutEditorViewModelFactory.CreatePreviewViewModelFromDataHolder(a));
             }
         }
 
@@ -65,12 +66,13 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
         {
             foreach (var oldVieModel in _shortCutViewModels)
             {
-                if (oldVieModel.X_Pos == posX && oldVieModel.Y_Pos == posX)
+                if (oldVieModel.X_Pos == posX && oldVieModel.Y_Pos == posY)
                 {
-                    //SelectedShortCutViewModel = oldVieModel;
+                    profileEditorViewModel.SelectedShortCutEditorVM = new ShortCutEditorViewModel(oldVieModel.DataHolder);
                     return true;
                 }
             }
+            profileEditorViewModel.SelectedShortCutEditorVM = null;
             return false;
         }
     }
