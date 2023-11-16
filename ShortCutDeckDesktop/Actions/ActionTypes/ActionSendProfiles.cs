@@ -24,7 +24,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
 
             foreach (var index in _profilesIndexesToSend)
             {
-                _profileContextsToSend.Add((ShortCutFactory.GetStringFromShortCutProfileForClient(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
+                _profileContextsToSend.Add((ShortCutProfileConverter.GetStringFromShortCutProfileForClient(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
             }
         }
 
@@ -39,7 +39,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
 
             foreach (var index in _profilesIndexesToSend)
             {
-                _profileContextsToSend.Add((ShortCutFactory.GetStringFromShortCutProfileForClient(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
+                _profileContextsToSend.Add((ShortCutProfileConverter.GetStringFromShortCutProfileForClient(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
             }
         }
 

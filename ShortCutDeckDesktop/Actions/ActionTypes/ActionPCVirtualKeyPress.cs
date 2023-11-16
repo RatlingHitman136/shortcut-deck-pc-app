@@ -15,6 +15,11 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
         {
             _keyCode = keyCode;
         }
+        public ActionPCVirtualKeyPress(ActionPCVirtualKeyPressedDataHolder dataHolder)
+        {
+            _keyCode = dataHolder.keyCode;
+        }
+
         public override void executeAction()
         {
             base.executeAction();

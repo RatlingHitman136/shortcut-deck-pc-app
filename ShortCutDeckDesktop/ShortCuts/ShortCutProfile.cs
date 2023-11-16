@@ -5,7 +5,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Media.TextFormatting;
+using System.Xml.Linq;
 using static ShortCutDeckDesktop.ShortCuts.ShortCutProfile;
 
 namespace ShortCutDeckDesktop.ShortCuts
@@ -47,6 +49,18 @@ namespace ShortCutDeckDesktop.ShortCuts
             _size_X = size_X;
             _size_Y = size_Y;
         }
+        public ShortCutProfile(ShortCutProfileDataHolder dataHolder)
+        {
+            _id = dataHolder.id;
+            _name = dataHolder.name;
+            _size_X = dataHolder.size_X;
+            _size_Y = dataHolder.size_Y;
+            _shortCuts = new List<(ShortCutBase, GridPos)>();
+            foreach(var shortCutData in dataHolder.shortCuts)
+                _shortCuts.Add((ShortCutFactory.CreateShortCutFromDataHolder(shortCutData.Item1), shortCutData.Item2));
+        }
+
+
         public List<(ShortCutBase, GridPos)> getShortCutsInRightOrder()
         {
             List<(ShortCutBase, GridPos)> shortCutsInRightOrder = new List<(ShortCutBase, GridPos)>();

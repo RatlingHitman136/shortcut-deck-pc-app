@@ -4,13 +4,13 @@ using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutEditors;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers;
 using ShortCutDeckDesktop.ShortCuts;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static ShortCutDeckDesktop.ShortCuts.ShortCutProfile;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
 {
@@ -30,7 +30,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
         {
             this.profileEditorViewModel = profileEditorViewModel;
             _editableShortCutProfileData = shortCutProfileToEdit.GetDataHolder();
-            List<(ShortCutBaseDataHolder, ShortCutProfile.GridPos)> shortCutsData = _editableShortCutProfileData.shortCuts;
+            List<(ShortCutBaseDataHolder, GridPos)> shortCutsData = _editableShortCutProfileData.shortCuts;
             _shortCutViewModels = new ObservableCollection<ShortCutPreviewerBaseViewModel>();
             foreach (var a in shortCutsData)
             {
@@ -60,6 +60,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
             }
             viewModel.X_Pos = newPos_X;
             viewModel.Y_Pos = newPos_Y;
+
             return true;
         }
 
@@ -82,7 +83,13 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
 
         public void InitProfileApplyChanges()
         {
-            throw new NotImplementedException();
+            //create new list of shortcut data holder with new positions
+            List<(ShortCutBaseDataHolder, GridPos)> newShortCuts = new List<(ShortCutBaseDataHolder, GridPos)>();
+            foreach (var viewModel in _shortCutViewModels)
+                newShortCuts.Add((viewModel.DataHolder, new GridPos(viewModel.X_Pos, viewModel.Y_Pos)));
+            _editableShortCutProfileData.shortCuts = newShortCuts;
+
+            ShortCutProfileManager.TryUpdateExistingProfileWithDataHolder(_editableShortCutProfileData);
         }
     }
 }

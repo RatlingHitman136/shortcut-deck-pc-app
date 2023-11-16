@@ -1,6 +1,7 @@
 ﻿using ShortCutDeckDesktop.Actions.ActionTypes;
 using ShortCutDeckDesktop.Constants;
 using ShortCutDeckDesktop.Networking;
+using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,12 @@ namespace ShortCutDeckDesktop.Actions
 {
     public static class ActionFactory
     {
-        public static ActionBase GetActionFromStringFromClient(string actionString, ClientClass caller)
+        public static ActionBase GetActionFromString(string actionString, ClientClass caller)
         {
-            return GetActionFromStringFromClient(actionString.Split(StringConstants.FIRST_LEVEL_SPLIT_CHARACTER), caller);
+            return GetActionFromString(actionString.Split(StringConstants.FIRST_LEVEL_SPLIT_CHARACTER), caller);
         }
 
-        private static ActionBase GetActionFromStringFromClient(IEnumerable<string> actionStringEnum, ClientClass caller)
+        private static ActionBase GetActionFromString(IEnumerable<string> actionStringEnum, ClientClass caller)
         {
             List<string> actionStringList = actionStringEnum.ToList();
             if (actionStringList.Count() < 1)
@@ -39,6 +40,18 @@ namespace ShortCutDeckDesktop.Actions
             }
 
             return new ActionBase();
+        }
+
+        public static ActionBase GetActionFromDataHolder(ActionBaseDataHolder dataHolder)
+        {
+            switch (dataHolder)
+            {
+                case ActionPCVirtualKeyPressedDataHolder convertedDataHolder:
+                    return new ActionPCVirtualKeyPress(convertedDataHolder);
+
+                default:
+                    throw new NotImplementedException("ActionFactory for " + dataHolder.ToString() + " is not implemented yet!");
+            }
         }
     }
 }

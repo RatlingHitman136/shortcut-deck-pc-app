@@ -39,6 +39,22 @@ namespace ShortCutDeckDesktop.ShortCuts
             return profile != null;
         }
 
+        public static bool TryUpdateExistingProfileWithDataHolder(ShortCutProfileDataHolder dataHolder)
+        {
+            if(!_profiles.Exists(x => x.Id == dataHolder.id))
+                return false;
+
+            int foundIndex = _profiles.FindIndex(x => x.Id == dataHolder.id);
+            if(foundIndex == -1) return false;
+
+            ShortCutProfile newProfileInstance = new ShortCutProfile(dataHolder);
+            _profiles[foundIndex] = newProfileInstance;
+            ProfilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
+
+            //action must be created to send profile to all connected devices
+            return true;
+        }
+
 
         public static void initTestOneProfile() {
             ShortCutProfile testProfile = new ShortCutProfile("mainPrf", "Default Profile", 4, 6,
