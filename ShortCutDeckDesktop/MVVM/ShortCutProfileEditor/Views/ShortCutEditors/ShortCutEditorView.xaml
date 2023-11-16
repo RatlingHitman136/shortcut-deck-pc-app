@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCutEditors"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="AntiqueWhite">
-        <ContentControl Content="{Binding ActionBaseEditorViewModel}" Margin="4"/>
+    <Grid Background="Transparent">
+        <ContentControl Grid.Row="0" Content="{Binding ActionBaseEditorViewModel}"/>
     </Grid>
 </UserControl>

@@ -13,8 +13,8 @@
                 <ColumnDefinition.Width>
                     <MultiBinding Converter="{StaticResource EditorColumnWidthConverter}" ConverterParameter="0">
                         <Binding ElementName="mainEditorGrid" Path="ActualHeight"/>
-                        <Binding Path="PreviewerHorizontalMargin"/>
-                        <Binding Path="PreviewerVerticalMargin"/>
+                        <Binding Path="HorizontalMargin"/>
+                        <Binding Path="VerticalMargin"/>
                         <Binding Path="PreviewerHorizontalGridSize"/>
                         <Binding Path="PreviewerVerticalGridSize"/>
                     </MultiBinding>
@@ -22,14 +22,23 @@
             </ColumnDefinition>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
-        <Grid Grid.Row="0" Grid.Column="0" Margin="{Binding PreviewerMargin}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="65"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.RowSpan="2" Grid.Column="0" Margin="{Binding GridElementAllMargin}">
             <ContentControl Content="{Binding ProfilePreviewerViewModel}"/>
         </Grid>
-        <Grid Grid.Row="0" Grid.Column="1" Background="Green">
-            
+        <Grid Grid.Row="1" Grid.Column="1" Margin="{Binding GridElementBottomSidesMargin}">
+            <Button Grid.Row="2" Content="Apply Profile changes" Command="{Binding ApplyChangesCommand}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Grid>
-        <Grid Grid.Row="0" Grid.Column="1">
+        <Grid Grid.Row="0" Grid.Column="1" Margin="{Binding GridElementAllMargin}">
             <ContentControl Content="{Binding SelectedShortCutEditorVM}"/>
         </Grid>
     </Grid>

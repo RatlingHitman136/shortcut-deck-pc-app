@@ -6,8 +6,7 @@
              xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ActionEditors"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="200">
-    <Grid>
+    <Border Background="Beige" CornerRadius="10">
         <TextBox Margin="10" Height="50" VerticalAlignment="Top" FontSize="30" Text="{Binding KeyCode, Mode=TwoWay}"/>
-        <Button Margin="10" Height="30" VerticalAlignment="Bottom" Content="Apply" Command="{Binding ApplyCommand}"/>
-    </Grid>
+    </Border>
 </UserControl>

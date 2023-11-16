@@ -79,5 +79,10 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
             profileEditorViewModel.SelectedShortCutEditorVM = null;
             return false;
         }
+
+        public void InitProfileApplyChanges()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -38,6 +38,8 @@ namespace ShortCutDeckDesktop.ShortCuts
             profile = _profiles.Find(x => x.Id == id);
             return profile != null;
         }
+
+
         public static void initTestOneProfile() {
             ShortCutProfile testProfile = new ShortCutProfile("mainPrf", "Default Profile", 4, 6,
                 new List<(ShortCutBase, ShortCutProfile.GridPos)>

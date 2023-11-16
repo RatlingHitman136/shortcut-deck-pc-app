@@ -13,7 +13,6 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditor
     internal class ActoinPCVirtualKeyPressEditorViewModel : ActionBaseEditorViewModel
     {
         private ActionPCVirtualKeyPressedDataHolder _actionDataHolder;
-        private ICommand _applyCommand;
 
         #region  changable properties
         private string keyCode;
@@ -23,7 +22,6 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditor
         {
             _actionDataHolder = actionDataHolder;
             keyCode = actionDataHolder.keyCode.ToString();
-            _applyCommand = new RelayCommand(ApplyChanges);
         }
 
         public ActionPCVirtualKeyPressedDataHolder ActionDataHolder { get => _actionDataHolder; }
@@ -32,13 +30,11 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditor
             set
             {
                 keyCode = value;
-                OnPropertyChanged();
+                ApplyChanges();
             }
         }
 
-        public ICommand ApplyCommand { get => _applyCommand;}
-
-        public void ApplyChanges()
+        public override void ApplyChanges()
         {
             _actionDataHolder.keyCode = Convert.ToByte(keyCode);
             OnPropertyChanged();

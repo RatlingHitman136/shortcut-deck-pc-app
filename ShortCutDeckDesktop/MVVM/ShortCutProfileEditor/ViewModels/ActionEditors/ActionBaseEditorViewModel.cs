@@ -7,5 +7,8 @@ using System.Threading.Tasks;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditors
 {
-    abstract class ActionBaseEditorViewModel : ObservableObject { }
+    abstract class ActionBaseEditorViewModel : ObservableObject {
+
+        public abstract void ApplyChanges();
+    }
 }
