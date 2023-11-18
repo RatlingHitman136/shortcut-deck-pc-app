@@ -1,5 +1,6 @@
 ﻿using ShortCutDeckDesktop.Actions.ActionTypes;
 using ShortCutDeckDesktop.Constants;
+using ShortCutDeckDesktop.Networking;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
 using System.Collections.Generic;
@@ -49,10 +50,20 @@ namespace ShortCutDeckDesktop.ShortCuts
 
             ShortCutProfile newProfileInstance = new ShortCutProfile(dataHolder);
             _profiles[foundIndex] = newProfileInstance;
+
             ProfilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
 
-            //action must be created to send profile to all connected devices
+            NorifyAllClientsProfileChanged(newProfileInstance);
             return true;
+        }
+
+        private static void NorifyAllClientsProfileChanged(ShortCutProfile profile)
+        {
+            foreach(var client in ServerClass.Clients)
+            {
+                ActionSendProfiles actionSendProfiles = new ActionSendProfiles(client, new List<ShortCutProfile> { profile });
+                actionSendProfiles.executeAction();
+            }
         }
 
 

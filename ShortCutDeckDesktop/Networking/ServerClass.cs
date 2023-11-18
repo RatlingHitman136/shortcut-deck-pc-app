@@ -25,6 +25,7 @@ namespace ShortCutDeckDesktop.Networking
 
         public static Socket ListenerSocket { get => _listenerSocket; }
         public static string ServerName { get => _serverName;}
+        public static List<ClientClass> Clients { get => _clients; }
 
         static public void startServer(string name = "PC device", int port = BASE_PORT)
         {
@@ -43,7 +44,6 @@ namespace ShortCutDeckDesktop.Networking
             _isRunning = true;
             Logger.logServerMsg("Server Started \nAwaiting Connections");
         }
-
         static private void stopServer()
         {
             if (_isRunning)
@@ -63,14 +63,12 @@ namespace ShortCutDeckDesktop.Networking
                 _isRunning = false;
             }
         }
-
         static public void tryDisconnectClient(ClientClass client)
         {
             if(_clients.Contains(client))
                 _clients.Remove(client);
             client.disconnect();
         }
-
         static private void listenForConnections()
         {
             if (_listenerSocket is null)
