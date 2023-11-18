@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileLister;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views;
 using ShortCutDeckDesktop.ShortCuts;
 using System;
@@ -15,16 +15,14 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
     {
         #region private Fields
         private object _profileMainViewModel;
-        private ObservableCollection<BaseItemViewModel> _profileListerViewModels;
-        private BaseItemViewModel _selectedProfileListerViewModel;
-        private BaseItemViewModel _defaultSelectedListerItem;
+        private ObservableCollection<SideLister.BaseItemViewModel> _sideListerViewModels;
+        private SideLister.BaseItemViewModel _selectedProfileListerViewModel;
         #endregion
 
         public ShortCutProfilesViewerViewModel()
         {
-            _defaultSelectedListerItem = new(new DefaultMainViewModel(this), "Profiles");
-            _profileListerViewModels = new() { _defaultSelectedListerItem };
-            SelectedProfileListerViewModel = _defaultSelectedListerItem;
+            _sideListerViewModels = new() { new SideLister.BaseItemViewModel(new DefaultMainViewModel(this), "Profiles") };
+            SelectedProfileListerViewModel = _sideListerViewModels[0];
             OnPropertyChanged();
         }
 
@@ -38,8 +36,8 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
                 OnPropertyChanged(nameof(ProfileMainViewModel));
             }
         }
-        public ObservableCollection<BaseItemViewModel> ProfileListerViewModels { get => _profileListerViewModels; }
-        public BaseItemViewModel SelectedProfileListerViewModel
+        public ObservableCollection<SideLister.BaseItemViewModel> SideListerViewModels { get => _sideListerViewModels; }
+        public SideLister.BaseItemViewModel SelectedProfileListerViewModel
         {
             get => _selectedProfileListerViewModel;
             set
@@ -51,10 +49,10 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
         }
         #endregion
 
-        public bool IsProfileOpened(ShortCutProfile shortCutProfile, out ProfileItemViewModel? profileItemViewModel)
+        public bool IsProfileOpened(ShortCutProfile shortCutProfile, out SideLister.ProfileItemViewModel? profileItemViewModel)
         {
-            foreach (var item in ProfileListerViewModels.Where(x => x is ProfileItemViewModel)
-                .Select(x => x as ProfileItemViewModel))
+            foreach (var item in SideListerViewModels.Where(x => x is SideLister.ProfileItemViewModel)
+                .Select(x => x as SideLister.ProfileItemViewModel))
             {
                 if (item != null)
                     if (item.CorrespondingProfile == shortCutProfile)
@@ -68,15 +66,15 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
             return false;   
         }
 
-        public void TryCloseProfile(ProfileItemViewModel profileToClose)
+        public void TryCloseProfile(SideLister.ProfileItemViewModel profileToClose)
         {
-            int res = ProfileListerViewModels.IndexOf(profileToClose);
+            int res = SideListerViewModels.IndexOf(profileToClose);
             if (res > -1)
             {
                 if(profileToClose == SelectedProfileListerViewModel)
-                    SelectedProfileListerViewModel = ProfileListerViewModels[res-1];
-                ProfileListerViewModels.RemoveAt(res);
-                OnPropertyChanged(nameof(ProfileListerViewModels));
+                    SelectedProfileListerViewModel = SideListerViewModels[res-1];
+                SideListerViewModels.RemoveAt(res);
+                OnPropertyChanged(nameof(SideListerViewModels));
             }
         }
     }

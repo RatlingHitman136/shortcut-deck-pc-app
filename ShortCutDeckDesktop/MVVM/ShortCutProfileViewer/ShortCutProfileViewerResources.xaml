@@ -4,8 +4,8 @@
                     xmlns:localView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views"
                     xmlns:localViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels"
                     
-                    xmlns:listerView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views.ProfileLister"
-                    xmlns:listerViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileLister">
+                    xmlns:listerView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views.SideLister"
+                    xmlns:listerViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.SideLister">
     <DataTemplate DataType="{x:Type localViewModel:ShortCutProfilesViewerViewModel}">
         <localView:ShortCutProfilesViewerView/>
     </DataTemplate>

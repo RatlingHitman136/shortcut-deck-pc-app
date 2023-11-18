@@ -139,21 +139,25 @@
       <Field Name="_profilesViewer" />
     </ShowAsAssociation>
   </Class>
+  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.DefaultMainViewModel">
+    <Position X="36.25" Y="5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAgCBAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>MVVM\ShortCutProfileViewer\ViewModels\DefaultMainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileMainViewModel">
+    <Position X="36.25" Y="7.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAACAAAAAAAABEAAAAAAAA=</HashCode>
+      <FileName>MVVM\ShortCutProfileViewer\ViewModels\ProfileMainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ShortCutProfilesViewerViewModel">
     <Position X="36.25" Y="0.75" Width="4.75" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAAYAAgAAAAQAAAAAgAAgCAAAAAAAA=</HashCode>
       <FileName>MVVM\ShortCutProfileViewer\ViewModels\ShortCutProfilesViewerViewModel.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="_profileListerViewModels" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileLister.BaseItemViewModel">
-    <Position X="43" Y="0.75" Width="3" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAEAAAAAAAAAAAAAAACAAAABAAAAAAAA=</HashCode>
-      <FileName>MVVM\ShortCutProfileViewer\ViewModels\ProfileLister\BaseItemViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

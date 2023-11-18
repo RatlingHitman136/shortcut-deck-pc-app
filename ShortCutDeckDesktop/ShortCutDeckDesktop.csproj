@@ -20,4 +20,10 @@
       <Resource Include="Resources\Icons\logo.ico" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="MVVM\ShortCutProfileViewer\NewFolder\" />
+      <Folder Include="MVVM\ShortCutProfileViewer\SideLister\ViewModels\" />
+      <Folder Include="MVVM\ShortCutProfileViewer\SideLister\Views\" />
+    </ItemGroup>
+
 </Project>
