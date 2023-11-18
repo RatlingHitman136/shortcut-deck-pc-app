@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="150">
-    <Grid MinHeight="100" MinWidth="100">
-        <Button Content="{Binding ProfileName}"
+    <Grid MinHeight="130" MinWidth="130">
+        <Button Margin="5 5 5 5"
+            Content="{Binding ProfileName}"
             Command="{Binding SelectedCommand}">
             <Button.Resources>
                 <Style TargetType="Border">

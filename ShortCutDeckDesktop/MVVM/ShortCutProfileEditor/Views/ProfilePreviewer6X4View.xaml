@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ProfilePreviewer6X4View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="400">
+    <Border Background="Beige" CornerRadius="10"
+            AllowDrop="True"
+            MouseMove="DragDrop_MouseMove"
+            Drop="DragDrop_Drop"
+            MouseDown="Previewer_MouseDown">
+        <ItemsControl ItemsSource="{Binding ShortCutsViewModels}" x:Name="shortCutViewsHolder">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Grid.Row" Value="{Binding Y_Pos}"/>
+                    <Setter Property="Grid.Column" Value="{Binding X_Pos}"/>
+                    <Setter Property="Grid.ColumnSpan" Value="{Binding Size_X}"/>
+                    <Setter Property="Grid.RowSpan" Value="{Binding Size_Y}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>  
+    </Border>
+</UserControl>

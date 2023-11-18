@@ -24,5 +24,21 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
         {
             _shortCutAction.executeAction();
         }
+
+        public override ShortCutButtonDataHolder GetDataHolder()
+        {
+            var a = new ShortCutButtonDataHolder(_shortCutAction.GetDataHolder());
+            return a;
+        }
+    }
+
+    public class ShortCutButtonDataHolder : ShortCutBaseDataHolder
+    {
+        public ActionBaseDataHolder shortCutActionData;
+
+        public ShortCutButtonDataHolder(ActionBaseDataHolder shortCutActionData)
+        {
+            this.shortCutActionData = shortCutActionData;
+        }
     }
 }

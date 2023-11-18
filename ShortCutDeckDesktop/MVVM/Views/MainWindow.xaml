@@ -6,9 +6,7 @@
         xmlns:local="clr-namespace:ShortCutDeckDesktop"
         xmlns:viewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ViewModels"
         xmlns:tb="http://www.hardcodet.net/taskbar"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280"
-        ResizeMode="CanMinimize">
+        Title="MainWindow" Height="720" Width="1280" MinHeight="500" MinWidth="1000">
     <Window.DataContext>
         <viewModel:MainWindowViewModel/>
     </Window.DataContext>
@@ -46,18 +44,16 @@
             ToolTipText="ShortCutDeck"
             TrayMouseDoubleClick="tray_icon_TrayMouseDoubleClick"
             MenuActivation="LeftOrRightClick">
-            
+
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu Background="White">
-                    <MenuItem Header="Exit" Click="tray_icon_MenuItem_Click" />
+                    <MenuItem Header="Exit" Click="tray_icon_MenuItem_Click"/>
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
-
         </tb:TaskbarIcon>        
         
         <!-- tab control with profile lister and profile editor -->
         <ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding ProfilesViewer}"/>
-
 
     </Grid>
 </Window>

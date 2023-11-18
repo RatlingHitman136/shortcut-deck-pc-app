@@ -20,9 +20,4 @@
       <Resource Include="Resources\Icons\logo.ico" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="MVVM\ShortCutProfileEditor\Views\" />
-      <Folder Include="MVVM\ShortCutProfileEditor\ViewModels\" />
-    </ItemGroup>
-
 </Project>

@@ -28,11 +28,6 @@ namespace ShortCutDeckDesktop
             InitializeComponent();
         }
 
-        protected override void OnStateChanged(EventArgs e)
-        {
-            base.OnStateChanged(e);
-        }
-
         private void tray_icon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
         {
             Show();

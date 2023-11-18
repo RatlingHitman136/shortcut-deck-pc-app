@@ -26,7 +26,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
             ShortCutProfile profile;
             if(ShortCutProfileManager.TryGetProfilesWithIDs(_profileID, out profile))
             {
-                (GridPos pos, List<string> additionData) = ShortCutFactory.GetDataFromTriggeredShortCut(_msg);
+                (GridPos pos, List<string> additionData) = ShortCutProfileConverter.GetDataFromTriggeredShortCut(_msg);
                 ShortCutBase shortCut;
                 if(profile.TryGetShortCutByGridPos(pos, out shortCut))
                 {

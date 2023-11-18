@@ -1,6 +1,36 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:localView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views"
-                    xmlns:localViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels">
+                    xmlns:localViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels"
+                    xmlns:converter="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Converters"
+                    xmlns:shortCutPreviewersView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCutPreviewers"
+                    xmlns:shortCutPreviewersViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers"
+                    xmlns:shortCutEditorView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ShortCutEditors"
+                    xmlns:shortCutEditorViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutEditors"
+                    xmlns:actionEditorView="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ActionEditors"
+                    xmlns:actionEditorViewModel="clr-namespace:ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditors">
+    <DataTemplate DataType="{x:Type localViewModel:ProfileEditorViewModel}">
+        <localView:ProfileEditorView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type localViewModel:ProfilePreviewer6X4ViewModel}">
+        <localView:ProfilePreviewer6X4View 
+            DragDrop_DropCommand="{Binding DragDrop_DropCommand}"
+            ShortCutPreview_SelectedCommand="{Binding ShortCutPreview_SelectedCommand}"/>
+    </DataTemplate>
     
+    <converter:EditorColumnWidthConverter x:Key="EditorColumnWidthConverter"/>
+    <!-- bind ShortCut previewers --> 
+    <DataTemplate DataType="{x:Type shortCutPreviewersViewModel:ShortCutButtonPreviewerViewModel}">
+        <shortCutPreviewersView:ShortCutButtonPreviewerView/>
+    </DataTemplate>
+
+    <!-- bind ShortCut editor -->
+    <DataTemplate DataType="{x:Type shortCutEditorViewModel:ShortCutEditorViewModel}">
+        <shortCutEditorView:ShortCutEditorView/>
+    </DataTemplate>
+    
+    <!-- bind Action editor -->
+    <DataTemplate DataType="{x:Type actionEditorViewModel:ActoinPCVirtualKeyPressEditorViewModel}">
+        <actionEditorView:ActoinPCVirtualKeyPressEditorView/>
+    </DataTemplate>
 </ResourceDictionary>

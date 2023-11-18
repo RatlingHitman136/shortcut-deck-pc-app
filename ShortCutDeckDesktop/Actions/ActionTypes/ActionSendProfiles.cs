@@ -16,15 +16,14 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
         private List<int> _profilesIndexesToSend;
         private List<(string, string)> _profileContextsToSend;
 
-        public ActionSendProfiles(ClientClass whoRequested, IEnumerable<int> profileIndexes)
+        public ActionSendProfiles(ClientClass whoRequested, List<ShortCutProfile> profiles)
         {
             _whoRequested = whoRequested;
-            _profilesIndexesToSend = profileIndexes.ToList();
             _profileContextsToSend = new List<(string, string)>();
 
-            foreach (var index in _profilesIndexesToSend)
+            foreach (var profile in profiles)
             {
-                _profileContextsToSend.Add((ShortCutFactory.GetStringFromShortCutProfileForClient(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
+                _profileContextsToSend.Add((ShortCutProfileConverter.GetStringFromShortCutProfileForClient(profile), profile.Id));
             }
         }
 
@@ -39,7 +38,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
 
             foreach (var index in _profilesIndexesToSend)
             {
-                _profileContextsToSend.Add((ShortCutFactory.GetStringFromShortCutProfileForClient(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
+                _profileContextsToSend.Add((ShortCutProfileConverter.GetStringFromShortCutProfileForClient(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
             }
         }
 
