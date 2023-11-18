@@ -13,12 +13,12 @@ namespace ShortCutDeckDesktop.Actions
 {
     public static class ActionFactory
     {
-        public static ActionBase GetActionFromString(string actionString, ClientClass caller)
+        public static ActionBase createActionFromString(string actionString, ClientClass caller)
         {
-            return GetActionFromString(actionString.Split(StringConstants.FIRST_LEVEL_SPLIT_CHARACTER), caller);
+            return createActionFromString(actionString.Split(StringConstants.FIRST_LEVEL_SPLIT_CHARACTER), caller);
         }
 
-        private static ActionBase GetActionFromString(IEnumerable<string> actionStringEnum, ClientClass caller)
+        private static ActionBase createActionFromString(IEnumerable<string> actionStringEnum, ClientClass caller)
         {
             List<string> actionStringList = actionStringEnum.ToList();
             if (actionStringList.Count() < 1)
@@ -42,7 +42,7 @@ namespace ShortCutDeckDesktop.Actions
             return new ActionBase();
         }
 
-        public static ActionBase GetActionFromDataHolder(ActionBaseDataHolder dataHolder)
+        public static ActionBase createActionFromDataHolder(ActionBaseDataHolder dataHolder)
         {
             switch (dataHolder)
             {

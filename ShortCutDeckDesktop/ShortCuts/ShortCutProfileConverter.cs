@@ -16,7 +16,7 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         //result from this factory = b:0 0/b:0 1/e/b:0 3 .....  
 
-        public static string GetStringFromShortCutProfileForClient(ShortCutProfile profile)
+        public static string parseProfileToString(ShortCutProfile profile)
         {
             string res = "";
 
@@ -45,7 +45,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             return res;
         }
 
-        public static (GridPos pos, List<string> additionalData) GetDataFromTriggeredShortCut(string msg)
+        public static (GridPos pos, List<string> additionalData) parseDataFromTriggeredShortCut(string msg)
         {
             try
             {

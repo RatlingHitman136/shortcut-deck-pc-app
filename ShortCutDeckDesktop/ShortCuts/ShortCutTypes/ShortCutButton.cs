@@ -20,14 +20,14 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
             _shortCutAction = action;
         }
 
-        public override void ShortCutTriggered(List<string> additionalData)
+        public override void shortCutTriggered(List<string> additionalData)
         {
             _shortCutAction.executeAction();
         }
 
-        public override ShortCutButtonDataHolder GetDataHolder()
+        public override ShortCutButtonDataHolder getDataHolder()
         {
-            var a = new ShortCutButtonDataHolder(_shortCutAction.GetDataHolder());
+            var a = new ShortCutButtonDataHolder(_shortCutAction.getDataHolder());
             return a;
         }
     }

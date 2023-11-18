@@ -12,7 +12,7 @@ namespace ShortCutDeckDesktop.Actions
 
         public virtual void executeAction() { }
 
-        public virtual ActionBaseDataHolder GetDataHolder()
+        public virtual ActionBaseDataHolder getDataHolder()
         {
             return new ActionBaseDataHolder();
         }

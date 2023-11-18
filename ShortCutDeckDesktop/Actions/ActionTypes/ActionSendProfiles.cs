@@ -23,7 +23,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
 
             foreach (var profile in profiles)
             {
-                _profileContextsToSend.Add((ShortCutProfileConverter.GetStringFromShortCutProfileForClient(profile), profile.Id));
+                _profileContextsToSend.Add((ShortCutProfileConverter.parseProfileToString(profile), profile.Id));
             }
         }
 
@@ -38,7 +38,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
 
             foreach (var index in _profilesIndexesToSend)
             {
-                _profileContextsToSend.Add((ShortCutProfileConverter.GetStringFromShortCutProfileForClient(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
+                _profileContextsToSend.Add((ShortCutProfileConverter.parseProfileToString(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
             }
         }
 

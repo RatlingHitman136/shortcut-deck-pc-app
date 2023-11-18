@@ -10,12 +10,12 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
     {
         public ShortCutBase() { }
 
-        public virtual void ShortCutTriggered(List<string> additionalData)
+        public virtual void shortCutTriggered(List<string> additionalData)
         {
             Logger.logServerMsg("shortcut activated");
         }
 
-        public virtual ShortCutBaseDataHolder GetDataHolder()
+        public virtual ShortCutBaseDataHolder getDataHolder()
         {
             return new ShortCutBaseDataHolder();
         }

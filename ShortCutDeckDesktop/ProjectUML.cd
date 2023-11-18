@@ -1,44 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutBase">
-    <Position X="20.75" Y="9.5" Width="2.25" />
+    <Position X="20.75" Y="14" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>ShortCuts\ShortCutTypes\ShortCutBase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutBaseDataHolder">
-    <Position X="18.5" Y="9.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ShortCuts\ShortCutTypes\ShortCutBase.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutButton">
-    <Position X="20.75" Y="11.5" Width="2.25" />
+    <Position X="25.5" Y="14.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAIEAAAAAAAAAAA=</HashCode>
       <FileName>ShortCuts\ShortCutTypes\ShortCutButton.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutButtonDataHolder">
-    <Position X="18.5" Y="11.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ShortCuts\ShortCutTypes\ShortCutButton.cs</FileName>
-    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_shortCutAction" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutFactory">
-    <Position X="29.75" Y="14.5" Width="1.5" />
+    <Position X="22.5" Y="7.25" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ShortCuts\ShortCutFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfile">
-    <Position X="28" Y="9.5" Width="2.25" />
+    <Position X="13" Y="11.25" Width="4.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
-      <Struct Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfile.GridPos" Collapsed="true">
+      <Struct Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfile.GridPos">
         <TypeIdentifier>
           <NewMemberFileName>ShortCuts\ShortCutProfile.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -49,96 +41,99 @@
       <FileName>ShortCuts\ShortCutProfile.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfileDataHolder">
-    <Position X="24.5" Y="9.5" Width="3" />
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfileConverter">
+    <Position X="19" Y="7.25" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAABAAAAEAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>ShortCuts\ShortCutProfile.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>ShortCuts\ShortCutProfileConverter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfileManager">
-    <Position X="30.75" Y="9.5" Width="2.75" />
+    <Position X="13" Y="7.25" Width="4.25" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="_profiles" Type="ShortCutDeckDesktop.ShortCuts.ShortCutProfile">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.076" Y="0.446" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAACAAAAICAAoAAAAAAABAAAAAAAAAAQAAIAAABAAA=</HashCode>
+      <HashCode>AAAACAAAAICAAoAAAAAAIBAAAAAAEAAAQAAIAAABAAA=</HashCode>
       <FileName>ShortCuts\ShortCutProfileManager.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_profiles" />
+    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionPCVirtualKeyPressed">
-    <Position X="19" Y="17.5" Width="1.5" />
+  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionPCVirtualKeyPress">
+    <Position X="19.75" Y="19" Width="3.75" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAACAAAg=</HashCode>
-      <FileName>Actions\ActionTypes\ActionPCVirtualKeyPressed.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionPCVirtualKeyPressedDataHolder">
-    <Position X="17" Y="17.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
-      <FileName>Actions\ActionTypes\ActionPCVirtualKeyPressed.cs</FileName>
+      <FileName>Actions\ActionTypes\ActionPCVirtualKeyPress.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionScanAns">
-    <Position X="25.75" Y="17.5" Width="1.5" />
+    <Position X="32" Y="19" Width="2.5" />
     <TypeIdentifier>
       <HashCode>EIQAAAAACAAAAAAAAAAAAAAAAEAAAAAAAAACAABAAAA=</HashCode>
       <FileName>Actions\ActionTypes\ActionScanAns.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionSendProfiles">
-    <Position X="21.25" Y="17.5" Width="1.5" />
+    <Position X="24.25" Y="19" Width="4" />
     <TypeIdentifier>
       <HashCode>EAAAAEAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Actions\ActionTypes\ActionSendProfiles.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShortCutDeckDesktop.Actions.ActionTypes.ActionShortCutTriggered">
-    <Position X="23.5" Y="17.5" Width="1.5" />
+    <Position X="29" Y="19" Width="2.25" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>Actions\ActionTypes\ActionShortCutTriggered.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShortCutDeckDesktop.Actions.ActionBase">
-    <Position X="22.25" Y="15.5" Width="1.5" />
+    <Position X="25.5" Y="16.25" Width="3" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>Actions\ActionBase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.Actions.ActionBaseDataHolder">
-    <Position X="17" Y="15.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Actions\ActionBase.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ShortCutDeckDesktop.Actions.ActionFactory">
-    <Position X="28" Y="14.5" Width="1.5" />
+    <Position X="22.5" Y="8.75" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Actions\ActionFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShortCutDeckDesktop.Networking.ClientClass">
-    <Position X="12.75" Y="9.5" Width="1.5" />
+    <Position X="32" Y="7.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIIAAAIgAAACAAABEgAAAAgCAAAAAAABAECAA=</HashCode>
       <FileName>Networking\ClientClass.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_interpreter" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="ShortCutDeckDesktop.Networking.RecievedMessageHandler">
-    <Position X="14.5" Y="9.5" Width="1.5" />
+    <Position X="36.25" Y="7" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Networking\RecievedMessageHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShortCutDeckDesktop.Networking.ServerClass">
-    <Position X="10.75" Y="9.5" Width="1.5" />
+    <Position X="27.75" Y="7.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACCAMBAIAEAIAAAAKAAQEAABAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACCAOBAIAEAIAAAAKAAQEAABAEAAAA=</HashCode>
       <FileName>Networking\ServerClass.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_clients" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

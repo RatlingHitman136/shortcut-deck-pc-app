@@ -29,7 +29,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
         [DllImport("user32.dll")]
         static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);
 
-        public override ActionPCVirtualKeyPressedDataHolder GetDataHolder()
+        public override ActionPCVirtualKeyPressedDataHolder getDataHolder()
         {
             var a = new ActionPCVirtualKeyPressedDataHolder(_keyCode);
             return a;

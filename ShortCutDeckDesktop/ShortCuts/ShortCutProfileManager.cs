@@ -29,18 +29,18 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         #region Public Properties
         public static List<ShortCutProfile> Profiles { get => _profiles; }
-        public static event ShortCutProfilesListUpdateEventHandler ProfilesListUpdateEvent = delegate { };
+        public static event ShortCutProfilesListUpdateEventHandler profilesListUpdateEvent = delegate { };
         public static int GridWidth { get => _gridWidth; }
         public static int GridHeight { get => _gridHeight; }
         #endregion
 
-        public static bool TryGetProfilesWithIDs(string id, out ShortCutProfile profile)
+        public static bool tryGetProfilesWithID(string id, out ShortCutProfile profile)
         {
             profile = _profiles.Find(x => x.Id == id);
             return profile != null;
         }
 
-        public static bool TryUpdateExistingProfileWithDataHolder(ShortCutProfileDataHolder dataHolder)
+        public static bool tryUpdateExistingProfileWithDataHolder(ShortCutProfileDataHolder dataHolder)
         {
             if(!_profiles.Exists(x => x.Id == dataHolder.id))
                 return false;
@@ -51,13 +51,13 @@ namespace ShortCutDeckDesktop.ShortCuts
             ShortCutProfile newProfileInstance = new ShortCutProfile(dataHolder);
             _profiles[foundIndex] = newProfileInstance;
 
-            ProfilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
+            profilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
 
-            NorifyAllClientsProfileChanged(newProfileInstance);
+            norifyAllClientsProfileChanged(newProfileInstance);
             return true;
         }
 
-        private static void NorifyAllClientsProfileChanged(ShortCutProfile profile)
+        private static void norifyAllClientsProfileChanged(ShortCutProfile profile)
         {
             foreach(var client in ServerClass.Clients)
             {
@@ -88,7 +88,7 @@ namespace ShortCutDeckDesktop.ShortCuts
                 );
             //_profiles.Add(testProfile2);
 
-            ProfilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
+            profilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
         }
     }
 }

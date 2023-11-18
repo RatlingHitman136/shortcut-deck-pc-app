@@ -21,7 +21,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
         public ActionScanAns(ClientClass whoRequested, string password, string deviceName = "new Device") : base()
         {
             _password = password;
-            _ansPassword = Reverse(password);
+            _ansPassword = reverse(password);
             _deviceName = deviceName;
             _clientWhoRequested = whoRequested;
         }
@@ -38,7 +38,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
             _clientWhoRequested.sendMessage(toSend);
         }
 
-        private static string Reverse(string s)
+        private static string reverse(string s)
         {
             char[] charArray = s.ToCharArray();
             Array.Reverse(charArray);

@@ -22,7 +22,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
         {
             _profilesSmallViewModels = new();
             _profilesViewerViewModel = shortCutProfileViewerViewModel;
-            ShortCutProfileManager.ProfilesListUpdateEvent += UpdateProfilesSmallViewModelList;
+            ShortCutProfileManager.profilesListUpdateEvent += UpdateProfilesSmallViewModelList;
             UpdateProfilesSmallViewModelList(new(ShortCutProfileManager.Profiles));
             OnPropertyChanged();
         }

@@ -24,13 +24,13 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
         {
             base.executeAction();
             ShortCutProfile profile;
-            if(ShortCutProfileManager.TryGetProfilesWithIDs(_profileID, out profile))
+            if(ShortCutProfileManager.tryGetProfilesWithID(_profileID, out profile))
             {
-                (GridPos pos, List<string> additionData) = ShortCutProfileConverter.GetDataFromTriggeredShortCut(_msg);
+                (GridPos pos, List<string> additionData) = ShortCutProfileConverter.parseDataFromTriggeredShortCut(_msg);
                 ShortCutBase shortCut;
-                if(profile.TryGetShortCutByGridPos(pos, out shortCut))
+                if(profile.tryGetShortCutByGridPos(pos, out shortCut))
                 {
-                    shortCut.ShortCutTriggered(additionData);
+                    shortCut.shortCutTriggered(additionData);
                 }
             }
         }

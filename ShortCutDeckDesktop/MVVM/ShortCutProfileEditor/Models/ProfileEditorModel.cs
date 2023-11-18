@@ -29,7 +29,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
         public ProfileEditorModel(ShortCutProfile shortCutProfileToEdit, ProfileEditorViewModel profileEditorViewModel)
         {
             this.profileEditorViewModel = profileEditorViewModel;
-            _editableShortCutProfileData = shortCutProfileToEdit.GetDataHolder();
+            _editableShortCutProfileData = shortCutProfileToEdit.getDataHolder();
             List<(ShortCutBaseDataHolder, GridPos)> shortCutsData = _editableShortCutProfileData.shortCuts;
             _shortCutViewModels = new ObservableCollection<ShortCutPreviewerBaseViewModel>();
             foreach (var a in shortCutsData)
@@ -89,7 +89,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
                 newShortCuts.Add((viewModel.DataHolder, new GridPos(viewModel.X_Pos, viewModel.Y_Pos)));
             _editableShortCutProfileData.shortCuts = newShortCuts;
 
-            ShortCutProfileManager.TryUpdateExistingProfileWithDataHolder(_editableShortCutProfileData);
+            ShortCutProfileManager.tryUpdateExistingProfileWithDataHolder(_editableShortCutProfileData);
         }
     }
 }

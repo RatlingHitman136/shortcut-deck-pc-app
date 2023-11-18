@@ -19,7 +19,7 @@ namespace ShortCutDeckDesktop.Networking
         private void handleRecievedMessage(string msg, ClientClass whoSent)
         {
             Logger.logServerMsg(msg);
-            ActionBase recievedAction = ActionFactory.GetActionFromString(msg, whoSent);
+            ActionBase recievedAction = ActionFactory.createActionFromString(msg, whoSent);
             recievedAction.executeAction();
         }
     }
