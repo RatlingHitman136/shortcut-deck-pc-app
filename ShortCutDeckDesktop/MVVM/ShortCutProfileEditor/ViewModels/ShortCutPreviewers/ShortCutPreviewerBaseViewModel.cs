@@ -64,7 +64,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPrev
         public ShortCutBaseDataHolder DataHolder { get => _dataHolder; }
         public virtual void UpdateProperties(object? sender, PropertyChangedEventArgs e) => OnPropertyChanged();
         public bool IsHit(int hitPosX, int hitPosY) => 
-            (hitPosX >= X_Pos && hitPosX <= X_Pos + Size_X) 
-            && (hitPosY >= Y_Pos && hitPosY <= Y_Pos + Size_Y);
+            (hitPosX >= X_Pos && hitPosX < X_Pos + Size_X) 
+            && (hitPosY >= Y_Pos && hitPosY < Y_Pos + Size_Y);
     }
 }

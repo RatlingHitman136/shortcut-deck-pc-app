@@ -10,12 +10,12 @@ namespace ShortCutDeckDesktop.ShortCuts
 {
     public static class ShortCutFactory
     {
-        public static ShortCutBase createShortCutFromDataHolder(ShortCutBaseDataHolder dataHolder)
+        public static ShortCutBase CreateShortCutFromDataHolder(ShortCutBaseDataHolder dataHolder)
         {
             switch (dataHolder)
             {
                 case ShortCutButtonDataHolder convertedDataHolder:
-                    ActionBase buttonAction = ActionFactory.createActionFromDataHolder(convertedDataHolder.shortCutActionData);
+                    ActionBase buttonAction = ActionFactory.CreateActionFromDataHolder(convertedDataHolder.shortCutActionData);
                     ShortCutButton button = new ShortCutButton(buttonAction, convertedDataHolder.posX, convertedDataHolder.posY);
                     return button;
 

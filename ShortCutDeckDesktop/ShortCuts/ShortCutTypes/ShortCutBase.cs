@@ -20,12 +20,12 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
             _posY = posY;
         }
 
-        public virtual void shortCutTriggered(List<string> additionalData)
+        public virtual void ShortCutTriggered(List<string> additionalData)
         {
             Logger.logServerMsg("shortcut activated");
         }
 
-        public virtual ShortCutBaseDataHolder getDataHolder()
+        public virtual ShortCutBaseDataHolder GetDataHolder()
         {
             return new ShortCutBaseDataHolder(_posX, _posY);
         }

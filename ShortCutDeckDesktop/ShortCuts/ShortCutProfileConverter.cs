@@ -16,11 +16,11 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         //result from this factory = b:0 0/b:0 1/e/b:0 3 .....  
 
-        public static string parseProfileToString(ShortCutProfile profile)
+        public static string ParseProfileToString(ShortCutProfile profile)
         {
             string res = "";
 
-            List<ShortCutTypes.ShortCutBase> list = profile.getShortCutsInRightOrder();
+            List<ShortCutTypes.ShortCutBase> list = profile.GetShortCutsInRightOrder();
 
             for (int i = 0; i < list.Count; i++)
             {
@@ -45,7 +45,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             return res;
         }
 
-        public static (int x, int y, List<string> additionalData) parseDataFromTriggeredShortCut(string msg)
+        public static (int x, int y, List<string> additionalData) ParseDataFromTriggeredShortCut(string msg)
         {
             try
             {

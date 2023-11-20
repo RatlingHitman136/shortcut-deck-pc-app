@@ -34,7 +34,7 @@ namespace ShortCutDeckDesktop.ShortCuts
         public static int GridHeight { get => _gridHeight; }
         #endregion
 
-        public static bool tryGetProfilesWithID(string id, out ShortCutProfile profile)
+        public static bool TryGetProfilesWithID(string id, out ShortCutProfile profile)
         {
             profile = _profiles.Find(x => x.Id == id);
             return profile != null;
@@ -53,16 +53,16 @@ namespace ShortCutDeckDesktop.ShortCuts
 
             profilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
 
-            norifyAllClientsProfileChanged(newProfileInstance);
+            NotifyAllClientsProfileChanged(newProfileInstance);
             return true;
         }
 
-        private static void norifyAllClientsProfileChanged(ShortCutProfile profile)
+        private static void NotifyAllClientsProfileChanged(ShortCutProfile profile)
         {
             foreach(var client in ServerClass.Clients)
             {
                 ActionSendProfiles actionSendProfiles = new ActionSendProfiles(client, new List<ShortCutProfile> { profile });
-                actionSendProfiles.executeAction();
+                actionSendProfiles.ExecuteAction();
             }
         }
 

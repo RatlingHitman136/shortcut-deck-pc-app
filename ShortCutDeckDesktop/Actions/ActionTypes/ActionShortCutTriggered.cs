@@ -20,17 +20,17 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
             _msg = msg;
         }
 
-        public override void executeAction()
+        public override void ExecuteAction()
         {
-            base.executeAction();
+            base.ExecuteAction();
             ShortCutProfile profile;
-            if(ShortCutProfileManager.tryGetProfilesWithID(_profileID, out profile))
+            if(ShortCutProfileManager.TryGetProfilesWithID(_profileID, out profile))
             {
-                (int x, int y, List<string> additionData) = ShortCutProfileConverter.parseDataFromTriggeredShortCut(_msg);
+                (int x, int y, List<string> additionData) = ShortCutProfileConverter.ParseDataFromTriggeredShortCut(_msg);
                 ShortCutBase shortCut;
-                if(profile.tryGetShortCutByGridPos(x, y, out shortCut))
+                if(profile.TryGetShortCutByGridPos(x, y, out shortCut))
                 {
-                    shortCut.shortCutTriggered(additionData);
+                    shortCut.ShortCutTriggered(additionData);
                 }
             }
         }

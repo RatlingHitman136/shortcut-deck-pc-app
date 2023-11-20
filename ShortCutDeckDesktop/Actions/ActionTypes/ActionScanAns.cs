@@ -21,24 +21,24 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
         public ActionScanAns(ClientClass whoRequested, string password, string deviceName = "new Device") : base()
         {
             _password = password;
-            _ansPassword = reverse(password);
+            _ansPassword = ReverseString(password);
             _deviceName = deviceName;
             _clientWhoRequested = whoRequested;
         }
 
-        public override void executeAction()
+        public override void ExecuteAction()
         {
-            base.executeAction();
+            base.ExecuteAction();
             string toSend = StringConstants.ACTION_SCAN_TAG
                         + StringConstants.FIRST_LEVEL_SPLIT_CHARACTER
                         + AnsPassword
                         + StringConstants.FIRST_LEVEL_SPLIT_CHARACTER
                         + ServerClass.ServerName;
             Logger.logServerMsg("sent back: " + toSend);
-            _clientWhoRequested.sendMessage(toSend);
+            _clientWhoRequested.SendMessage(toSend);
         }
 
-        private static string reverse(string s)
+        private static string ReverseString(string s)
         {
             char[] charArray = s.ToCharArray();
             Array.Reverse(charArray);

@@ -20,16 +20,16 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
             _keyCode = dataHolder.keyCode;
         }
 
-        public override void executeAction()
+        public override void ExecuteAction()
         {
-            base.executeAction();
+            base.ExecuteAction();
             keybd_event(_keyCode, 0, 0, 0);
         }
 
         [DllImport("user32.dll")]
         static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);
 
-        public override ActionPCVirtualKeyPressedDataHolder getDataHolder()
+        public override ActionPCVirtualKeyPressedDataHolder GetDataHolder()
         {
             var a = new ActionPCVirtualKeyPressedDataHolder(_keyCode);
             return a;

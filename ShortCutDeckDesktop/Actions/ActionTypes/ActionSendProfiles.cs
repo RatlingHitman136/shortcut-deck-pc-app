@@ -23,7 +23,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
 
             foreach (var profile in profiles)
             {
-                _profileContextsToSend.Add((ShortCutProfileConverter.parseProfileToString(profile), profile.Id));
+                _profileContextsToSend.Add((ShortCutProfileConverter.ParseProfileToString(profile), profile.Id));
             }
         }
 
@@ -38,14 +38,14 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
 
             foreach (var index in _profilesIndexesToSend)
             {
-                _profileContextsToSend.Add((ShortCutProfileConverter.parseProfileToString(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
+                _profileContextsToSend.Add((ShortCutProfileConverter.ParseProfileToString(ShortCutProfileManager.Profiles[index]), ShortCutProfileManager.Profiles[index].Id));
             }
         }
 
 
-        public override void executeAction()
+        public override void ExecuteAction()
         {
-            base.executeAction();
+            base.ExecuteAction();
             foreach ((string, string) context in _profileContextsToSend)
             {
                 string toSend = StringConstants.ACTION_SEND_PROFILE_TAG
@@ -55,7 +55,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
                     + context.Item1;
 
                 Logger.logServerMsg("sent Prof: " + toSend);
-                _whoRequested.sendMessage(toSend);
+                _whoRequested.SendMessage(toSend);
             }
         }
     }
