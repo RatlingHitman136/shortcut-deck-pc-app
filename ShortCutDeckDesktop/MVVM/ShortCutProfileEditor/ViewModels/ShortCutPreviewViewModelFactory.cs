@@ -8,17 +8,17 @@ using System;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 {
-    internal static class ShortCutEditorViewModelFactory
+    internal static class ShortCutPreviewViewModelFactory
     {
-        public static ShortCutPreviewerBaseViewModel CreatePreviewViewModelFromDataHolder((ShortCutBaseDataHolder, ShortCutProfile.GridPos) data)
+        public static ShortCutPreviewerBaseViewModel CreatePreviewViewModelFromDataHolder(ShortCutBaseDataHolder data)
         {
-            switch(data.Item1)
+            switch(data)
             {
                 case ShortCutButtonDataHolder shortCutButtonDataHolder:
-                    return new ShortCutButtonPreviewerViewModel(data.Item2.X, data.Item2.Y, shortCutButtonDataHolder);
+                    return new ShortCutButtonPreviewerViewModel(data.posX, data.posY, shortCutButtonDataHolder);
             }
             
-            throw new NotImplementedException("View Model for the " + data.Item1.ToString() + "Data Holder class is not implemented");
+            throw new NotImplementedException("View Model for the " + data.ToString() + "Data Holder class is not implemented");
         }
 
         public static ActionBaseEditorViewModel CreateActionEditorViewModelFromShortCutDataHolder(ShortCutBaseDataHolder shortCutBaseDataHolder)

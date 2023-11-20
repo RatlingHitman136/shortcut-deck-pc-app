@@ -26,9 +26,9 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
             ShortCutProfile profile;
             if(ShortCutProfileManager.tryGetProfilesWithID(_profileID, out profile))
             {
-                (GridPos pos, List<string> additionData) = ShortCutProfileConverter.parseDataFromTriggeredShortCut(_msg);
+                (int x, int y, List<string> additionData) = ShortCutProfileConverter.parseDataFromTriggeredShortCut(_msg);
                 ShortCutBase shortCut;
-                if(profile.tryGetShortCutByGridPos(pos, out shortCut))
+                if(profile.tryGetShortCutByGridPos(x, y, out shortCut))
                 {
                     shortCut.shortCutTriggered(additionData);
                 }

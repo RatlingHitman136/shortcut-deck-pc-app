@@ -30,12 +30,12 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
         {
             this.profileEditorViewModel = profileEditorViewModel;
             _editableShortCutProfileData = shortCutProfileToEdit.getDataHolder();
-            List<(ShortCutBaseDataHolder, GridPos)> shortCutsData = _editableShortCutProfileData.shortCuts;
+            List<ShortCutBaseDataHolder> shortCutsData = _editableShortCutProfileData.shortCuts;
             _shortCutViewModels = new ObservableCollection<ShortCutPreviewerBaseViewModel>();
             foreach (var a in shortCutsData)
             {
-                var bastDataHolder = a.Item1 as ShortCutButtonDataHolder;
-                _shortCutViewModels.Add(ShortCutEditorViewModelFactory.CreatePreviewViewModelFromDataHolder(a));
+                var bastDataHolder = a as ShortCutButtonDataHolder;
+                _shortCutViewModels.Add(ShortCutPreviewViewModelFactory.CreatePreviewViewModelFromDataHolder(a));
             }
         }
 
@@ -84,9 +84,9 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
         public void InitProfileApplyChanges()
         {
             //create new list of shortcut data holder with new positions
-            List<(ShortCutBaseDataHolder, GridPos)> newShortCuts = new List<(ShortCutBaseDataHolder, GridPos)>();
+            List<ShortCutBaseDataHolder> newShortCuts = new List<ShortCutBaseDataHolder>();
             foreach (var viewModel in _shortCutViewModels)
-                newShortCuts.Add((viewModel.DataHolder, new GridPos(viewModel.X_Pos, viewModel.Y_Pos)));
+                newShortCuts.Add(viewModel.DataHolder);
             _editableShortCutProfileData.shortCuts = newShortCuts;
 
             ShortCutProfileManager.tryUpdateExistingProfileWithDataHolder(_editableShortCutProfileData);

@@ -8,7 +8,17 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
 {
     public class ShortCutBase
     {
-        public ShortCutBase() { }
+        protected int _posX;
+        protected int _posY;
+
+        public int PosX { get => _posX;}
+        public int PosY { get => _posY; }
+
+        public ShortCutBase(int  posX, int posY) 
+        {
+            _posX = posX;
+            _posY = posY;
+        }
 
         public virtual void shortCutTriggered(List<string> additionalData)
         {
@@ -17,10 +27,19 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
 
         public virtual ShortCutBaseDataHolder getDataHolder()
         {
-            return new ShortCutBaseDataHolder();
+            return new ShortCutBaseDataHolder(_posX, _posY);
         }
     }
 
     public class ShortCutBaseDataHolder
-    {}
+    {
+        public int posX;
+        public int posY;
+
+        public ShortCutBaseDataHolder(int posX, int posY)
+        {
+            this.posX = posX;
+            this.posY = posY;
+        }
+    }
 }

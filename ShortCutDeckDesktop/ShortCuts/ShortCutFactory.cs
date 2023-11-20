@@ -16,7 +16,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             {
                 case ShortCutButtonDataHolder convertedDataHolder:
                     ActionBase buttonAction = ActionFactory.createActionFromDataHolder(convertedDataHolder.shortCutActionData);
-                    ShortCutButton button = new ShortCutButton(buttonAction);
+                    ShortCutButton button = new ShortCutButton(buttonAction, convertedDataHolder.posX, convertedDataHolder.posY);
                     return button;
 
                 default:

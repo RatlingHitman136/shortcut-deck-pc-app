@@ -10,12 +10,12 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
     public class ShortCutButton : ShortCutBase
     {
         private ActionBase _shortCutAction;
-        public ShortCutButton() : base()
+        public ShortCutButton(int posX, int posY) : base(posX, posY)
         {
             _shortCutAction = new ActionBase();
         }
 
-        public ShortCutButton(ActionBase action) : base()
+        public ShortCutButton(ActionBase action, int posX, int posY) : base(posX, posY)
         {
             _shortCutAction = action;
         }
@@ -27,7 +27,7 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
 
         public override ShortCutButtonDataHolder getDataHolder()
         {
-            var a = new ShortCutButtonDataHolder(_shortCutAction.getDataHolder());
+            var a = new ShortCutButtonDataHolder(_shortCutAction.getDataHolder(), _posX, _posY);
             return a;
         }
     }
@@ -36,7 +36,7 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
     {
         public ActionBaseDataHolder shortCutActionData;
 
-        public ShortCutButtonDataHolder(ActionBaseDataHolder shortCutActionData)
+        public ShortCutButtonDataHolder(ActionBaseDataHolder shortCutActionData, int posX, int posY) : base(posX, posY)
         {
             this.shortCutActionData = shortCutActionData;
         }

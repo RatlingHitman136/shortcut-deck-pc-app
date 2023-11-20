@@ -16,6 +16,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
     class ProfilePreviewer6X4ViewModel : ObservableObject
     {
         private ProfileEditorModel _profilePreviewerEditorModel;
+        private ObservableCollection<ShortCutPreviewerBaseViewModel> _shortCutViewModels;
 
         private ICommand _dragDrop_DropCommand;
         private ICommand _shortCutPreview_SelectedCommand;
@@ -29,7 +30,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 
         public ObservableCollection<ShortCutPreviewerBaseViewModel> ShortCutsViewModels
         {
-            get => _profilePreviewerEditorModel.ShortCutViewModels;
+            get => _shortCutViewModels;
         }
         public ICommand DragDrop_DropCommand { get => _dragDrop_DropCommand; }
         public ICommand ShortCutPreview_SelectedCommand { get => _shortCutPreview_SelectedCommand; }

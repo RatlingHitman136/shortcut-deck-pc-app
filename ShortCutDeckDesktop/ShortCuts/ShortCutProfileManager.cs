@@ -69,24 +69,15 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         public static void initTestOneProfile() {
             ShortCutProfile testProfile = new ShortCutProfile("mainPrf", "Default Profile", 4, 6,
-                new List<(ShortCutBase, ShortCutProfile.GridPos)>
+                new List<ShortCutBase>
                 {
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_UP)), new ShortCutProfile.GridPos(0,0)),
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_MEDIA_PLAY_PAUSE)), new ShortCutProfile.GridPos(1,0)),
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_MUTE)), new ShortCutProfile.GridPos(2,0)),
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_DOWN)), new ShortCutProfile.GridPos(3,0)),
+                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_UP), 0, 0),
+                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_MEDIA_PLAY_PAUSE), 1, 0),
+                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_MUTE), 2, 0),
+                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_DOWN), 3, 0),
                 }
                 );
             _profiles.Add(testProfile);
-
-            ShortCutProfile testProfile2 = new ShortCutProfile("scndPrf", "Not Default Profile", 4, 6,
-                new List<(ShortCutBase, ShortCutProfile.GridPos)>
-                {
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_UP)), new ShortCutProfile.GridPos(0,0)),
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_DOWN)), new ShortCutProfile.GridPos(3,0)),
-                }
-                );
-            //_profiles.Add(testProfile2);
 
             profilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
         }
