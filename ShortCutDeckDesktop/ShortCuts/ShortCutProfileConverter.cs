@@ -16,23 +16,23 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         //result from this factory = b:0 0/b:0 1/e/b:0 3 .....  
 
-        public static string GetStringFromShortCutProfileForClient(ShortCutProfile profile)
+        public static string ParseProfileToString(ShortCutProfile profile)
         {
             string res = "";
 
-            List<(ShortCutTypes.ShortCutBase, ShortCutProfile.GridPos)> list = profile.getShortCutsInRightOrder();
+            List<ShortCutTypes.ShortCutBase> list = profile.GetShortCutsInRightOrder();
 
             for (int i = 0; i < list.Count; i++)
             {
-                (ShortCutTypes.ShortCutBase, ShortCutProfile.GridPos) item = list[i];
-                switch (item.Item1)
+                ShortCutTypes.ShortCutBase item = list[i];
+                switch (item)
                 {
                     case ShortCutTypes.ShortCutButton:
                         res += StringConstants.SHORT_CUT_BUTTON_TAG +
                             StringConstants.SECOND_LEVEL_SPLIT_CHARACTER +
-                            item.Item2.X.ToString() +
+                            item.PosX.ToString() +
                             StringConstants.THIRD_LEVEL_SPLIT_CHARACTER +
-                            item.Item2.Y.ToString();
+                            item.PosY.ToString();
                         break;
                     case ShortCutTypes.ShortCutBase:
                         res += StringConstants.SHORT_CUT_EMPTY_TAG;
@@ -45,15 +45,14 @@ namespace ShortCutDeckDesktop.ShortCuts
             return res;
         }
 
-        public static (GridPos pos, List<string> additionalData) GetDataFromTriggeredShortCut(string msg)
+        public static (int x, int y, List<string> additionalData) ParseDataFromTriggeredShortCut(string msg)
         {
             try
             {
                 List<string> data = msg.Trim().Split(StringConstants.SECOND_LEVEL_SPLIT_CHARACTER).ToList();
                 List<string> posData = data[0].Split(StringConstants.THIRD_LEVEL_SPLIT_CHARACTER).ToList();
                 data.RemoveAt(0);
-                GridPos pos = new GridPos(Convert.ToInt32(posData[0]), Convert.ToInt32(posData[1]));
-                return (pos, data);
+                return (Convert.ToInt32(posData[0]), Convert.ToInt32(posData[1]), data);
             }
             catch (Exception e)
             {

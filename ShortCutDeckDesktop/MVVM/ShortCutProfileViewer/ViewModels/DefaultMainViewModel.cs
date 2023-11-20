@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileLister;
+using ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.SideLister;
 using ShortCutDeckDesktop.MVVM.ViewModels;
 using ShortCutDeckDesktop.ShortCuts;
 using System;
@@ -22,7 +22,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
         {
             _profilesSmallViewModels = new();
             _profilesViewerViewModel = shortCutProfileViewerViewModel;
-            ShortCutProfileManager.ProfilesListUpdateEvent += UpdateProfilesSmallViewModelList;
+            ShortCutProfileManager.profilesListUpdateEvent += UpdateProfilesSmallViewModelList;
             UpdateProfilesSmallViewModelList(new(ShortCutProfileManager.Profiles));
             OnPropertyChanged();
         }
@@ -55,7 +55,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
             {
                 ProfileMainViewModel profileMainViewModel = new ProfileMainViewModel(shortCutProfile);
                 selectedSideBarViewModel = new ProfileItemViewModel(_profilesViewerViewModel, profileMainViewModel);
-                _profilesViewerViewModel.ProfileListerViewModels.Add(selectedSideBarViewModel);
+                _profilesViewerViewModel.SideListerViewModels.Add(selectedSideBarViewModel);
             }
 
             _profilesViewerViewModel.SelectedProfileListerViewModel = selectedSideBarViewModel;

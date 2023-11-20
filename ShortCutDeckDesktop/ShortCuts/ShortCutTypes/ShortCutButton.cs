@@ -1,4 +1,4 @@
-﻿using ShortCutDeckDesktop.Actions;
+using ShortCutDeckDesktop.Actions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +10,24 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
     public class ShortCutButton : ShortCutBase
     {
         private ActionBase _shortCutAction;
-        public ShortCutButton() : base()
+        public ShortCutButton(int posX, int posY) : base(posX, posY)
         {
             _shortCutAction = new ActionBase();
         }
 
-        public ShortCutButton(ActionBase action) : base()
+        public ShortCutButton(ActionBase action, int posX, int posY) : base(posX, posY)
         {
             _shortCutAction = action;
         }
 
         public override void ShortCutTriggered(List<string> additionalData)
         {
-            _shortCutAction.executeAction();
+            _shortCutAction.ExecuteAction();
         }
 
         public override ShortCutButtonDataHolder GetDataHolder()
         {
-            var a = new ShortCutButtonDataHolder(_shortCutAction.GetDataHolder());
+            var a = new ShortCutButtonDataHolder(_shortCutAction.GetDataHolder(), _posX, _posY);
             return a;
         }
     }
@@ -36,7 +36,7 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
     {
         public ActionBaseDataHolder shortCutActionData;
 
-        public ShortCutButtonDataHolder(ActionBaseDataHolder shortCutActionData)
+        public ShortCutButtonDataHolder(ActionBaseDataHolder shortCutActionData, int posX, int posY) : base(posX, posY)
         {
             this.shortCutActionData = shortCutActionData;
         }

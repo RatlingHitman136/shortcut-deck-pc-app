@@ -30,14 +30,19 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditor
             set
             {
                 keyCode = value;
-                ApplyChanges();
+                TryApplyChanges();
             }
         }
 
-        public override void ApplyChanges()
+        public void TryApplyChanges()
         {
-            _actionDataHolder.keyCode = Convert.ToByte(keyCode);
-            OnPropertyChanged();
+            try
+            {
+                _actionDataHolder.keyCode = Convert.ToByte(keyCode);
+                OnPropertyChanged();
+            }
+            catch
+            { }
         }
     }
 }

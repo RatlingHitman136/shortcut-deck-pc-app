@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileLister
+namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.SideLister
 {
     internal class BaseItemViewModel:ObservableObject
     {

@@ -15,46 +15,25 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 {
     class ProfilePreviewer6X4ViewModel : ObservableObject
     {
-        private ProfileEditorModel _profilePreviewerEditorModel;
+        private ObservableCollection<ShortCutPreviewerBaseViewModel> _shortCutViewModels;
 
         private ICommand _dragDrop_DropCommand;
         private ICommand _shortCutPreview_SelectedCommand;
 
-        public ProfilePreviewer6X4ViewModel(ProfileEditorModel profileEditorModel)
+        public ProfilePreviewer6X4ViewModel(ProfileEditorModel profileEditorModel, ICommand dragDrop_DropCommand, ICommand shortCutPreview_SelectedCommand)
         {
-            _profilePreviewerEditorModel = profileEditorModel;
-            _dragDrop_DropCommand = new RelayCommand<object?>(param => OnShortCutDropped(param));
-            _shortCutPreview_SelectedCommand = new RelayCommand<object?>(param => OnShortCutSelected(param));
+            _dragDrop_DropCommand = dragDrop_DropCommand;
+            _shortCutPreview_SelectedCommand = shortCutPreview_SelectedCommand;
+            _shortCutViewModels = profileEditorModel.GetShortCutPreviewerViewModels();
         }
 
         public ObservableCollection<ShortCutPreviewerBaseViewModel> ShortCutsViewModels
         {
-            get => _profilePreviewerEditorModel.ShortCutViewModels;
+            get => _shortCutViewModels;
         }
         public ICommand DragDrop_DropCommand { get => _dragDrop_DropCommand; }
         public ICommand ShortCutPreview_SelectedCommand { get => _shortCutPreview_SelectedCommand; }
 
-        private void OnShortCutDropped(object? param)
-        {
-            if (param is not (ShortCutPreviewerBaseViewModel, int, int))
-                return;
 
-            var converted = ((object, int, int))param;
-            ShortCutPreviewerBaseViewModel viewModel = (ShortCutPreviewerBaseViewModel)converted.Item1;
-            int newPos_X = converted.Item2;
-            int newPos_Y = converted.Item3;
-
-
-            _profilePreviewerEditorModel.TryChangeShortCutViewModelPositionInGrid(newPos_X, newPos_Y, viewModel);
-        }
-
-        private void OnShortCutSelected(object? param)
-        {
-            if (param is not (MouseButtonEventArgs, int, int))
-                return;
-
-            var convertedParams = ((MouseButtonEventArgs, int, int))param;
-            _profilePreviewerEditorModel.TrySelectShortCutPreviewerFromPositionInGrid(convertedParams.Item1, convertedParams.Item2, convertedParams.Item3);
-        }
     }
 }

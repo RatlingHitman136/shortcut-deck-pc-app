@@ -27,24 +27,24 @@ namespace ShortCutDeckDesktop.Networking
         public static string ServerName { get => _serverName;}
         public static List<ClientClass> Clients { get => _clients; }
 
-        static public void startServer(string name = "PC device", int port = BASE_PORT)
+        static public void StartServer(string name = "PC device", int port = BASE_PORT)
         {
             if (_isRunning)
             {
-                stopServer();
+                StopServer();
                 Logger.logServerMsg("Server Stopped");
             }
             _serverName = name;
             _listenerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPEndPoint ip = new IPEndPoint(IPAddress.Parse(getIp4Address()), port);
             _listenerSocket.Bind(ip);
-            _listenerThread = new Thread(listenForConnections);
+            _listenerThread = new Thread(ListenForConnections);
             _listenerThread.IsBackground = true;
             _listenerThread.Start();
             _isRunning = true;
             Logger.logServerMsg("Server Started \nAwaiting Connections");
         }
-        static private void stopServer()
+        static private void StopServer()
         {
             if (_isRunning)
             {
@@ -54,7 +54,7 @@ namespace ShortCutDeckDesktop.Networking
                     //_listenerSocket?.Shutdown(SocketShutdown.Both);
                     foreach (ClientClass clientClass in _clients)
                     {
-                        clientClass.disconnect();
+                        clientClass.Disconnect();
                     }
                     _clients.Clear(); 
                 }
@@ -63,13 +63,13 @@ namespace ShortCutDeckDesktop.Networking
                 _isRunning = false;
             }
         }
-        static public void tryDisconnectClient(ClientClass client)
+        static public void TryDisconnectClient(ClientClass client)
         {
             if(_clients.Contains(client))
                 _clients.Remove(client);
-            client.disconnect();
+            client.Disconnect();
         }
-        static private void listenForConnections()
+        static private void ListenForConnections()
         {
             if (_listenerSocket is null)
                 Logger.logError("listener Socket is NULL");

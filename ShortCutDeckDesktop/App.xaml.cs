@@ -20,7 +20,7 @@ namespace ShortCutDeckDesktop
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            ServerClass.startServer();
+            ServerClass.StartServer();
             ShortCutProfileManager.initTestOneProfile();//TODO(test stuff)
         }
     }

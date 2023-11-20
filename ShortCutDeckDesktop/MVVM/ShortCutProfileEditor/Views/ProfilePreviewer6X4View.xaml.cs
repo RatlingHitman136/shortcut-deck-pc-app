@@ -79,18 +79,14 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views
 
         private (int,int) GeXYFromPoint(Point point)
         {
-            int newPos_X = 0;
-            int newPos_Y = 0;
-
             double itemsControlHeight = shortCutViewsHolder.ActualHeight;
             double itemsControlWidth = shortCutViewsHolder.ActualWidth;
 
             double rowHeight = itemsControlHeight / gridPreviewer.RowDefinitions.Count;
             double columnWidth = itemsControlWidth / gridPreviewer.ColumnDefinitions.Count;
 
-            newPos_X = (int)(point.X / columnWidth);
-            newPos_Y = (int)(point.Y / rowHeight);
-
+            int newPos_X = (int)(point.X / columnWidth);
+            int newPos_Y = (int)(point.Y / rowHeight);
             return (newPos_X, newPos_Y);
         }
     }

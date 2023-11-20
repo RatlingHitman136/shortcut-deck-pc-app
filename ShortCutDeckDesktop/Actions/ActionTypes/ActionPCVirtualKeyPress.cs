@@ -20,9 +20,9 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
             _keyCode = dataHolder.keyCode;
         }
 
-        public override void executeAction()
+        public override void ExecuteAction()
         {
-            base.executeAction();
+            base.ExecuteAction();
             keybd_event(_keyCode, 0, 0, 0);
         }
 

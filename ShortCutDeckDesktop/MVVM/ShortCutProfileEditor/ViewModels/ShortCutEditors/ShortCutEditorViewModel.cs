@@ -12,12 +12,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutEdit
 
         public ShortCutEditorViewModel(ShortCutBaseDataHolder shortCutDataHolder)
         {
-            _actionBaseEditorViewModel = ShortCutEditorViewModelFactory.CreateActionEditorViewModelFromShortCutDataHolder(shortCutDataHolder);
-        }
-
-        public void ApplyChanges()
-        {
-            _actionBaseEditorViewModel.ApplyChanges();
+            _actionBaseEditorViewModel = ShortCutPreviewViewModelFactory.CreateActionEditorViewModelFromShortCutDataHolder(shortCutDataHolder);
         }
 
         public ActionBaseEditorViewModel ActionBaseEditorViewModel { get => _actionBaseEditorViewModel; }

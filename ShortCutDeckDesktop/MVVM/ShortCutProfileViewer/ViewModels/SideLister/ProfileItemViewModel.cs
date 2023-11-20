@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.ProfileLister
+namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.SideLister
 {
     internal class ProfileItemViewModel : BaseItemViewModel
     {

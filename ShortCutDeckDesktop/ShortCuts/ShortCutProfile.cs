@@ -14,7 +14,7 @@ namespace ShortCutDeckDesktop.ShortCuts
 {
     public class ShortCutProfile
     {
-        private List<(ShortCutBase, GridPos)> _shortCuts;
+        private List<ShortCutBase> _shortCuts;
         //public List<(ShortCutBase, GridPos)> ShortCuts { get => _shortCuts; }
 
         private string _id;
@@ -31,7 +31,7 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         public ShortCutProfile(string id, string name)
         {
-            _shortCuts = new List<(ShortCutBase, GridPos)>();
+            _shortCuts = new List<ShortCutBase>();
             _id = id;
             _name = name;
             _size_X = 4;
@@ -41,7 +41,7 @@ namespace ShortCutDeckDesktop.ShortCuts
                                string name,
                                int size_X,
                                int size_Y,
-                               List<(ShortCutBase, GridPos)> shortCuts)
+                               List<ShortCutBase> shortCuts)
         {
             _shortCuts = shortCuts;
             _id = id;
@@ -55,41 +55,40 @@ namespace ShortCutDeckDesktop.ShortCuts
             _name = dataHolder.name;
             _size_X = dataHolder.size_X;
             _size_Y = dataHolder.size_Y;
-            _shortCuts = new List<(ShortCutBase, GridPos)>();
+            _shortCuts = new List<ShortCutBase>();
             foreach(var shortCutData in dataHolder.shortCuts)
-                _shortCuts.Add((ShortCutFactory.CreateShortCutFromDataHolder(shortCutData.Item1), shortCutData.Item2));
+                _shortCuts.Add((ShortCutFactory.CreateShortCutFromDataHolder(shortCutData)));
         }
 
 
-        public List<(ShortCutBase, GridPos)> getShortCutsInRightOrder()
+        public List<ShortCutBase> GetShortCutsInRightOrder()
         {
-            List<(ShortCutBase, GridPos)> shortCutsInRightOrder = new List<(ShortCutBase, GridPos)>();
+            List<ShortCutBase> shortCutsInRightOrder = new List<ShortCutBase>();
 
             for (int y = 0; y < ShortCutProfileManager.GridHeight; y++)
             {
                 for (int x = 0; x < ShortCutProfileManager.GridWidth; x++)
                 {
-                    GridPos curPos = new GridPos(x, y);
-                    var selected = _shortCuts.FindAll(item => item.Item2.Equals(curPos));
+                    var selected = _shortCuts.FindAll(item => (item.PosX == x) && (item.PosY == y));
                     if (selected.Count > 0)
                     {
                         shortCutsInRightOrder.Add(selected[0]);
                     }
                     else //nothing was found at position
-
                     {
-                        shortCutsInRightOrder.Add((new ShortCutBase(), curPos));
+                        shortCutsInRightOrder.Add(new ShortCutBase(x, y));
                     }
                 }
             }
             return shortCutsInRightOrder;
         }
-        public bool TryGetShortCutByGridPos(GridPos pos, out ShortCutBase shortCut)
+        public bool TryGetShortCutByGridPos(int posX, int posY, out ShortCutBase shortCut)
         {
-            shortCut = _shortCuts.Find(x => x.Item2.Equals(pos)).Item1;
+            shortCut = _shortCuts.Find(x => (x.PosX == posX) && (x.PosY == posY));
             return shortCut != null;
         }
-
+        
+/*
         public struct GridPos
         {
             private int _x;
@@ -111,14 +110,15 @@ namespace ShortCutDeckDesktop.ShortCuts
                        _y == pos._y;
             }
         }
+*/
 
         public ShortCutProfileDataHolder GetDataHolder()
         {
-            List<(ShortCutBaseDataHolder, GridPos)> dataHolders = new List<(ShortCutBaseDataHolder, GridPos)> ();
+            List<ShortCutBaseDataHolder> dataHolders = new List<ShortCutBaseDataHolder> ();
 
             foreach(var a in _shortCuts)
             {
-                dataHolders.Add((a.Item1.GetDataHolder(), a.Item2));
+                dataHolders.Add(a.GetDataHolder());
             }
 
             return new ShortCutProfileDataHolder(_id, _name, _size_X, _size_Y, dataHolders);
@@ -131,13 +131,13 @@ namespace ShortCutDeckDesktop.ShortCuts
         public string name;
         public int size_X;
         public int size_Y;
-        public List<(ShortCutBaseDataHolder, GridPos)> shortCuts;
+        public List<ShortCutBaseDataHolder> shortCuts;
 
         public ShortCutProfileDataHolder(string id, 
             string name, 
             int size_X, 
             int size_Y, 
-            List<(ShortCutBaseDataHolder, GridPos)> shortCuts)
+            List<ShortCutBaseDataHolder> shortCuts)
         {
             this.id = id;
             this.name = name;

@@ -21,35 +21,35 @@ namespace ShortCutDeckDesktop.Networking
             _clientSocket = clientSocket;
             _msgToWrite = new List<String>();
             _interpreter = new RecievedMessageHandler();
-            startExchangingMessages();
+            StartExchangingMessages();
 
-            new Thread(disconnectWhenNeeded).Start();
+            new Thread(DisconnectWhenNeeded).Start();
         }
 
-        private void disconnectWhenNeeded()
+        private void DisconnectWhenNeeded()
         {
             try
             {
-                while (isSocketConnected())
+                while (IsSocketConnected())
                 {
                     Thread.Sleep(10);
                 }
-                ServerClass.tryDisconnectClient(this);
+                ServerClass.TryDisconnectClient(this);
             }
             catch (Exception ex) { }
         }
 
-        private void startExchangingMessages() 
+        private void StartExchangingMessages() 
         {
-            _readThread = new Thread(readingProcess);
-            _writeThread = new Thread(writingProcess);
+            _readThread = new Thread(ReadingProcess);
+            _writeThread = new Thread(WritingProcess);
             _readThread.IsBackground = true;
             _writeThread.IsBackground = true;  
             _readThread.Start();
             _writeThread.Start();
         }
 
-        private void readingProcess()
+        private void ReadingProcess()
         {
             byte[] buffer;
             int bytesRead = 0;
@@ -63,7 +63,7 @@ namespace ShortCutDeckDesktop.Networking
 
                     if (bytesRead > 0)
                     {
-                        _interpreter.handleRecievedMessage(buffer, bytesRead, this);
+                        _interpreter.HandleRecievedMessage(buffer, bytesRead, this);
                     }
                 }
             }
@@ -73,11 +73,11 @@ namespace ShortCutDeckDesktop.Networking
             }
         }
 
-        private void writingProcess()
+        private void WritingProcess()
         {
             try
             {
-                while (isSocketConnected())
+                while (IsSocketConnected())
                 {
                     if (_msgToWrite.Count > 0)
                     {
@@ -95,7 +95,7 @@ namespace ShortCutDeckDesktop.Networking
             }
         }
 
-        public void disconnect()
+        public void Disconnect()
         {
             try
             {
@@ -107,12 +107,12 @@ namespace ShortCutDeckDesktop.Networking
 
         }
 
-        public void sendMessage(String msg)
+        public void SendMessage(String msg)
         {
             _msgToWrite.Add(msg);
         }
 
-        private bool isSocketConnected()
+        private bool IsSocketConnected()
         {
             return !((_clientSocket.Poll(1000, SelectMode.SelectRead) && (_clientSocket.Available == 0)) || !_clientSocket.Connected);
         }

@@ -13,10 +13,10 @@
         </Grid.ColumnDefinitions>
         
         
-        <!-- opened profile lister -->
+        <!-- opened profile side lister -->
 
         <ListView Grid.Column="0" 
-                  ItemsSource="{Binding ProfileListerViewModels}" 
+                  ItemsSource="{Binding SideListerViewModels}" 
                   SelectedItem="{Binding SelectedProfileListerViewModel}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">

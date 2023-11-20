@@ -29,12 +29,12 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         #region Public Properties
         public static List<ShortCutProfile> Profiles { get => _profiles; }
-        public static event ShortCutProfilesListUpdateEventHandler ProfilesListUpdateEvent = delegate { };
+        public static event ShortCutProfilesListUpdateEventHandler profilesListUpdateEvent = delegate { };
         public static int GridWidth { get => _gridWidth; }
         public static int GridHeight { get => _gridHeight; }
         #endregion
 
-        public static bool TryGetProfilesWithIDs(string id, out ShortCutProfile profile)
+        public static bool TryGetProfilesWithID(string id, out ShortCutProfile profile)
         {
             profile = _profiles.Find(x => x.Id == id);
             return profile != null;
@@ -51,44 +51,35 @@ namespace ShortCutDeckDesktop.ShortCuts
             ShortCutProfile newProfileInstance = new ShortCutProfile(dataHolder);
             _profiles[foundIndex] = newProfileInstance;
 
-            ProfilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
+            profilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
 
-            NorifyAllClientsProfileChanged(newProfileInstance);
+            NotifyAllClientsProfileChanged(newProfileInstance);
             return true;
         }
 
-        private static void NorifyAllClientsProfileChanged(ShortCutProfile profile)
+        private static void NotifyAllClientsProfileChanged(ShortCutProfile profile)
         {
             foreach(var client in ServerClass.Clients)
             {
                 ActionSendProfiles actionSendProfiles = new ActionSendProfiles(client, new List<ShortCutProfile> { profile });
-                actionSendProfiles.executeAction();
+                actionSendProfiles.ExecuteAction();
             }
         }
 
 
         public static void initTestOneProfile() {
             ShortCutProfile testProfile = new ShortCutProfile("mainPrf", "Default Profile", 4, 6,
-                new List<(ShortCutBase, ShortCutProfile.GridPos)>
+                new List<ShortCutBase>
                 {
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_UP)), new ShortCutProfile.GridPos(0,0)),
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_MEDIA_PLAY_PAUSE)), new ShortCutProfile.GridPos(1,0)),
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_MUTE)), new ShortCutProfile.GridPos(2,0)),
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_DOWN)), new ShortCutProfile.GridPos(3,0)),
+                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_UP), 0, 0),
+                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_MEDIA_PLAY_PAUSE), 1, 0),
+                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_MUTE), 2, 0),
+                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_DOWN), 3, 0),
                 }
                 );
             _profiles.Add(testProfile);
 
-            ShortCutProfile testProfile2 = new ShortCutProfile("scndPrf", "Not Default Profile", 4, 6,
-                new List<(ShortCutBase, ShortCutProfile.GridPos)>
-                {
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_UP)), new ShortCutProfile.GridPos(0,0)),
-                    (new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_DOWN)), new ShortCutProfile.GridPos(3,0)),
-                }
-                );
-            //_profiles.Add(testProfile2);
-
-            ProfilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
+            profilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
         }
     }
 }
