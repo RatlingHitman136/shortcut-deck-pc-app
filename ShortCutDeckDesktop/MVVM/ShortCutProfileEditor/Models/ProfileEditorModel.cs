@@ -13,17 +13,16 @@ using System.Windows.Input;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
 {
-    class ProfileEditorModel:ObservableObject
+    class ProfileEditorModel : ObservableObject
     {
         private ShortCutProfileDataHolder _editableShortCutProfileData;
 
         public ProfileEditorModel(ShortCutProfile shortCutProfileToEdit)
         {
             _editableShortCutProfileData = shortCutProfileToEdit.GetDataHolder();
-            List<ShortCutBaseDataHolder> shortCutsData = _editableShortCutProfileData.shortCuts;
         }
 
-        public ObservableCollection<ShortCutPreviewerBaseViewModel> GetShortCutPreviewerViewModels() 
+        public ObservableCollection<ShortCutPreviewerBaseViewModel> GetShortCutPreviewerViewModels()
         {
             ObservableCollection<ShortCutPreviewerBaseViewModel> shortCutViewModels = new ObservableCollection<ShortCutPreviewerBaseViewModel>();
             foreach (var data in _editableShortCutProfileData.shortCuts)
@@ -34,15 +33,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
             return shortCutViewModels;
         }
 
-        public void InitProfileApplyChanges()
-        {/*
-            //create new list of shortcut data holder with new positions
-            List<ShortCutBaseDataHolder> newShortCuts = new List<ShortCutBaseDataHolder>();
-            foreach (var viewModel in _shortCutViewModels)
-                newShortCuts.Add(viewModel.DataHolder);
-            _editableShortCutProfileData.shortCuts = newShortCuts;
-            */
+        public void InitProfileApplyChanges() =>
             ShortCutProfileManager.TryUpdateExistingProfileWithDataHolder(_editableShortCutProfileData);
-        }
     }
 }

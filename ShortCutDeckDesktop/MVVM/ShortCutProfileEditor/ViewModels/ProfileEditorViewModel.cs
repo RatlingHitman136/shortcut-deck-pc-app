@@ -73,21 +73,19 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
             int newPos_Y = converted.Item3;
 
 
-            TryChangeShortCutViewModelPositionInGrid(newPos_X, newPos_Y, viewModel);
+            if(CanMoveShortCut(newPos_X, newPos_Y, viewModel))
+            {
+                viewModel.X_Pos = newPos_X;
+                viewModel.Y_Pos = newPos_Y;
+            }
         }
-
-        public bool TryChangeShortCutViewModelPositionInGrid(int newPos_X, int newPos_Y, ShortCutPreviewerBaseViewModel viewModel)
+        private bool CanMoveShortCut(int newPos_X, int newPos_Y, ShortCutPreviewerBaseViewModel viewModel)
         {
             if (!_profilePreviewerViewModel.ShortCutsViewModels.Contains(viewModel))
                 return false;
             foreach (var oldVieModel in _profilePreviewerViewModel.ShortCutsViewModels)
-            {
-                if (oldVieModel.X_Pos == newPos_X && oldVieModel.Y_Pos == newPos_Y)
+                if (oldVieModel.IsHit(newPos_X, newPos_Y) && oldVieModel != viewModel)
                     return false;
-            }
-            viewModel.X_Pos = newPos_X;
-            viewModel.Y_Pos = newPos_Y;
-
             return true;
         }
 
@@ -97,10 +95,10 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
                 return;
 
             var convertedParams = ((MouseButtonEventArgs, int, int))param;
-            TrySelectShortCutPreviewerFromPositionInGrid(convertedParams.Item1, convertedParams.Item2, convertedParams.Item3);
+            TrySelectShortCutPreviewerFromPos(convertedParams.Item1, convertedParams.Item2, convertedParams.Item3);
         }
 
-        public bool TrySelectShortCutPreviewerFromPositionInGrid(MouseButtonEventArgs mouseButtonEventArgs, int posX, int posY)
+        private bool TrySelectShortCutPreviewerFromPos(MouseButtonEventArgs mouseButtonEventArgs, int posX, int posY)
         {
             if (mouseButtonEventArgs.ChangedButton == MouseButton.Left)
                 foreach (var viewModel in _profilePreviewerViewModel.ShortCutsViewModels)
