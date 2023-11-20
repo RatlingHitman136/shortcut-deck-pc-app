@@ -17,7 +17,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPrev
         //TODO only for test!!!
         public string ShortcutName { get => (_dataHolder.shortCutActionData as ActionPCVirtualKeyPressedDataHolder)?.keyCode.ToString(); }
 
-        public ShortCutButtonPreviewerViewModel(int x_pos, int y_pos, ShortCutButtonDataHolder shortCutButtonDataHolder) : base(x_pos, y_pos, 1, 1, shortCutButtonDataHolder)
+        public ShortCutButtonPreviewerViewModel(ShortCutButtonDataHolder shortCutButtonDataHolder) : base(1, 1, shortCutButtonDataHolder)
         { 
             _dataHolder = shortCutButtonDataHolder;
         }

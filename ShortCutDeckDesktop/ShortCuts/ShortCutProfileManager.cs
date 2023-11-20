@@ -40,7 +40,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             return profile != null;
         }
 
-        public static bool tryUpdateExistingProfileWithDataHolder(ShortCutProfileDataHolder dataHolder)
+        public static bool TryUpdateExistingProfileWithDataHolder(ShortCutProfileDataHolder dataHolder)
         {
             if(!_profiles.Exists(x => x.Id == dataHolder.id))
                 return false;

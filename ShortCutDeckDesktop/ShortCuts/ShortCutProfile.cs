@@ -112,7 +112,7 @@ namespace ShortCutDeckDesktop.ShortCuts
         }
 */
 
-        public ShortCutProfileDataHolder getDataHolder()
+        public ShortCutProfileDataHolder GetDataHolder()
         {
             List<ShortCutBaseDataHolder> dataHolders = new List<ShortCutBaseDataHolder> ();
 

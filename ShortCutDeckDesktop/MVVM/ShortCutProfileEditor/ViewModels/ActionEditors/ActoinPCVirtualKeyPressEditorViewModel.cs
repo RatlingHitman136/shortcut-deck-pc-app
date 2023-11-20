@@ -30,11 +30,11 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditor
             set
             {
                 keyCode = value;
-                tryApplyChanges();
+                TryApplyChanges();
             }
         }
 
-        public void tryApplyChanges()
+        public void TryApplyChanges()
         {
             try
             {

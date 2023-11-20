@@ -1,21 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutBase">
-    <Position X="8.75" Y="7.5" Width="3" />
+    <Position X="13.5" Y="6.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAxAAAAAAgAAAAAAAABAAAQAA=</HashCode>
       <FileName>ShortCuts\ShortCutTypes\ShortCutBase.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutButton">
-    <Position X="13.5" Y="7.5" Width="3.25" />
+    <Position X="18.25" Y="6.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAIAAAAABAAAAAA=</HashCode>
       <FileName>ShortCuts\ShortCutTypes\ShortCutButton.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_shortCutAction" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutFactory">
     <Position X="10.5" Y="0.75" Width="3.5" />
@@ -27,7 +24,7 @@
   <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfile">
     <Position X="1" Y="5.5" Width="4.75" />
     <TypeIdentifier>
-      <HashCode>AAMCIAAAAAAAAAAAAABAAAQAAAAAQAAECIAABAAAAAA=</HashCode>
+      <HashCode>AAMCIAAAAAAAAAAAAABAAAQAAAAAQAAECIAAAAAAAAA=</HashCode>
       <FileName>ShortCuts\ShortCutProfile.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -46,7 +43,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAACAgAAICAAgAAAACQABAAAAAAAAABQAAIAAAAAAA=</HashCode>
+      <HashCode>AAAACAgAAICAAgAAAACAABAAAAAAEAABQAAIAAAAAAA=</HashCode>
       <FileName>ShortCuts\ShortCutProfileManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -170,13 +167,13 @@
     <Position X="43.25" Y="8" Width="4" />
     <AssociationLine Name="_profilePreviewerViewModel" Type="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ProfilePreviewer6X4ViewModel" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="44.75" Y="12.059" />
-        <Point X="44.75" Y="17.799" />
-        <Point X="49.25" Y="17.799" />
+        <Point X="44.75" Y="12.828" />
+        <Point X="44.75" Y="17.607" />
+        <Point X="49.25" Y="17.607" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>gACBAAIAAAAAAQEAAAoABAEAEEAAAAAAAAAAAAAAIAQ=</HashCode>
+      <HashCode>gACBCAIAAAAAAQEAAAoABAFAEEAAAQBAAAAAAAAAIAQ=</HashCode>
       <FileName>MVVM\ShortCutProfileEditor\ViewModels\ProfileEditorViewModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -188,25 +185,22 @@
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models.ProfileEditorModel">
     <Position X="49.25" Y="8" Width="5.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIAAAAAAAAAAAgEABAAAAAAQAgAAABAIAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\ShortCutProfileEditor\Models\ProfileEditorModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="profileEditorViewModel" />
+      <Field Name="_editableShortCutProfileData" />
     </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="_shortCutViewModels" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers.ShortCutPreviewerBaseViewModel">
-    <Position X="56.5" Y="8" Width="2.75" />
+    <Position X="56.5" Y="16.25" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAMAAAEAAABCAAAAAAAAAEAAAgAAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAMAAAEAAABCAAAAAAAAAEAAAgAAQAAAAAACAAAAAAA=</HashCode>
       <FileName>MVVM\ShortCutProfileEditor\ViewModels\ShortCutPreviewers\ShortCutPreviewerBaseViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers.ShortCutButtonPreviewerViewModel">
-    <Position X="60.75" Y="8" Width="3" />
+    <Position X="60.75" Y="16.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAgAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\ShortCutProfileEditor\ViewModels\ShortCutPreviewers\ShortCutButtonPreviewerViewModel.cs</FileName>
@@ -232,19 +226,43 @@
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditors.ActoinPCVirtualKeyPressEditorViewModel">
     <Position X="60.75" Y="12.5" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAACAA=</HashCode>
+      <HashCode>AAAIAAAAQAAAAAAAAAAAAAAAIAAAAAAAAAAQAAAACAA=</HashCode>
       <FileName>MVVM\ShortCutProfileEditor\ViewModels\ActionEditors\ActoinPCVirtualKeyPressEditorViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ProfilePreviewer6X4ViewModel">
     <Position X="49.25" Y="16.25" Width="5.25" />
     <TypeIdentifier>
-      <HashCode>AAAACCAgACAAAIAAAAAAAAAAAAAAAABAAAIAAAAEAAA=</HashCode>
+      <HashCode>AAAAACAgACAAAIAAAAAAAAAAAAAAAAAAAAIBAAAAAAA=</HashCode>
       <FileName>MVVM\ShortCutProfileEditor\ViewModels\ProfilePreviewer6X4ViewModel.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_profilePreviewerEditorModel" />
-    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_shortCutViewModels" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfileDataHolder">
+    <Position X="50.25" Y="4.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAABAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>ShortCuts\ShortCutProfile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="shortCuts" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutBaseDataHolder">
+    <Position X="54.75" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
+      <FileName>ShortCuts\ShortCutTypes\ShortCutBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutButtonDataHolder">
+    <Position X="58" Y="4.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShortCuts\ShortCutTypes\ShortCutButton.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

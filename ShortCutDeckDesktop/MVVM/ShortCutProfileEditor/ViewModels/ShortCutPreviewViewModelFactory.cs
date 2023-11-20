@@ -15,7 +15,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
             switch(data)
             {
                 case ShortCutButtonDataHolder shortCutButtonDataHolder:
-                    return new ShortCutButtonPreviewerViewModel(data.posX, data.posY, shortCutButtonDataHolder);
+                    return new ShortCutButtonPreviewerViewModel(shortCutButtonDataHolder);
             }
             
             throw new NotImplementedException("View Model for the " + data.ToString() + "Data Holder class is not implemented");

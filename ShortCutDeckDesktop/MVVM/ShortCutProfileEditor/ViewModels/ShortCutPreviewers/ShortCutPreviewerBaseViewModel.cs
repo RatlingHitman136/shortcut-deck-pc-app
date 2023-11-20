@@ -16,10 +16,8 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPrev
 
         protected ShortCutBaseDataHolder _dataHolder;
 
-        protected ShortCutPreviewerBaseViewModel(int pos_X, int posY, int sizeX, int sizeY, ShortCutBaseDataHolder shortCutBaseDataHolder)
+        protected ShortCutPreviewerBaseViewModel( int sizeX, int sizeY, ShortCutBaseDataHolder shortCutBaseDataHolder)
         {
-            X_Pos = pos_X;
-            Y_Pos = posY;
             _size_X = sizeX;
             _size_Y = sizeY;
             _dataHolder = shortCutBaseDataHolder;
@@ -65,5 +63,8 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPrev
 
         public ShortCutBaseDataHolder DataHolder { get => _dataHolder; }
         public virtual void UpdateProperties(object? sender, PropertyChangedEventArgs e) => OnPropertyChanged();
+        public bool IsHit(int hitPosX, int hitPosY) => 
+            (hitPosX >= X_Pos && hitPosX <= X_Pos + Size_X) 
+            && (hitPosY >= Y_Pos && hitPosY <= Y_Pos + Size_Y);
     }
 }
