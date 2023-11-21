@@ -108,7 +108,6 @@ namespace ShortCutDeckDesktop.Profiles
         public string name;
         public int size_X;
         public int size_Y;
-        public List<ShortCutBaseDataHolder> shortCuts;
 
         public ProfileDataHolder(string id, 
             string name, 

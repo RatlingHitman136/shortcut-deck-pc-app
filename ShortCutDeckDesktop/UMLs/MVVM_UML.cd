@@ -59,6 +59,9 @@
       <HashCode>AAAAAAAAIAAAIAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\ShortCutProfileEditor\Models\ProfileEditorModel.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_editableShortCutProfileData" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers.ShortCutPreviewerBaseViewModel">
     <Position X="30" Y="18.5" Width="2.75" />
@@ -108,16 +111,6 @@
       <Field Name="_shortCutViewModels" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ProfileDataHolder">
-    <Position X="23.75" Y="6.5" Width="3" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAABAAAAEAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>ShortCuts\Profile.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="shortCuts" />
-    </ShowAsCollectionAssociation>
-  </Class>
   <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutTypes.ShortCutBaseDataHolder">
     <Position X="28.25" Y="6.5" Width="2.25" />
     <TypeIdentifier>
@@ -141,6 +134,13 @@
     <ShowAsAssociation>
       <Field Name="_profilesViewer" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.Profiles.ProfileDataHolder">
+    <Position X="24" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Profiles\Profile.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
