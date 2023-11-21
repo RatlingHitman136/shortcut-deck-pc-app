@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels.SideLister;
 using ShortCutDeckDesktop.MVVM.ViewModels;
+using ShortCutDeckDesktop.Profiles;
 using ShortCutDeckDesktop.ShortCuts;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,8 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
         {
             _profilesSmallViewModels = new();
             _profilesViewerViewModel = shortCutProfileViewerViewModel;
-            ShortCutProfileManager.profilesListUpdateEvent += UpdateProfilesSmallViewModelList;
-            UpdateProfilesSmallViewModelList(new(ShortCutProfileManager.Profiles));
+            ProfileManager.profilesListUpdateEvent += UpdateProfilesSmallViewModelList;
+            UpdateProfilesSmallViewModelList(new(ProfileManager.Profiles));
             OnPropertyChanged();
         }
 
@@ -31,18 +32,18 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
             get => _profilesSmallViewModels;
         }
 
-        private void UpdateProfilesSmallViewModelList(ShortCutProfilesListUpdateEventArgs e)
+        private void UpdateProfilesSmallViewModelList(ProfilesListUpdateEventArgs e)
         {
             _profilesSmallViewModels.Clear();
             foreach (var profile in e.NewProfilesList)
             {
-                ICommand command = new RelayCommand<ShortCutProfile>(_ => { ProfileFromListerSelected(profile); });
+                ICommand command = new RelayCommand<Profile>(_ => { ProfileFromListerSelected(profile); });
                 _profilesSmallViewModels.Add(new ProfileSmallViewModel(profile, command));
             }
             OnPropertyChanged();
         }
 
-        private void ProfileFromListerSelected(ShortCutProfile shortCutProfile)
+        private void ProfileFromListerSelected(Profile shortCutProfile)
         {
             ProfileItemViewModel selectedSideBarViewModel;
 

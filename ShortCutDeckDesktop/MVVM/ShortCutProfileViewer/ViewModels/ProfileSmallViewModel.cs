@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ShortCutDeckDesktop.Profiles;
 using ShortCutDeckDesktop.ShortCuts;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,12 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
 {
     internal class ProfileSmallViewModel:ObservableObject
     {
-        private ShortCutProfile _profile;
+        private Profile _profile;
         private ICommand _selectedCommand;
 
-        public ProfileSmallViewModel(ShortCutProfile p, ICommand c) => (_profile, _selectedCommand) = (p, c);
+        public ProfileSmallViewModel(Profile p, ICommand c) => (_profile, _selectedCommand) = (p, c);
 
-        public ShortCutProfile Profile { get { return _profile; } }
+        public Profile Profile { get { return _profile; } }
         public ICommand SelectedCommand { get { return _selectedCommand; } }
         public string ProfileName { get { return _profile.Name; } }
     }

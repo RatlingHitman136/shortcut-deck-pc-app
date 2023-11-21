@@ -1,5 +1,6 @@
 ﻿using ShortCutDeckDesktop.MVVM.ViewModels;
 using ShortCutDeckDesktop.Networking;
+using ShortCutDeckDesktop.Profiles;
 using ShortCutDeckDesktop.ShortCuts;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace ShortCutDeckDesktop
         {
             base.OnStartup(e);
             ServerClass.StartServer();
-            ShortCutProfileManager.initTestOneProfile();//TODO(test stuff)
+            ProfileManager.initTestOneProfile();//TODO(test stuff)
         }
     }
 }

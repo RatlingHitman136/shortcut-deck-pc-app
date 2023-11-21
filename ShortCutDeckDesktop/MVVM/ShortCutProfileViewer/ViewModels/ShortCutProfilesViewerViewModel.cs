@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.Views;
+using ShortCutDeckDesktop.Profiles;
 using ShortCutDeckDesktop.ShortCuts;
 using System;
 using System.Collections.Generic;
@@ -49,7 +50,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileViewer.ViewModels
         }
         #endregion
 
-        public bool IsProfileOpened(ShortCutProfile shortCutProfile, out SideLister.ProfileItemViewModel? profileItemViewModel)
+        public bool IsProfileOpened(Profile shortCutProfile, out SideLister.ProfileItemViewModel? profileItemViewModel)
         {
             foreach (var item in SideListerViewModels.Where(x => x is SideLister.ProfileItemViewModel)
                 .Select(x => x as SideLister.ProfileItemViewModel))

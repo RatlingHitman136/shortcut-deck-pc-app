@@ -5,36 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using ShortCutDeckDesktop.Constants;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
-using static ShortCutDeckDesktop.ShortCuts.ShortCutProfile;
 
-namespace ShortCutDeckDesktop.ShortCuts
+namespace ShortCutDeckDesktop.Profiles
 {
-    public static class ShortCutProfileConverter
+    public static class ProfileStringConverter
     {
         // setprof/0            /b:0 0/b:0 1/e/b:0 3 .....
         // setP   /index of Prof/data of profile
 
         //result from this factory = b:0 0/b:0 1/e/b:0 3 .....  
 
-        public static string ParseProfileToString(ShortCutProfile profile)
+        public static string ParseProfileToString(Profile profile)
         {
             string res = "";
 
-            List<ShortCutTypes.ShortCutBase> list = profile.GetShortCutsInRightOrder();
+            List<ShortCutBase> list = profile.GetShortCutsInRightOrder();
 
             for (int i = 0; i < list.Count; i++)
             {
-                ShortCutTypes.ShortCutBase item = list[i];
+                ShortCutBase item = list[i];
                 switch (item)
                 {
-                    case ShortCutTypes.ShortCutButton:
+                    case ShortCutButton:
                         res += StringConstants.SHORT_CUT_BUTTON_TAG +
                             StringConstants.SECOND_LEVEL_SPLIT_CHARACTER +
                             item.PosX.ToString() +
                             StringConstants.THIRD_LEVEL_SPLIT_CHARACTER +
                             item.PosY.ToString();
                         break;
-                    case ShortCutTypes.ShortCutBase:
+                    case ShortCutBase:
                         res += StringConstants.SHORT_CUT_EMPTY_TAG;
                         break;
                 }
@@ -45,7 +44,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             return res;
         }
 
-        public static (int x, int y, List<string> additionalData) ParseDataFromTriggeredShortCut(string msg)
+        public static (int x, int y, List<string> additionalData) ParseDataFromTriggeredShortCut(string msg) // must be redisigned
         {
             try
             {

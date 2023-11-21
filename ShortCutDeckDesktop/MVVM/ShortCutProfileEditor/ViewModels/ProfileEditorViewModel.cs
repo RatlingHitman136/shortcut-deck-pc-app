@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutEditors;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers;
+using ShortCutDeckDesktop.Profiles;
 using ShortCutDeckDesktop.ShortCuts;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 
         private ICommand _applyChangesCommand;
 
-        public ProfileEditorViewModel(ShortCutProfile profileToEdit)
+        public ProfileEditorViewModel(Profile profileToEdit)
         {
             _horizontalMargin = 15;
             _verticalMargin = 15;
@@ -43,8 +44,8 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
 
 
         #region Properties
-        public int PreviewerHorizontalGridSize { get => ShortCutProfileManager.GridWidth; }
-        public int PreviewerVerticalGridSize { get => ShortCutProfileManager.GridHeight; }
+        public int PreviewerHorizontalGridSize { get => ProfileManager.GridWidth; }
+        public int PreviewerVerticalGridSize { get => ProfileManager.GridHeight; }
         public Thickness GridElementAllMargin { get => new Thickness(_horizontalMargin, _verticalMargin, _horizontalMargin, _verticalMargin); }
         public Thickness GridElementBottomSidesMargin { get => new Thickness(_horizontalMargin, 0, _horizontalMargin, _verticalMargin); }
         public double HorizontalMargin { get => _horizontalMargin; set => _horizontalMargin = value; }

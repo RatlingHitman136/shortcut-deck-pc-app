@@ -21,30 +21,23 @@
       <FileName>ShortCuts\ShortCutFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfile">
+  <Class Name="ShortCutDeckDesktop.ShortCuts.Profile">
     <Position X="1" Y="5.5" Width="4.75" />
     <TypeIdentifier>
       <HashCode>AAMCIAAAAAAAAAIAAABAAAQAAAAAQAAEAAAAAAAAAAA=</HashCode>
-      <FileName>ShortCuts\ShortCutProfile.cs</FileName>
+      <FileName>ShortCuts\Profile.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfileConverter">
-    <Position X="7" Y="0.75" Width="3.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
-      <FileName>ShortCuts\ShortCutProfileConverter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfileManager">
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ProfileManager">
     <Position X="1" Y="0.75" Width="4.25" />
-    <AssociationLine Name="_profiles" Type="ShortCutDeckDesktop.ShortCuts.ShortCutProfile">
+    <AssociationLine Name="_profiles" Type="ShortCutDeckDesktop.ShortCuts.Profile">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.076" Y="0.235" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAACAAAAICAAgAAAAAAIBAAAAAAEAABQAAIAAAAACA=</HashCode>
-      <FileName>ShortCuts\ShortCutProfileManager.cs</FileName>
+      <FileName>ShortCuts\ProfileManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Field Name="_profiles" />

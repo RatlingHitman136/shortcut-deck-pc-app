@@ -2,6 +2,7 @@
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutEditors;
 using ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers;
+using ShortCutDeckDesktop.Profiles;
 using ShortCutDeckDesktop.ShortCuts;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System.Collections.Generic;
@@ -15,9 +16,9 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
 {
     class ProfileEditorModel : ObservableObject
     {
-        private ShortCutProfileDataHolder _editableShortCutProfileData;
+        private ProfileDataHolder _editableShortCutProfileData;
 
-        public ProfileEditorModel(ShortCutProfile shortCutProfileToEdit)
+        public ProfileEditorModel(Profile shortCutProfileToEdit)
         {
             _editableShortCutProfileData = shortCutProfileToEdit.GetDataHolder();
         }
@@ -34,6 +35,6 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
         }
 
         public void ApplyProfileChanges() =>
-            ShortCutProfileManager.TryUpdateExistingProfileWithDataHolder(_editableShortCutProfileData);
+            ProfileManager.TryUpdateExistingProfileWithDataHolder(_editableShortCutProfileData);
     }
 }

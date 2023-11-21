@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static ShortCutDeckDesktop.ShortCuts.ShortCutProfile;
+using ShortCutDeckDesktop.Profiles;
 
 namespace ShortCutDeckDesktop.Actions.ActionTypes
 {
@@ -23,10 +23,10 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
         public override void ExecuteAction()
         {
             base.ExecuteAction();
-            ShortCutProfile profile;
-            if(ShortCutProfileManager.TryGetProfilesByID(_profileID, out profile))
+            Profile profile;
+            if(ProfileManager.TryGetProfilesByID(_profileID, out profile))
             {
-                (int x, int y, List<string> additionData) = ShortCutProfileConverter.ParseDataFromTriggeredShortCut(_msg);
+                (int x, int y, List<string> additionData) = ProfileStringConverter.ParseDataFromTriggeredShortCut(_msg);
                 ShortCutBase shortCut;
                 if(profile.TryGetShortCutByGridPos(x, y, out shortCut))
                 {

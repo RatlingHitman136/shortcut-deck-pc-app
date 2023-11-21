@@ -1,4 +1,5 @@
-﻿using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
+﻿using ShortCutDeckDesktop.ShortCuts;
+using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media.TextFormatting;
 using System.Xml.Linq;
-using static ShortCutDeckDesktop.ShortCuts.ShortCutProfile;
 
-namespace ShortCutDeckDesktop.ShortCuts
+namespace ShortCutDeckDesktop.Profiles
 {
-    public class ShortCutProfile
+    public class Profile
     {
         private List<ShortCutBase> _shortCuts;
         //public List<(ShortCutBase, GridPos)> ShortCuts { get => _shortCuts; }
@@ -29,7 +29,7 @@ namespace ShortCutDeckDesktop.ShortCuts
         public int Size_Y { get => _size_X; }
 
 
-        public ShortCutProfile(string id, string name)
+        public Profile(string id, string name)
         {
             _shortCuts = new List<ShortCutBase>();
             _id = id;
@@ -37,7 +37,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             _size_X = 4;
             _size_Y = 6;
         }
-        public ShortCutProfile(string id,
+        public Profile(string id,
                                string name,
                                int size_X,
                                int size_Y,
@@ -49,7 +49,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             _size_X = size_X;
             _size_Y = size_Y;
         }
-        public ShortCutProfile(ShortCutProfileDataHolder dataHolder)
+        public Profile(ProfileDataHolder dataHolder)
         {
             _id = dataHolder.id;
             _name = dataHolder.name;
@@ -65,9 +65,9 @@ namespace ShortCutDeckDesktop.ShortCuts
         {
             List<ShortCutBase> shortCutsInRightOrder = new List<ShortCutBase>();
 
-            for (int y = 0; y < ShortCutProfileManager.GridHeight; y++)
+            for (int y = 0; y < ProfileManager.GridHeight; y++)
             {
-                for (int x = 0; x < ShortCutProfileManager.GridWidth; x++)
+                for (int x = 0; x < ProfileManager.GridWidth; x++)
                 {
                     var selected = _shortCuts.FindAll(item => (item.PosX == x) && (item.PosY == y));
                     if (selected.Count > 0)
@@ -88,7 +88,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             return shortCut != null;
         }
 
-        public ShortCutProfileDataHolder GetDataHolder()
+        public ProfileDataHolder GetDataHolder()
         {
             List<ShortCutBaseDataHolder> dataHolders = new List<ShortCutBaseDataHolder>();
 
@@ -97,12 +97,12 @@ namespace ShortCutDeckDesktop.ShortCuts
                 dataHolders.Add(a.GetDataHolder());
             }
 
-            return new ShortCutProfileDataHolder(_id, _name, _size_X, _size_Y, dataHolders);
+            return new ProfileDataHolder(_id, _name, _size_X, _size_Y, dataHolders);
         }
     }
 
     [Serializable]
-    public class ShortCutProfileDataHolder
+    public class ProfileDataHolder
     {
         public string id;
         public string name;
@@ -110,7 +110,7 @@ namespace ShortCutDeckDesktop.ShortCuts
         public int size_Y;
         public List<ShortCutBaseDataHolder> shortCuts;
 
-        public ShortCutProfileDataHolder(string id, 
+        public ProfileDataHolder(string id, 
             string name, 
             int size_X, 
             int size_Y, 

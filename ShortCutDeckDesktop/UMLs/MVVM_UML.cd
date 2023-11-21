@@ -56,12 +56,9 @@
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models.ProfileEditorModel">
     <Position X="22.75" Y="10.25" Width="5.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAIAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\ShortCutProfileEditor\Models\ProfileEditorModel.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_editableShortCutProfileData" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers.ShortCutPreviewerBaseViewModel">
     <Position X="30" Y="18.5" Width="2.75" />
@@ -111,11 +108,11 @@
       <Field Name="_shortCutViewModels" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="ShortCutDeckDesktop.ShortCuts.ShortCutProfileDataHolder">
+  <Class Name="ShortCutDeckDesktop.ShortCuts.ProfileDataHolder">
     <Position X="23.75" Y="6.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAABAAAAEAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>ShortCuts\ShortCutProfile.cs</FileName>
+      <FileName>ShortCuts\Profile.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Field Name="shortCuts" />
