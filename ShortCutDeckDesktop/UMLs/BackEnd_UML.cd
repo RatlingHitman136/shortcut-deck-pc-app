@@ -126,7 +126,7 @@
       <FileName>ShortCuts\ShortCutTypes\ShortCutButton.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortCutDeckDesktop.Actions.ActionBaseDataHolder">
+  <Class Name="ShortCutDeckDesktop.Actions.ActionBaseDataHolder" Collapsed="true">
     <Position X="13.5" Y="8.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
