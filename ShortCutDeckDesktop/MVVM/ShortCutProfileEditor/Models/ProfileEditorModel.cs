@@ -33,7 +33,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models
             return shortCutViewModels;
         }
 
-        public void InitProfileApplyChanges() =>
+        public void ApplyProfileChanges() =>
             ShortCutProfileManager.TryUpdateExistingProfileWithDataHolder(_editableShortCutProfileData);
     }
 }

@@ -24,7 +24,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
         {
             base.ExecuteAction();
             ShortCutProfile profile;
-            if(ShortCutProfileManager.TryGetProfilesWithID(_profileID, out profile))
+            if(ShortCutProfileManager.TryGetProfilesByID(_profileID, out profile))
             {
                 (int x, int y, List<string> additionData) = ShortCutProfileConverter.ParseDataFromTriggeredShortCut(_msg);
                 ShortCutBase shortCut;

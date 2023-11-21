@@ -34,7 +34,7 @@ namespace ShortCutDeckDesktop.ShortCuts
         public static int GridHeight { get => _gridHeight; }
         #endregion
 
-        public static bool TryGetProfilesWithID(string id, out ShortCutProfile profile)
+        public static bool TryGetProfilesByID(string id, out ShortCutProfile profile)
         {
             profile = _profiles.Find(x => x.Id == id);
             return profile != null;

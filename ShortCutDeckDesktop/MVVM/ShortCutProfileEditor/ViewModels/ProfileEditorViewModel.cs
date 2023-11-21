@@ -38,7 +38,7 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels
             ICommand OnShortCutSelectedCommand = new RelayCommand<object>(OnShortCutSelected);
             _profilePreviewerViewModel = new ProfilePreviewer6X4ViewModel(_profileEditorModel, onShortCutDroppedCommand, OnShortCutSelectedCommand);
 
-            _applyChangesCommand = new RelayCommand(_profileEditorModel.InitProfileApplyChanges);
+            _applyChangesCommand = new RelayCommand(_profileEditorModel.ApplyProfileChanges);
         }
 
 
