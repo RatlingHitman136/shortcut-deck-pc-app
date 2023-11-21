@@ -1,10 +1,13 @@
-﻿using ShortCutDeckDesktop.Actions.ActionTypes;
+﻿using Newtonsoft.Json;
+using ShortCutDeckDesktop.Actions.ActionTypes;
 using ShortCutDeckDesktop.Constants;
 using ShortCutDeckDesktop.Networking;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
 
 namespace ShortCutDeckDesktop.ShortCuts
 {
@@ -52,7 +55,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             _profiles[foundIndex] = newProfileInstance;
 
             profilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
-
+            SaveProfile(dataHolder);
             NotifyAllClientsProfileChanged(newProfileInstance);
             return true;
         }
@@ -66,19 +69,30 @@ namespace ShortCutDeckDesktop.ShortCuts
             }
         }
 
+        public static void SaveProfile(ShortCutProfileDataHolder profileData)
+        {
+            string res = JsonConvert.SerializeObject(profileData, Formatting.Indented);
+            File.WriteAllText("res.json", res);
+            return;
+        }
+
 
         public static void initTestOneProfile() {
-            ShortCutProfile testProfile = new ShortCutProfile("mainPrf", "Default Profile", 4, 6,
-                new List<ShortCutBase>
-                {
-                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_UP), 0, 0),
-                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_MEDIA_PLAY_PAUSE), 1, 0),
-                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_MUTE), 2, 0),
-                    new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_DOWN), 3, 0),
-                }
-                );
-            _profiles.Add(testProfile);
+            string res = File.ReadAllText("res.json");
+            ShortCutProfileDataHolder data = JsonConvert.DeserializeObject<ShortCutProfileDataHolder>(res);
 
+            /*
+                        ShortCutProfile testProfile = new ShortCutProfile("mainPrf", "Default Profile", 4, 6,
+                            new List<ShortCutBase>
+                            {
+                                new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_UP), 0, 0),
+                                new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_MEDIA_PLAY_PAUSE), 1, 0),
+                                new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_MUTE), 2, 0),
+                                new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_DOWN), 3, 0),
+                            }
+                            );
+                        _profiles.Add(testProfile);*/
+            _profiles.Add(new ShortCutProfile(data));
             profilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
         }
     }

@@ -36,6 +36,7 @@ namespace ShortCutDeckDesktop.Actions.ActionTypes
         }
     }
 
+    [Serializable]
     public class ActionPCVirtualKeyPressedDataHolder:ActionBaseDataHolder
     {
         public byte keyCode;
