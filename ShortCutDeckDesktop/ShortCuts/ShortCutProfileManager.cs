@@ -71,7 +71,8 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         public static void SaveProfile(ShortCutProfileDataHolder profileData)
         {
-            string res = JsonConvert.SerializeObject(profileData, Formatting.Indented);
+            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All, Formatting = Formatting.Indented };
+            string res = JsonConvert.SerializeObject(profileData, settings);
             File.WriteAllText("res.json", res);
             return;
         }
@@ -79,9 +80,10 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         public static void initTestOneProfile() {
             string res = File.ReadAllText("res.json");
-            ShortCutProfileDataHolder data = JsonConvert.DeserializeObject<ShortCutProfileDataHolder>(res);
+            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All, Formatting = Formatting.Indented };
+            ShortCutProfileDataHolder data = JsonConvert.DeserializeObject<ShortCutProfileDataHolder>(res, settings);
 
-            /*
+           /* 
                         ShortCutProfile testProfile = new ShortCutProfile("mainPrf", "Default Profile", 4, 6,
                             new List<ShortCutBase>
                             {
