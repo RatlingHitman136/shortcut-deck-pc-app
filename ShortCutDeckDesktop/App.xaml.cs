@@ -21,7 +21,7 @@ namespace ShortCutDeckDesktop
         {
             base.OnStartup(e);
             ServerClass.StartServer();
-            ShortCutProfileManager.initTestOneProfile();//TODO(test stuff)
+            ShortCutProfileManager.InitProfiles();
         }
     }
 }

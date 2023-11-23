@@ -31,6 +31,7 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
         }
     }
 
+    [Serializable]
     public class ShortCutBaseDataHolder
     {
         public int posX;

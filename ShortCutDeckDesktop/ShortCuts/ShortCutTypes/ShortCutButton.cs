@@ -32,6 +32,7 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
         }
     }
 
+    [Serializable]
     public class ShortCutButtonDataHolder : ShortCutBaseDataHolder
     {
         public ActionBaseDataHolder shortCutActionData;

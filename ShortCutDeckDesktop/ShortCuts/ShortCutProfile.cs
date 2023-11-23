@@ -56,7 +56,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             _size_X = dataHolder.size_X;
             _size_Y = dataHolder.size_Y;
             _shortCuts = new List<ShortCutBase>();
-            foreach(var shortCutData in dataHolder.shortCuts)
+            foreach (var shortCutData in dataHolder.shortCuts)
                 _shortCuts.Add((ShortCutFactory.CreateShortCutFromDataHolder(shortCutData)));
         }
 
@@ -87,36 +87,12 @@ namespace ShortCutDeckDesktop.ShortCuts
             shortCut = _shortCuts.Find(x => (x.PosX == posX) && (x.PosY == posY));
             return shortCut != null;
         }
-        
-/*
-        public struct GridPos
-        {
-            private int _x;
-            private int _y;
-
-            public GridPos(int x, int y)
-            {
-                _x = x;
-                _y = y;
-            }
-
-            public int X { get => _x; }
-            public int Y { get => _y; }
-
-            public override bool Equals(object? obj)
-            {
-                return obj is GridPos pos &&
-                       _x == pos._x &&
-                       _y == pos._y;
-            }
-        }
-*/
 
         public ShortCutProfileDataHolder GetDataHolder()
         {
-            List<ShortCutBaseDataHolder> dataHolders = new List<ShortCutBaseDataHolder> ();
+            List<ShortCutBaseDataHolder> dataHolders = new List<ShortCutBaseDataHolder>();
 
-            foreach(var a in _shortCuts)
+            foreach (var a in _shortCuts)
             {
                 dataHolders.Add(a.GetDataHolder());
             }
@@ -125,6 +101,7 @@ namespace ShortCutDeckDesktop.ShortCuts
         }
     }
 
+    [Serializable]
     public class ShortCutProfileDataHolder
     {
         public string id;

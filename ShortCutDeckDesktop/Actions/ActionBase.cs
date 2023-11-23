@@ -18,6 +18,7 @@ namespace ShortCutDeckDesktop.Actions
         }
     }
 
+    [Serializable]
     public class ActionBaseDataHolder 
     {}
 }
