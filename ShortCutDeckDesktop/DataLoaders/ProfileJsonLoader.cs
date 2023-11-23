@@ -51,7 +51,11 @@ namespace ShortCutDeckDesktop.DataLoaders
 
             foreach (FileInfo file in files)
                 if (file.Extension == ".json")
-                    resDataHolders.Add(LoadProfile(file.FullName));
+                {
+                    var loadedData = LoadProfileData(file.FullName);
+                    if(loadedData is not null)
+                        resDataHolders.Add(loadedData);
+                }
 
             List<ShortCutProfile> res = new List<ShortCutProfile>();
 
@@ -67,12 +71,12 @@ namespace ShortCutDeckDesktop.DataLoaders
             return res;
         }
 
-        public static ShortCutProfileDataHolder LoadProfile(string fullFileName)
+        public static ShortCutProfileDataHolder? LoadProfileData(string fullFileName)
         {
             try
             {
                 string res = File.ReadAllText(fullFileName);
-                ShortCutProfileDataHolder data = JsonConvert.DeserializeObject<ShortCutProfileDataHolder>(res, json_settings);
+                ShortCutProfileDataHolder? data = JsonConvert.DeserializeObject<ShortCutProfileDataHolder>(res, json_settings);
                 return data;
             }
             catch (Exception ex)
