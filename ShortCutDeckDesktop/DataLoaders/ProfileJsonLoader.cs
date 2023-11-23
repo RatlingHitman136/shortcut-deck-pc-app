@@ -71,7 +71,7 @@ namespace ShortCutDeckDesktop.DataLoaders
             return res;
         }
 
-        public static ShortCutProfileDataHolder? LoadProfileData(string fullFileName)
+        private static ShortCutProfileDataHolder? LoadProfileData(string fullFileName)
         {
             try
             {
