@@ -15,16 +15,17 @@ namespace ShortCutDeckDesktop.DataLoaders
 
         private static JsonSerializerSettings json_settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All, Formatting = Formatting.Indented };
 
-        public static void SaveProfile(ShortCutProfile profile)
-        {
-            SaveProfile(profile.GetDataHolder());
-        }
+        public static void SaveProfile(ShortCutProfile profile) => SaveProfile(profile.GetDataHolder());
 
         public static void SaveProfile(ShortCutProfileDataHolder dataHolder)
         {
-            string fileName = PROPFILE_SAVE_PATH + dataHolder.id + ".json";
+            string folderPath = GetFullProfilesFolderPath();
+            string fileName = folderPath + dataHolder.id + ".json";
 
             string res = JsonConvert.SerializeObject(dataHolder, json_settings);
+
+            if(!IsProfilesFolderExists())
+                Directory.CreateDirectory(folderPath);
 
             try
             {
@@ -40,25 +41,17 @@ namespace ShortCutDeckDesktop.DataLoaders
         {
             List<ShortCutProfileDataHolder> resDataHolders = new List<ShortCutProfileDataHolder>();
 
-            string folderPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\" + PROPFILE_SAVE_PATH;
+            string folderPath = GetFullProfilesFolderPath();
 
-            try
-            {
-                DirectoryInfo folderInfo = new DirectoryInfo(folderPath);
-                FileInfo[] files = folderInfo.GetFiles();
+            if (!IsProfilesFolderExists())
+                return new List<ShortCutProfile>();
 
-                foreach (FileInfo file in files)
-                {
-                    if (file.Extension == ".json")
-                    {
-                        resDataHolders.Add(LoadProfile(file.FullName));
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex + " Error by loading all profiles from directory");
-            }
+            DirectoryInfo folderInfo = new DirectoryInfo(folderPath);
+            FileInfo[] files = folderInfo.GetFiles();
+
+            foreach (FileInfo file in files)
+                if (file.Extension == ".json")
+                    resDataHolders.Add(LoadProfile(file.FullName));
 
             List<ShortCutProfile> res = new List<ShortCutProfile>();
 
@@ -84,8 +77,14 @@ namespace ShortCutDeckDesktop.DataLoaders
             }
             catch (Exception ex)
             {
-                throw new Exception(ex + " Error by loading profile");
+                throw new Exception(ex + " File not exists");
             }
         }
+
+        private static string GetFullProfilesFolderPath() 
+            => Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) 
+            + "\\" + PROPFILE_SAVE_PATH;
+
+        private static bool IsProfilesFolderExists() => Directory.Exists(GetFullProfilesFolderPath());
     }
 }

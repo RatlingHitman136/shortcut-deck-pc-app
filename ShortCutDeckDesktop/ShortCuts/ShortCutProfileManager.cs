@@ -64,7 +64,13 @@ namespace ShortCutDeckDesktop.ShortCuts
 
         public static void InitProfiles()
         {
-            _profiles = ProfileJsonLoader.LoadAllProfiles();
+            List<ShortCutProfile> loadedProfiles = ProfileJsonLoader.LoadAllProfiles();
+            if (loadedProfiles.Count() == 0)
+            {
+                InitDefaultProfile();
+                return;
+            }
+            _profiles = loadedProfiles;
             profilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
         }
 
@@ -77,9 +83,9 @@ namespace ShortCutDeckDesktop.ShortCuts
             }
         }
 
-        public static void initTestOneProfile()
+        public static void InitDefaultProfile()
         {
-            ShortCutProfile testProfile = new ShortCutProfile("mainPrf", "Default Profile", 4, 6,
+            ShortCutProfile testProfile = new ShortCutProfile("defPrf", "Default Profile", 4, 6,
                 new List<ShortCutBase>
                 {
                                 new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_UP), 0, 0),
@@ -88,7 +94,8 @@ namespace ShortCutDeckDesktop.ShortCuts
                                 new ShortCutButton(new ActionPCVirtualKeyPress(VirtualKeysConstants.VK_VOLUME_DOWN), 3, 0),
                 }
                 );
-            _profiles.Add(testProfile);
+            _profiles = new List<ShortCutProfile> { testProfile };
+            ProfileJsonLoader.SaveProfile(testProfile);
             profilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
         }
     }
