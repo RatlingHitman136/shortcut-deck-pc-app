@@ -9,6 +9,11 @@
 
     <ItemGroup>
       <None Remove="Resources\Icons\logo.ico" />
+      <None Remove="Resources\Json\PCVirtualKeyDefaultOptions.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\Json\PCVirtualKeyDefaultOptions.json" />
     </ItemGroup>
 
     <ItemGroup>
@@ -22,9 +27,12 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="DataLoaders\NewFolder\" />
+      <Folder Include="DataLoaders\PCVirtualKeyDefaultOptions\" />
       <Folder Include="MVVM\ShortCutProfileViewer\NewFolder\" />
       <Folder Include="MVVM\ShortCutProfileViewer\SideLister\ViewModels\" />
       <Folder Include="MVVM\ShortCutProfileViewer\SideLister\Views\" />
+      <Folder Include="Resources\Json\NewFolder\" />
     </ItemGroup>
 
 </Project>

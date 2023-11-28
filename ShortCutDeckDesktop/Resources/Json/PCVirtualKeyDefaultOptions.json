@@ -1,0 +1,24 @@
+{
+  "loadedData": [
+    {
+      "name": "volUp",
+      "value": "0xAF",
+      "description": "Increases PC Volume"
+    },
+    {
+      "name": "volDown",
+      "value": "0xAE",
+      "description": "Decreases PC Volume"
+    },
+    {
+      "name": "mute",
+      "value": "0xAD",
+      "description": "Mutes Audio"
+    },
+    {
+      "name": "playPause",
+      "value": "0xB3",
+      "description": "Plays/Pauses th audio playback"
+    }
+  ]
+}

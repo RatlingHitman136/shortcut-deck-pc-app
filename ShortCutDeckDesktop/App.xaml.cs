@@ -1,4 +1,5 @@
-﻿using ShortCutDeckDesktop.MVVM.ViewModels;
+﻿using ShortCutDeckDesktop.DataLoaders;
+using ShortCutDeckDesktop.MVVM.ViewModels;
 using ShortCutDeckDesktop.Networking;
 using ShortCutDeckDesktop.ShortCuts;
 using System;
@@ -22,6 +23,7 @@ namespace ShortCutDeckDesktop
             base.OnStartup(e);
             ServerClass.StartServer();
             ShortCutProfileManager.InitProfiles();
+            PCVirtualKeyDefaultOptionsLoader.LoadData();
         }
     }
 }

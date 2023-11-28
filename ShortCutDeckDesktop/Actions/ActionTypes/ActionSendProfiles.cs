@@ -1,4 +1,4 @@
-﻿using ShortCutDeckDesktop.Constants;
+﻿using ShortCutDeckDesktop.ConstantValues;
 using ShortCutDeckDesktop.Networking;
 using ShortCutDeckDesktop.ShortCuts;
 using System;

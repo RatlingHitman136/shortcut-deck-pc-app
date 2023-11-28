@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using ShortCutDeckDesktop.Actions.ActionTypes;
-using ShortCutDeckDesktop.Constants;
+using ShortCutDeckDesktop.ConstantValues;
 using ShortCutDeckDesktop.DataLoaders;
 using ShortCutDeckDesktop.Networking;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;

@@ -1,5 +1,5 @@
 ﻿using ShortCutDeckDesktop.Actions.ActionTypes;
-using ShortCutDeckDesktop.Constants;
+using ShortCutDeckDesktop.ConstantValues;    
 using ShortCutDeckDesktop.Networking;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
