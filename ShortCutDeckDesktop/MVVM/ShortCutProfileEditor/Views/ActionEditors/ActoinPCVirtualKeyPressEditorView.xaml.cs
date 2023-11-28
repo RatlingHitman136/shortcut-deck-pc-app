@@ -25,9 +25,18 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ActionEditors
             InitializeComponent();
         }
 
+        public static readonly DependencyProperty SelectionChangedCommandProperty = DependencyProperty.Register("SelectionChangedCommand", 
+            typeof(ICommand), typeof(ActoinPCVirtualKeyPressEditorView));
+
+        public ICommand SelectionChangedCommand
+        {
+            get { return (ICommand)GetValue(SelectionChangedCommandProperty); }
+            set { SetValue(SelectionChangedCommandProperty, value); }
+        }
+
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            SelectionChangedCommand.Execute(e);
         }
     }
 }

@@ -31,6 +31,6 @@
     
     <!-- bind Action editor -->
     <DataTemplate DataType="{x:Type actionEditorViewModel:ActoinPCVirtualKeyPressEditorViewModel}">
-        <actionEditorView:ActoinPCVirtualKeyPressEditorView/>
+        <actionEditorView:ActoinPCVirtualKeyPressEditorView SelectionChangedCommand="{Binding SelectionChangedCommand}"/>
     </DataTemplate>
 </ResourceDictionary>
