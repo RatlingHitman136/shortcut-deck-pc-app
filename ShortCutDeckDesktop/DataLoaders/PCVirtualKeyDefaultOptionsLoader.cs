@@ -11,7 +11,7 @@ namespace ShortCutDeckDesktop.DataLoaders
 {
     public static class PCVirtualKeyDefaultOptionsLoader
     {
-        private static string dataRelPath = "Json.PCVirtualKeyDefaultOptions.json";
+        private static string dataRelPath = "ShortCutDeckDesktop.Resources.Json.PCVirtualKeyDefaultOptions.json";
 
         private static LoadedData? _data;
 
