@@ -13,6 +13,8 @@ namespace ShortCutDeckDesktop.DataLoaders
     {
         private static string dataRelPath = "Json.PCVirtualKeyDefaultOptions.json";
 
+        private static LoadedData? _data;
+
         public static void LoadData()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
@@ -24,8 +26,14 @@ namespace ShortCutDeckDesktop.DataLoaders
             string jsonData = reader.ReadToEnd();
             reader.Close();
 
-            LoadedData data = JsonConvert.DeserializeObject<LoadedData>(jsonData);
+            _data = JsonConvert.DeserializeObject<LoadedData>(jsonData);
+        }
 
+        public static LoadedData GetData()
+        {
+            if (_data is null)
+                LoadData();
+            return (LoadedData)_data;
         }
 
         [Serializable]

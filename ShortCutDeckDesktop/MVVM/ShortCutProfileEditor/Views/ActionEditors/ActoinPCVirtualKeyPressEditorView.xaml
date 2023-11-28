@@ -7,11 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="200">
     <Border Background="Beige" CornerRadius="10">
-        <ComboBox Margin="10" VerticalAlignment="Top">
-            <ComboBoxItem IsSelected="True" Content="Option 1"/>
-            <ComboBoxItem Content="Option 2"/>
-            <ComboBoxItem Content="Option 3"/>
-            <ComboBoxItem Content="Option 4"/>
+        <ComboBox Margin="10" VerticalAlignment="Top" ItemsSource="{Binding DefVals}">
         </ComboBox>
     </Border>
 </UserControl>
