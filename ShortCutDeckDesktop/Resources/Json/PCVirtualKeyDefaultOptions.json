@@ -1,3 +1,7 @@
+/*
+  all key codes are from the website:
+  https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
+*/
 {
   "loadedData": [
     {
