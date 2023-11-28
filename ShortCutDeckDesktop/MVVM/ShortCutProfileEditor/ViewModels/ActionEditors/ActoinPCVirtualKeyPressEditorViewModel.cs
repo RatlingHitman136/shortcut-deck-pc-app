@@ -20,37 +20,12 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditor
 
         public ObservableCollection<string> DefVals { get { return _defVals; } }
 
-        #region  changable properties
-        private string keyCode;
-        #endregion
 
         internal ActoinPCVirtualKeyPressEditorViewModel(ActionPCVirtualKeyPressedDataHolder actionDataHolder) : base()
         {
             _actionDataHolder = actionDataHolder;
-            keyCode = actionDataHolder.keyCode.ToString();
             _defVals = new ObservableCollection<string>();
             PCVirtualKeyDefaultOptionsLoader.GetData().loadedData.ForEach(x => _defVals.Add(x.name));
-        }
-
-        public ActionPCVirtualKeyPressedDataHolder ActionDataHolder { get => _actionDataHolder; }
-        public string KeyCode {
-            get => keyCode;
-            set
-            {
-                keyCode = value;
-                TryApplyChanges();
-            }
-        }
-
-        public void TryApplyChanges()
-        {
-            try
-            {
-                _actionDataHolder.keyCode = Convert.ToByte(keyCode);
-                OnPropertyChanged();
-            }
-            catch
-            { }
         }
     }
 }

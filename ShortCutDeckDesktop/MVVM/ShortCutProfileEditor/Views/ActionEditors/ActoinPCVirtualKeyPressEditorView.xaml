@@ -7,7 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="200">
     <Border Background="Beige" CornerRadius="10">
-        <ComboBox Margin="10" VerticalAlignment="Top" ItemsSource="{Binding DefVals}">
+        <ComboBox Margin="10" VerticalAlignment="Top" 
+                  ItemsSource="{Binding DefVals}"
+                  SelectionChanged="ComboBox_SelectionChanged">
         </ComboBox>
     </Border>
 </UserControl>

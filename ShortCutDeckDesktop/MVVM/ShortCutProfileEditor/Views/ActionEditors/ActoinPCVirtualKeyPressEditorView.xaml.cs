@@ -24,5 +24,10 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Views.ActionEditors
         {
             InitializeComponent();
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
