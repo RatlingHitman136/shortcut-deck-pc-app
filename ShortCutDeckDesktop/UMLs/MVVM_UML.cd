@@ -56,7 +56,7 @@
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.Models.ProfileEditorModel">
     <Position X="22.75" Y="10.25" Width="5.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAIAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\ShortCutProfileEditor\Models\ProfileEditorModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -97,9 +97,15 @@
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditors.ActoinPCVirtualKeyPressEditorViewModel">
     <Position X="34.25" Y="14.75" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAQAAAAAAAAAAAAAAAIAAAAAAAAAAQAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAACAAAAAAAARAAAAAAABAQQAAEAAA=</HashCode>
       <FileName>MVVM\ShortCutProfileEditor\ViewModels\ActionEditors\ActoinPCVirtualKeyPressEditorViewModel.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_selectedItem" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_items" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ProfilePreviewer6X4ViewModel">
     <Position X="22.75" Y="18.5" Width="5.25" />
@@ -138,12 +144,19 @@
   <Class Name="ShortCutDeckDesktop.MVVM.ViewModels.MainWindowViewModel">
     <Position X="4.25" Y="3" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgAACAAAAAAgAAAAAAAAABAAAAAAAAAEAAAAAA=</HashCode>
+      <HashCode>gAAAAAgAACAQAAAAgAAAAAAAAABAAAAAAABAEAAAAAA=</HashCode>
       <FileName>MVVM\ViewModels\MainWindowViewModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_profilesViewer" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ActionEditors.PCVirtualKeyDefaultOptionsViewModel">
+    <Position X="40.25" Y="14.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\ShortCutProfileEditor\ViewModels\ActionEditors\ActoinPCVirtualKeyPressEditorViewModel.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
