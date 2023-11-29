@@ -28,8 +28,11 @@
 
         <!-- server controls -->
         <GroupBox Grid.Row="1" Grid.Column="1" Margin="5 0 5 5">
-            <GroupBox.Header>Server Controls</GroupBox.Header>
+            <GroupBox.Header>Debug Controls</GroupBox.Header>
             <StackPanel Margin="5 5 5 5">
+                <Button x:Name="btn_reset_profiles" Height="30px" Command="{Binding ResetProfile}">
+                    Reset profiles
+                </Button>
                 <Button x:Name="btn_clear_log_field" Height="30px" Command="{Binding ClearLogsList}">
                     Clear Log
                 </Button>

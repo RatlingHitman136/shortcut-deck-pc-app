@@ -22,10 +22,11 @@ namespace ShortCutDeckDesktop.MVVM.ViewModels
         }
         #endregion
 
-        #region Server Log fields and Properties
+        #region Debug fields and Properties
         public ObservableCollection<string> LogsList { get => Logger.LogsList; }
 
         private ICommand? _clearLogsList;
+        private ICommand? _resetProfile;
         public ICommand ClearLogsList
         {
             get
@@ -40,6 +41,20 @@ namespace ShortCutDeckDesktop.MVVM.ViewModels
 
         private ShortCutProfilesViewerViewModel _profilesViewer;
         public ShortCutProfilesViewerViewModel ProfilesViewer { get => _profilesViewer; }
+        public ICommand? ResetProfile
+        {
+            get
+            {
+                if (_resetProfile == null)
+                    _resetProfile = new RelayCommand(ResetProfileFunc);
+                return _resetProfile;
+            }
+        }
 
+        private void ResetProfileFunc()
+        {
+            ShortCutProfileManager.InitDefaultProfile();
+            ShortCutProfileManager.NotifyAllClientsProfileChanged(ShortCutProfileManager.Profiles[0]);
+        }
     }
 }

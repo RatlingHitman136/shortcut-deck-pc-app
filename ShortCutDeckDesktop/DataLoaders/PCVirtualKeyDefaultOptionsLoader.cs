@@ -46,7 +46,7 @@ namespace ShortCutDeckDesktop.DataLoaders
         public struct DefaultOptionData
         {
             public string name;
-            public int value;
+            public byte value;
             public string description;
         }
     }

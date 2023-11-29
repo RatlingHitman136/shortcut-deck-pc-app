@@ -74,7 +74,7 @@ namespace ShortCutDeckDesktop.ShortCuts
             profilesListUpdateEvent(new ShortCutProfilesListUpdateEventArgs(_profiles));
         }
 
-        private static void NotifyAllClientsProfileChanged(ShortCutProfile profile)
+        public static void NotifyAllClientsProfileChanged(ShortCutProfile profile)
         {
             foreach (var client in ServerClass.Clients)
             {
