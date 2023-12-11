@@ -8,7 +8,8 @@
              d:DesignHeight="100" d:DesignWidth="100">
     <Grid Background="Transparent">
         <Border CornerRadius="10" Margin="4 4 4 4" Background="Wheat" >
-            <TextBlock Text="{Binding ShortcutName}" Margin="5"/>
+            <Image Source="{Binding ShortCutImagePath}"/>
+
         </Border>
     </Grid>
 </UserControl>

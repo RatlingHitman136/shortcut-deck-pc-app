@@ -1,4 +1,5 @@
 using ShortCutDeckDesktop.Actions;
+using ShortCutDeckDesktop.ConstantValues;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,20 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
     public class ShortCutButton : ShortCutBase
     {
         private ActionBase _shortCutAction;
-        public ShortCutButton(int posX, int posY) : base(posX, posY)
+
+        private string _iconId;
+
+
+        public ShortCutButton(int posX, int posY, string iconId = StringConstants.SHORT_CUT_DEFAULT_ICON_ID) : base(posX, posY)
         {
             _shortCutAction = new ActionBase();
+            _iconId = iconId;
         }
 
-        public ShortCutButton(ActionBase action, int posX, int posY) : base(posX, posY)
+        public ShortCutButton(ActionBase action, int posX, int posY, string iconId = StringConstants.SHORT_CUT_DEFAULT_ICON_ID) : base(posX, posY)
         {
             _shortCutAction = action;
+            _iconId = iconId;
         }
 
         public override void ShortCutTriggered(List<string> additionalData)
@@ -27,7 +34,7 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
 
         public override ShortCutButtonDataHolder GetDataHolder()
         {
-            var a = new ShortCutButtonDataHolder(_shortCutAction.GetDataHolder(), _posX, _posY);
+            var a = new ShortCutButtonDataHolder(_shortCutAction.GetDataHolder(), _iconId, _posX, _posY);
             return a;
         }
     }
@@ -36,10 +43,12 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
     public class ShortCutButtonDataHolder : ShortCutBaseDataHolder
     {
         public ActionBaseDataHolder shortCutActionData;
+        public string iconId;
 
-        public ShortCutButtonDataHolder(ActionBaseDataHolder shortCutActionData, int posX, int posY) : base(posX, posY)
+        public ShortCutButtonDataHolder(ActionBaseDataHolder shortCutActionData, string iconId, int posX, int posY) : base(posX, posY)
         {
             this.shortCutActionData = shortCutActionData;
+            this.iconId = iconId;
         }
     }
 }

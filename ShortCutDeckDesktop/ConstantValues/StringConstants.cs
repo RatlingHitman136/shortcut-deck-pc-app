@@ -20,5 +20,6 @@ namespace ShortCutDeckDesktop.ConstantValues
         public const string ACTION_SEND_PROFILE_TAG = "setP";
         public const string ACTION_SHORTCUT_TRIGGERED = "shortCutTrig";
 
+        public const string SHORT_CUT_DEFAULT_ICON_ID = "shortCut-Def";
     }
 }
