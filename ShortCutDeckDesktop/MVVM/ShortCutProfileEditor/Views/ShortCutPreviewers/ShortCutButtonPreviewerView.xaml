@@ -8,7 +8,7 @@
              d:DesignHeight="100" d:DesignWidth="100">
     <Grid Background="Transparent">
         <Border CornerRadius="10" Margin="4 4 4 4" Background="Wheat" >
-            <Image Source="{Binding ShortCutImagePath}"/>
+            <Image Margin="5" Source="{Binding ShortCutImagePath}"/>
 
         </Border>
     </Grid>

@@ -27,9 +27,9 @@
 
     <ItemGroup>
       <Resource Include="Resources\Icons\logo.ico" />
-      <Resource Include="Resources\Icons\ShortCutIcons\playPause-V1.png" />
-      <Resource Include="Resources\Icons\ShortCutIcons\playPause-V2.png" />
-      <Resource Include="Resources\Icons\ShortCutIcons\shortCut-Def.png" />
+      <EmbeddedResource Include="Resources\Icons\ShortCutIcons\playPause-V1.png" />
+      <EmbeddedResource Include="Resources\Icons\ShortCutIcons\playPause-V2.png" />
+      <EmbeddedResource Include="Resources\Icons\ShortCutIcons\shortCut-Def.png" />
     </ItemGroup>
 
     <ItemGroup>

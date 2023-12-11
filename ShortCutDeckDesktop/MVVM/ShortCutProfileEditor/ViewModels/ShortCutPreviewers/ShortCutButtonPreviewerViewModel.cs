@@ -1,4 +1,5 @@
 ﻿using ShortCutDeckDesktop.Actions.ActionTypes;
+using ShortCutDeckDesktop.DataLoaders;
 using ShortCutDeckDesktop.ShortCuts.ShortCutTypes;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPreviewers
 {
@@ -22,12 +24,8 @@ namespace ShortCutDeckDesktop.MVVM.ShortCutProfileEditor.ViewModels.ShortCutPrev
             _dataHolder = shortCutButtonDataHolder;
         }
 
-        public string ShortCutImagePath => GetImgPathFromLoader();
+        public BitmapImage ShortCutImagePath => ShortCutImageLoader.GetImageByID(_dataHolder.iconId);
 
-        private string GetImgPathFromLoader()
-        {
-            return "\"pack://application:,,,/ShortCutDeckDesktop;component/Resources/Icons/ShortCutIcons/shortCut-Def.png\"";
-        }
 
         public override void UpdateProperties(object? sender, PropertyChangedEventArgs e)
         {

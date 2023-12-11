@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ShortCutDeckDesktop.ConstantValues;
 using ShortCutDeckDesktop.ShortCuts;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,6 @@ namespace ShortCutDeckDesktop.DataLoaders
 {
     public static class ProfileJsonLoader
     {
-        const string PROPFILE_SAVE_PATH = @"profiles\";
-
         private static JsonSerializerSettings json_settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All, Formatting = Formatting.Indented };
 
         public static void SaveProfile(ShortCutProfile profile) => SaveProfile(profile.GetDataHolder());
@@ -87,7 +86,7 @@ namespace ShortCutDeckDesktop.DataLoaders
 
         private static string GetFullProfilesFolderPath() 
             => Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) 
-            + "\\" + PROPFILE_SAVE_PATH;
+            + "\\" + StringConstants.PROFILE_SAVE_PATH;
 
         private static bool IsProfilesFolderExists() => Directory.Exists(GetFullProfilesFolderPath());
     }

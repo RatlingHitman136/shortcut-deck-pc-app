@@ -20,6 +20,9 @@ namespace ShortCutDeckDesktop.ConstantValues
         public const string ACTION_SEND_PROFILE_TAG = "setP";
         public const string ACTION_SHORTCUT_TRIGGERED = "shortCutTrig";
 
+        public const string PROFILE_SAVE_PATH = @"profiles\";
+
         public const string SHORT_CUT_DEFAULT_ICON_ID = "shortCut-Def";
+        public const string SHORT_CUT_ICONS_ABSOLUTE_PATH = @"ShortCutDeckDesktop.Resources.Icons.ShortCutIcons.";
     }
 }

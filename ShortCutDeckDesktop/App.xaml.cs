@@ -24,6 +24,7 @@ namespace ShortCutDeckDesktop
             ServerClass.StartServer();
             ShortCutProfileManager.InitProfiles();
             PCVirtualKeyDefaultOptionsLoader.LoadData();
+            ShortCutImageLoader.LoadAllImages();
         }
     }
 }
