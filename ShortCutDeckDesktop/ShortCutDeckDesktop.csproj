@@ -13,10 +13,12 @@
       <None Remove="Resources\Icons\ShortCutIcons\playPause-V2.png" />
       <None Remove="Resources\Icons\ShortCutIcons\shortCut-Def.png" />
       <None Remove="Resources\Json\PCVirtualKeyDefaultOptions.json" />
+      <None Remove="Resources\Json\ShortCutIconsDictionary.json" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Include="Resources\Json\PCVirtualKeyDefaultOptions.json" />
+      <EmbeddedResource Include="Resources\Json\ShortCutIconsDictionary.json" />
     </ItemGroup>
 
     <ItemGroup>
@@ -27,9 +29,9 @@
 
     <ItemGroup>
       <Resource Include="Resources\Icons\logo.ico" />
-      <EmbeddedResource Include="Resources\Icons\ShortCutIcons\playPause-V1.png" />
-      <EmbeddedResource Include="Resources\Icons\ShortCutIcons\playPause-V2.png" />
-      <EmbeddedResource Include="Resources\Icons\ShortCutIcons\shortCut-Def.png" />
+      <Resource Include="Resources\Icons\ShortCutIcons\playPause-V1.png" />
+      <Resource Include="Resources\Icons\ShortCutIcons\playPause-V2.png" />
+      <Resource Include="Resources\Icons\ShortCutIcons\shortCut-Def.png" />
     </ItemGroup>
 
     <ItemGroup>

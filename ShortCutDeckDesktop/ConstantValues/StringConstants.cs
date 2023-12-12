@@ -23,6 +23,8 @@ namespace ShortCutDeckDesktop.ConstantValues
         public const string PROFILE_SAVE_PATH = @"profiles\";
 
         public const string SHORT_CUT_DEFAULT_ICON_ID = "shortCut-Def";
-        public const string SHORT_CUT_ICONS_ABSOLUTE_PATH = @"ShortCutDeckDesktop.Resources.Icons.ShortCutIcons.";
+        public const string SHORT_CUT_ICONS_JSON_PATH = "ShortCutDeckDesktop.Resources.Json.ShortCutIconsDictionary.json";
+        public const string SHORT_CUT_ICONS_PACK_URL = "pack://application:,,,/ShortCutDeckDesktop;";
+        public const string SHORT_CUT_ICONS_ABSOLUTE_PATH = @"ShortCutDeckDesktop\Resources\Icons\ShortCutIcons\";
     }
 }

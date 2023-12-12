@@ -1,0 +1,17 @@
+﻿{
+  "defIconId": "playPause-V1",
+  "icons": [
+    {
+      "iconID": "shortCut-Def",
+      "iconURI": "component/Resources/Icons/ShortCutIcons/shortCut-Def.png"
+    },
+    {
+      "iconID": "playPause-V1",
+      "iconURI": "component/Resources/Icons/ShortCutIcons/playPause-V1.png"
+    },
+    {
+      "iconID": "playPause-V2",
+      "iconURI": "component/Resources/Icons/ShortCutIcons/playPause-V2.png"
+    }
+  ]
+}
