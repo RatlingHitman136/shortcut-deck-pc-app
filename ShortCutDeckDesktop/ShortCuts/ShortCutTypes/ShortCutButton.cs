@@ -15,13 +15,13 @@ namespace ShortCutDeckDesktop.ShortCuts.ShortCutTypes
         private string _iconId;
 
 
-        public ShortCutButton(int posX, int posY, string iconId = StringConstants.SHORT_CUT_DEFAULT_ICON_ID) : base(posX, posY)
+        public ShortCutButton(int posX, int posY, string iconId = "") : base(posX, posY)
         {
             _shortCutAction = new ActionBase();
             _iconId = iconId;
         }
 
-        public ShortCutButton(ActionBase action, int posX, int posY, string iconId = StringConstants.SHORT_CUT_DEFAULT_ICON_ID) : base(posX, posY)
+        public ShortCutButton(ActionBase action, int posX, int posY, string iconId = "") : base(posX, posY)
         {
             _shortCutAction = action;
             _iconId = iconId;
